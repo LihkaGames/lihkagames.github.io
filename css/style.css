@@ -1,4 +1,3 @@
-
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#111;color:#eee;line-height:1.6}
@@ -69,7 +68,8 @@ button{cursor:pointer}
 /* --- CARD --- */
 .card{background:#181818;border:1px solid #252525;border-radius:14px;padding:18px;text-align:center;transition:.2s;cursor:pointer}
 .card:hover{border-color:#0f0;transform:translateY(-3px);box-shadow:0 8px 24px #0f01}
-.card-ico{width:64px;height:64px;border-radius:14px;margin:0 auto 12px;display:grid;place-items:center;font-size:1.8rem}
+.card-ico{width:64px;height:64px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;overflow:hidden}
+.card-ico img{width:100%;height:100%;object-fit:contain;border-radius:inherit}
 .card h3{font-size:.9rem;font-weight:600;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card .sub{font-size:.75rem;color:#666;margin-bottom:8px}
 .card .meta{display:flex;justify-content:center;gap:10px;font-size:.75rem;color:#888;margin-bottom:12px}
