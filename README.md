@@ -15,9 +15,12 @@
 
 <br/><br/>
 
-<!-- ═══════════ ANIMATED HEADER ═══════════ -->
+<!-- ═══════════ ANIMATED HEADER (CLICKABLE) ═══════════ -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=🎮%20LIHKA%20GAMES%20🎮&fontSize=50&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Android%20Games%20and%20Apps%20Developer&descSize=18&descAlignY=55&descColor=ffffff" width="100%"/>
+<a href="https://lihkagames.github.io/">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=🎮%20LIHKA%20GAMES%20🎮&fontSize=50&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Android%20Games%20and%20Apps%20Developer&descSize=18&descAlignY=55&descColor=ffffff" width="100%" alt="LIHKA GAMES - Android Games and Apps Developer"/>
+</a>
+
 </div>
 
 ---
@@ -49,11 +52,8 @@
 |:---:|:---|:---:|
 | 🎮 | **Hyper-Casual Games** | ✅ Live |
 | 🔧 | **Utility Apps** | ✅ Live |
-| 🧠 | **Learning Projects** | 🔄 Ongoing |
-| 🤖 | **AI Projects** | 🚧 Coming |
 
 </div>
-
 
 ---
 
@@ -73,11 +73,7 @@
 
 - [x] ✅ Create simple Android games
 - [x] ✅ Build utility apps
-- [x] ✅ Launch website on GitHub Pages
 - [ ] 🎮 More advanced Android games
 - [ ] 🌐 Try 3D game development
 - [ ] 🤖 Build AI-powered apps
-- [ ] 🏆 Reach 1000+ downloads
 - [ ] 🌟 Grow community of game lovers
-
-
