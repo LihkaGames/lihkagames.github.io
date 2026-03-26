@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="70" viewBox="0 0 420 70">
+  <defs>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="100%;200%;100%" dur="3s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="shimmer2" x1="-100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="40%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.4)"/>
+      <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+      <animate attributeName="x1" values="-100%;100%" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="0%;200%" dur="2s" repeatCount="indefinite"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes glow2 {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.35; }
+    }
+    .glow-ring { animation: glow2 1.5s ease-in-out infinite; }
+  </style>
+  <rect class="glow-ring" x="1" y="1" width="418" height="68" rx="34" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="6" y="6" width="408" height="58" rx="29" fill="url(#starGrad)"/>
+  <rect x="6" y="6" width="408" height="58" rx="29" fill="url(#shimmer2)"/>
+  <text x="210" y="43" text-anchor="middle" fill="white" font-size="20" font-weight="bold"
+        font-family="'Segoe UI', Arial, sans-serif" letter-spacing="1">⭐ STAR THIS REPO ⭐</text>
+</svg>
