@@ -24,15 +24,23 @@ button{cursor:pointer}
 .hdr-nav a:hover,.hdr-nav a.on{color:#0f0;background:#0f01}
 .hdr-nav .cta{background:#0f0;color:#111;padding:8px 18px}
 .hdr-nav .cta:hover{background:#0d0}
-.menu-btn{display:none;width:36px;height:36px;background:#1a1a1a;border-radius:8px;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin-left:auto}
-.menu-btn span{width:18px;height:2px;background:#eee;border-radius:2px}
+
+/* --- HAMBURGER MENU BUTTON --- */
+.menu-btn{display:none;width:36px;height:36px;background:#1a1a1a;border-radius:8px;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin-left:auto;border:1px solid #333;-webkit-tap-highlight-color:transparent;transition:.2s}
+.menu-btn:hover{border-color:#0f0}
+.menu-btn span{width:18px;height:2px;background:#eee;border-radius:2px;transition:all .3s ease;pointer-events:none}
+.menu-btn.active{border-color:#0f0}
+.menu-btn.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.menu-btn.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu-btn.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* --- MOBILE NAV --- */
 .mob-nav{position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;pointer-events:none;transition:.3s}
 .mob-nav.open{opacity:1;pointer-events:auto}
-.mob-nav a{padding:14px 50px;font-size:1.1rem;font-weight:600;color:#ccc;border-radius:8px}
+.mob-nav a{padding:14px 50px;font-size:1.1rem;font-weight:600;color:#ccc;border-radius:8px;transition:.2s}
 .mob-nav a:hover{color:#0f0;background:#0f01}
-.mob-close{position:absolute;top:16px;right:16px;width:40px;height:40px;background:#222;border-radius:8px;color:#eee;font-size:1.2rem;display:grid;place-items:center}
+.mob-close{position:absolute;top:16px;right:16px;width:40px;height:40px;background:#222;border-radius:8px;color:#eee;font-size:1.2rem;display:grid;place-items:center;border:1px solid #333;-webkit-tap-highlight-color:transparent;transition:.2s}
+.mob-close:hover{border-color:#0f0;color:#0f0}
 
 /* --- HERO --- */
 .hero{padding:80px 0 50px;text-align:center}
@@ -94,7 +102,7 @@ button{cursor:pointer}
 .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-bottom:10px}
 .feat-card{background:#181828;border:1px solid #252525;border-radius:14px;padding:24px;display:flex;align-items:center;gap:20px;cursor:pointer;transition:.2s}
 .feat-card:hover{border-color:#0f0;transform:translateY(-3px)}
-.feat-card .fi{width:72px;height:72px;border-radius:16px;flex-shrink:0;display:grid;place-items:center;font-size:2rem}
+.feat-card .fi{width:72px;height:72px;border-radius:16px;flex-shrink:0;display:grid;place-items:center;font-size:2rem;overflow:hidden}
 .feat-card .finfo{flex:1}
 .feat-card .badge{display:inline-block;padding:2px 8px;background:#0f02;border:1px solid #0f03;border-radius:10px;font-size:.65rem;font-weight:700;color:#0f0;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 .feat-card .finfo h3{font-size:1.05rem;font-weight:700;margin-bottom:3px}
@@ -218,12 +226,17 @@ button{cursor:pointer}
 .toast{position:fixed;bottom:24px;right:24px;padding:14px 22px;background:#181818;border:1px solid #0f0;border-radius:10px;color:#eee;font-size:.88rem;box-shadow:0 8px 30px #0005;z-index:500;transform:translateY(80px);opacity:0;transition:.3s}
 .toast.show{transform:translateY(0);opacity:1}
 
-.btt{position:fixed;bottom:24px;right:24px;width:42px;height:42px;background:#0f0;border-radius:50%;display:grid;place-items:center;color:#111;font-size:1.1rem;z-index:400;opacity:0;transition:.3s;border:none}
-.btt.vis{opacity:1}
+/* --- BACK TO TOP --- */
+.btt{position:fixed;bottom:24px;right:24px;width:42px;height:42px;background:#0f0;border-radius:50%;display:grid;place-items:center;color:#111;font-size:1.1rem;z-index:400;opacity:0;pointer-events:none;transition:.3s;border:none}
+.btt.vis{opacity:1;pointer-events:auto}
 .btt:hover{transform:translateY(-2px)}
 
 .tab-c{display:none}.tab-c.on{display:block}
 
+/* --- BODY NO SCROLL --- */
+body.no-scroll{overflow:hidden}
+
+/* --- RESPONSIVE --- */
 @media(max-width:768px){
 .hdr-search,.hdr-nav{display:none}
 .menu-btn{display:flex}

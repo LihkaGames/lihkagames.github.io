@@ -1,3 +1,11 @@
+<div align="center">
+
+[![Visit Site](https://img.shields.io/badge/🌐_Visit_Lihka_Games-Click_Here-blue?style=for-the-badge&logoColor=white)](https://lihkagames.github.io/)
+
+</div>
+
+---
+
 # 🎮 Lihka Games
 
 Welcome to Lihka Games 🚀  
@@ -10,7 +18,7 @@ I am an Android developer focused on building:
 - ⚡ Lightweight and useful mobile apps  
 - 🤖 AI-assisted development projects  
 
-## 🚀 What You’ll Find Here
+## 🚀 What You'll Find Here
 - 🕹️ Hyper-casual Android games  
 - 📦 Ready-to-use Android app projects  
 - 🧠 Learning projects & experiments  

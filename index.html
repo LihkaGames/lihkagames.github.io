@@ -1,79 +1,437 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free APK Downloads - Lihka Games</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body><header class="hdr"><div class="wrap">
-<a href="index.html" class="hdr-logo"><i>&#127918;</i>Lihka Games</a>
-<div class="hdr-search"><input placeholder="Search apps & games..." id="hs"><button>&#128270;</button></div>
-<nav class="hdr-nav">
-<a href="index.html" class="on">Home</a>
-<a href="apps.html" class="">Apps</a>
-<a href="games.html" class="">Games</a>
-<a href="categories.html" class="">Categories</a>
-<a href="submit.html" class="cta">Submit</a>
-</nav>
-<button class="menu-btn"><span></span><span></span><span></span></button>
-</div></header>
-<div class="mob-nav"><button class="mob-close">&#10005;</button>
-<a href="index.html">Home</a><a href="apps.html">Apps</a><a href="games.html">Games</a>
-<a href="categories.html">Categories</a><a href="trending.html">Trending</a>
-<a href="submit.html">Submit App</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-</div>
-<section class="hero"><div class="wrap">
-<h1>Download <span>Safe &amp; Free</span> APKs</h1>
-<p>Thousands of Android apps and games. Verified, fast, always updated.</p>
-<div class="hero-search"><input placeholder="Search apps, games..." id="hsi"><button onclick="event.preventDefault();const v=document.getElementById('hsi').value.trim();if(v)location.href='search.html?q='+encodeURIComponent(v)">Search</button></div>
-</div><div class="stat"><b>100%</b><small>Safe</small></div></div>
-</div></section>
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="sec"><div class="wrap">
-<div class="pills" style="margin-bottom:20px">
-<a href="games.html" class="pill on">&#128293; Trending</a>
-<a href="category.html" class="pill">&#9889; Action</a>
-<a href="category.html" class="pill">&#9876;&#65039; RPG</a>
-<a href="category.html" class="pill">&#129513; Puzzle</a>
-<a href="category.html" class="pill">&#127950;&#65039; Racing</a>
-<a href="category.html" class="pill">&#128296; Tools</a>
-<a href="category.html" class="pill">&#128248; Photo</a>
-<a href="category.html" class="pill">&#127925; Music</a>
-</div></div></section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Free APK Downloads - Lihka Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .dl-green {
+            display: inline-block;
+            padding: 8px 18px;
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 184, 148, 0.25);
+            white-space: nowrap;
+        }
 
-<section class="sec" style="padding-top:0"><div class="wrap">
-<div class="sec-top"><h2>&#11088; Editor's Choice</h2><a href="apps.html">View All &rarr;</a></div>
-<div class="feat">
-<div class="feat-card" data-go="app-detail.html"><div class="fi" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#9876;&#65039;</div><div class="finfo"><span class="badge">Editor's Choice</span><h3>Shadow Quest RPG</h3><p>Epic RPG adventure &bull; &#11088; 4.7 &bull; 10M+</p><a href="#" class="fbtn">&#11015; Download</a></div></div>
-<div class="feat-card" data-go="app-detail.html"><div class="fi" style="background:linear-gradient(135deg,#f093fb,#f5576c)">&#128737;&#65039;</div><div class="finfo"><span class="badge">Popular</span><h3>Battle Arena Online</h3><p>5v5 Multiplayer &bull; &#11088; 4.7 &bull; 18M+</p><a href="#" class="fbtn">&#11015; Download</a></div></div>
-</div></div></section>
+        .dl-green:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+            background: linear-gradient(135deg, #00cec9, #00b894);
+        }
 
-<section class="sec"><div class="wrap">
-<div class="sec-top"><h2>&#127918; Popular Games</h2><a href="games.html">All Games &rarr;</a></div>
-<div class="grid">
-<div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#9876;&#65039;</div><h3>Shadow Quest RPG</h3><div class="sub">Lihka Games</div><div class="meta"><b>&#11088; 4.7</b><span>85 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#f093fb,#f5576c)">&#127959;&#65039;</div><h3>Pixel Craft</h3><div class="sub">Lihka Games</div><div class="meta"><b>&#11088; 4.5</b><span>62 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#fa709a,#fee140)">&#127950;&#65039;</div><h3>Speed Racer X</h3><div class="sub">Velocity Studios</div><div class="meta"><b>&#11088; 4.6</b><span>110 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#129513;</div><h3>Brain Puzzle</h3><div class="sub">MindWorks</div><div class="meta"><b>&#11088; 4.8</b><span>35 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#0c3483,#a2b6df)">&#128640;</div><h3>Galaxy Shooter</h3><div class="sub">Lihka Games</div><div class="meta"><b>&#11088; 4.4</b><span>72 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">&#9823;&#65039;</div><h3>Chess Master</h3><div class="sub">MindWorks</div><div class="meta"><b>&#11088; 4.9</b><span>30 MB</span></div><a href="#" class="dl">Download</a></div>
-</div></div></section>
+        .dl-green:active {
+            transform: translateY(0) scale(0.98);
+        }
+    </style>
+</head>
 
-<section class="sec"><div class="wrap">
-<div class="sec-top"><h2>&#128241; Top Apps</h2><a href="apps.html">All Apps &rarr;</a></div>
-<div class="grid">
-<div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#128248;</div><h3>PhotoEdit Pro</h3><div class="sub">CreativeApps</div><div class="meta"><b>&#11088; 4.4</b><span>48 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128221;</div><h3>CloudNote Plus</h3><div class="sub">ProductivityPro</div><div class="meta"><b>&#11088; 4.6</b><span>28 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#f5576c,#ff9a9e)">&#128170;</div><h3>FitTrack Health</h3><div class="sub">HealthTech</div><div class="meta"><b>&#11088; 4.3</b><span>42 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">&#127925;</div><h3>MusicBox Stream</h3><div class="sub">SoundWave</div><div class="meta"><b>&#11088; 4.5</b><span>55 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#ff0844,#ffb199)">&#127916;</div><h3>VideoMaker</h3><div class="sub">CreativeApps</div><div class="meta"><b>&#11088; 4.6</b><span>68 MB</span></div><a href="#" class="dl">Download</a></div><div class="card" data-go="app-detail.html"><div class="card-ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128172;</div><h3>Social Connect</h3><div class="sub">NetSphere</div><div class="meta"><b>&#11088; 4.0</b><span>40 MB</span></div><a href="#" class="dl">Download</a></div>
-</div></div></section>
+<body>
+    <header class="hdr">
+        <div class="wrap">
+            <a href="index.html" class="hdr-logo"><i>&#127918;</i>Lihka Games</a>
+            <div class="hdr-search"><input placeholder="Search apps & games..." id="hs"><button>&#128270;</button>
+            </div>
+            <nav class="hdr-nav">
+                <a href="index.html" class="on">Home</a>
+                <a href="apps.html">Apps</a>
+                <a href="games.html">Games</a>
+            </nav>
+            <button class="menu-btn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
 
-<section class="sec"><div class="wrap">
-<div class="sec-top"><h2>&#128200; Top Charts</h2><a href="trending.html">Full Rankings &rarr;</a></div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px">
-<div><h3 style="font-size:1rem;margin-bottom:12px;color:#888">&#127942; Top Games</h3><div class="lst">
-<div class="lst-item" data-go="app-detail.html"><span class="num top">1</span><div class="ico" style="background:linear-gradient(135deg,#f093fb,#f5576c)">&#128737;&#65039;</div><div class="info"><h4>Battle Arena Online</h4><small>&#11088; 4.7 &bull; 18M+ &bull; 150 MB</small></div><a href="#" class="get">Get</a></div><div class="lst-item" data-go="app-detail.html"><span class="num top">2</span><div class="ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#129513;</div><div class="info"><h4>Brain Puzzle Master</h4><small>&#11088; 4.8 &bull; 15M+ &bull; 35 MB</small></div><a href="#" class="get">Get</a></div><div class="lst-item" data-go="app-detail.html"><span class="num top">3</span><div class="ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#9876;&#65039;</div><div class="info"><h4>Shadow Quest RPG</h4><small>&#11088; 4.7 &bull; 10M+ &bull; 85 MB</small></div><a href="#" class="get">Get</a></div><div class="lst-item" data-go="app-detail.html"><span class="num">4</span><div class="ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">&#9823;&#65039;</div><div class="info"><h4>Chess Grandmaster</h4><small>&#11088; 4.9 &bull; 8M+ &bull; 30 MB</small></div><a href="#" class="get">Get</a></div>
-</div></div>
-<div><h3 style="font-size:1rem;margin-bottom:12px;color:#888">&#128241; Top Apps</h3><div class="lst">
-<div class="lst-item" data-go="app-detail.html"><span class="num top">1</span><div class="ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128172;</div><div class="info"><h4>Social Connect</h4><small>&#11088; 4.0 &bull; 30M+ &bull; 40 MB</small></div><a href="#" class="get">Get</a></div><div class="lst-item" data-go="app-detail.html"><span class="num top">2</span><div class="ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">&#127925;</div><div class="info"><h4>MusicBox Stream</h4><small>&#11088; 4.5 &bull; 25M+ &bull; 55 MB</small></div><a href="#" class="get">Get</a></div><div class="lst-item" data-go="app-detail.html"><span class="num top">3</span><div class="ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#128248;</div><div class="info"><h4>PhotoEdit Pro</h4><small>&#11088; 4.4 &bull; 20M+ &bull; 48 MB</small></div><a href="#" class="get">Get</a></div><div class="lst-item" data-go="app-detail.html"><span class="num">4</span><div class="ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128221;</div><div class="info"><h4>CloudNote Plus</h4><small>&#11088; 4.6 &bull; 12M+ &bull; 28 MB</small></div><a href="#" class="get">Get</a></div>
-</div></div></div></div></section>
+    <div class="mob-nav">
+        <button class="mob-close">&#10005;</button>
+        <a href="index.html">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="games.html">Games</a>
+        <a href="trending.html">Trending</a>
+        <a href="submit.html">Submit App</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="mob-overlay"></div>
 
-<section class="sec"><div class="wrap">
-<div class="sec-top"><h2>&#128194; Categories</h2><a href="categories.html">All &rarr;</a></div>
-<div class="cat-grid">
-<a href="category.html" class="cat-card"><div class="ci">&#9889;</div><h3>Action</h3><small>2,500+</small></a><a href="category.html" class="cat-card"><div class="ci">&#9876;&#65039;</div><h3>RPG</h3><small>1,800+</small></a><a href="category.html" class="cat-card"><div class="ci">&#129513;</div><h3>Puzzle</h3><small>3,200+</small></a><a href="category.html" class="cat-card"><div class="ci">&#127950;&#65039;</div><h3>Racing</h3><small>900+</small></a><a href="category.html" class="cat-card"><div class="ci">&#128296;</div><h3>Tools</h3><small>4,100+</small></a><a href="category.html" class="cat-card"><div class="ci">&#128172;</div><h3>Social</h3><small>800+</small></a><a href="category.html" class="cat-card"><div class="ci">&#128248;</div><h3>Photo</h3><small>1,400+</small></a><a href="category.html" class="cat-card"><div class="ci">&#127925;</div><h3>Music</h3><small>1,100+</small></a><a href="category.html" class="cat-card"><div class="ci">&#127916;</div><h3>Video</h3><small>950+</small></a><a href="category.html" class="cat-card"><div class="ci">&#128218;</div><h3>Education</h3><small>2,800+</small></a>
-</div></div></section>
-<footer class="ftr"><div class="wrap"><div class="ftr-grid">
-<div class="ftr-brand"><a href="index.html" class="hdr-logo" style="font-size:1.2rem"><i>&#127918;</i>Lihka Games</a>
-<p>Safe and free APK downloads for Android. Verified, updated daily.</p></div>
-<div class="ftr-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="apps.html">Apps</a></li><li><a href="games.html">Games</a></li><li><a href="categories.html">Categories</a></li><li><a href="trending.html">Trending</a></li></ul></div>
-<div class="ftr-col"><h4>Info</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="dmca.html">DMCA</a></li></ul></div>
-<div class="ftr-col"><h4>Categories</h4><ul><li><a href="category.html">Action</a></li><li><a href="category.html">RPG</a></li><li><a href="category.html">Puzzle</a></li><li><a href="category.html">Tools</a></li><li><a href="category.html">Social</a></li></ul></div>
-</div><div class="ftr-bot"><p>&copy; 2025 Lihka Games &bull; lihkagames@gmail.com</p>
-<div><a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms</a> &nbsp; <a href="dmca.html">DMCA</a></div>
-</div></div></footer><button class="btt">&#8593;</button><script src="js/app.js"></script></body></html>
+    <section class="hero">
+        <div class="wrap">
+            <h1>Download <span>Safe &amp; Free</span> APKs</h1>
+            <p>Thousands of Android apps and games. Verified, fast, always updated.</p>
+            <div class="hero-search">
+                <input placeholder="Search apps, games..." id="hsi">
+                <button
+                    onclick="event.preventDefault();const v=document.getElementById('hsi').value.trim();if(v)location.href='search.html?q='+encodeURIComponent(v)">Search</button>
+            </div>
+        </div>
+        <div class="stat"><b>100%</b><small>Safe</small></div>
+    </section>
+
+    
+
+    <section class="sec" style="padding-top:0">
+        <div class="wrap">
+            <div class="sec-top">
+                <h2>&#11088; Editor's Choice</h2><a href="apps.html">View All &rarr;</a>
+            </div>
+            <div class="feat">
+                <div class="feat-card">
+                    <div class="fi" style="background:linear-gradient(135deg,#667eea,#764ba2)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" style="width:100%; height:100%;">
+                            <path
+                                d="M16.3,88.8 Q54,99 91.7,88.8 Q94.6,81.6 91.7,74.2 Q54,64.2 16.3,74.2 Q13.4,81.6 16.3,88.8z"
+                                fill="#000000" fill-opacity="0.12" />
+                            <path
+                                d="M22.1,85.9 Q54,93.2 85.9,85.9 Q88.8,80.1 85.9,75.7 Q54,68.6 22.1,75.7 Q19.2,80.1 22.1,85.9z"
+                                fill="#000000" fill-opacity="0.08" />
+                            <g>
+                                <path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1" />
+                                <path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5" />
+                                <path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5" />
+                            </g>
+                            <g>
+                                <path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593" />
+                                <path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0" />
+                                <path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5" />
+                            </g>
+                            <g>
+                                <path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0" />
+                                <path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2" />
+                                <path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7" />
+                            </g>
+                            <g>
+                                <path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C" />
+                                <path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A" />
+                                <path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688" />
+                            </g>
+                            <g>
+                                <path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F" />
+                                <path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA" />
+                                <path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4" />
+                            </g>
+                            <g>
+                                <path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457" />
+                                <path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A" />
+                                <path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63" />
+                            </g>
+                            <g>
+                                <path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32" />
+                                <path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A" />
+                                <path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50" />
+                            </g>
+                            <g>
+                                <path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100" />
+                                <path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726" />
+                                <path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800" />
+                            </g>
+                            <g>
+                                <path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C" />
+                                <path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350" />
+                                <path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336" />
+                            </g>
+                            <path
+                                d="M39.5,45.3 Q54,51.1 68.5,45.3 Q69.9,42.4 68.5,39.5 Q54,33.7 39.5,39.5 Q38.1,42.4 39.5,45.3z"
+                                fill="#000000" fill-opacity="0.15" />
+                            <g>
+                                <path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825" />
+                                <path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58" />
+                                <path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="finfo"><span class="badge">Editor's Choice</span>
+                        <h3>Block Fusion</h3>
+                        <p>Lihka Games &bull; &#11088; 4.7 &bull; 18 MB</p>
+                        <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
+                            class="fbtn" download>&#11015; Download</a>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="fi" style="background:linear-gradient(135deg,#f093fb,#f5576c)">&#128737;&#65039;</div>
+                    <div class="finfo"><span class="badge">Popular</span>
+                        <h3>Battle Arena Online</h3>
+                        <p>5v5 Multiplayer &bull; &#11088; 4.7 &bull; 18M+</p><a href="#" class="fbtn">&#11015;
+                            Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="wrap">
+            <div class="sec-top">
+                <h2>&#127918; Popular Games</h2><a href="games.html">All Games &rarr;</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" style="width:100%; height:100%;">
+                            <path
+                                d="M16.3,88.8 Q54,99 91.7,88.8 Q94.6,81.6 91.7,74.2 Q54,64.2 16.3,74.2 Q13.4,81.6 16.3,88.8z"
+                                fill="#000000" fill-opacity="0.12" />
+                            <path
+                                d="M22.1,85.9 Q54,93.2 85.9,85.9 Q88.8,80.1 85.9,75.7 Q54,68.6 22.1,75.7 Q19.2,80.1 22.1,85.9z"
+                                fill="#000000" fill-opacity="0.08" />
+                            <g>
+                                <path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1" />
+                                <path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5" />
+                                <path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5" />
+                            </g>
+                            <g>
+                                <path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593" />
+                                <path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0" />
+                                <path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5" />
+                            </g>
+                            <g>
+                                <path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0" />
+                                <path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2" />
+                                <path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7" />
+                            </g>
+                            <g>
+                                <path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C" />
+                                <path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A" />
+                                <path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688" />
+                            </g>
+                            <g>
+                                <path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F" />
+                                <path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA" />
+                                <path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4" />
+                            </g>
+                            <g>
+                                <path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457" />
+                                <path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A" />
+                                <path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63" />
+                            </g>
+                            <g>
+                                <path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32" />
+                                <path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A" />
+                                <path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50" />
+                            </g>
+                            <g>
+                                <path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100" />
+                                <path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726" />
+                                <path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800" />
+                            </g>
+                            <g>
+                                <path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C" />
+                                <path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350" />
+                                <path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336" />
+                            </g>
+                            <path
+                                d="M39.5,45.3 Q54,51.1 68.5,45.3 Q69.9,42.4 68.5,39.5 Q54,33.7 39.5,39.5 Q38.1,42.4 39.5,45.3z"
+                                fill="#000000" fill-opacity="0.15" />
+                            <g>
+                                <path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825" />
+                                <path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58" />
+                                <path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600" />
+                            </g>
+                        </svg>
+                    </div>
+                    <h3>Block Fusion</h3>
+                    <div class="sub">Lihka Games</div>
+                    <div class="meta"><b>&#11088; 4.7</b><span>18 MB</span></div>
+                    <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
+                        class="dl" download>Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#f093fb,#f5576c)">&#127959;&#65039;
+                    </div>
+                    <h3>Pixel Craft</h3>
+                    <div class="sub">Lihka Games</div>
+                    <div class="meta"><b>&#11088; 4.5</b><span>62 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#fa709a,#fee140)">&#127950;&#65039;
+                    </div>
+                    <h3>Speed Racer X</h3>
+                    <div class="sub">Velocity Studios</div>
+                    <div class="meta"><b>&#11088; 4.6</b><span>110 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#129513;</div>
+                    <h3>Brain Puzzle</h3>
+                    <div class="sub">MindWorks</div>
+                    <div class="meta"><b>&#11088; 4.8</b><span>35 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#0c3483,#a2b6df)">&#128640;</div>
+                    <h3>Galaxy Shooter</h3>
+                    <div class="sub">Lihka Games</div>
+                    <div class="meta"><b>&#11088; 4.4</b><span>72 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">&#9823;&#65039;
+                    </div>
+                    <h3>Chess Master</h3>
+                    <div class="sub">MindWorks</div>
+                    <div class="meta"><b>&#11088; 4.9</b><span>30 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="wrap">
+            <div class="sec-top">
+                <h2>&#128241; Top Apps</h2><a href="apps.html">All Apps &rarr;</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#128248;</div>
+                    <h3>PhotoEdit Pro</h3>
+                    <div class="sub">CreativeApps</div>
+                    <div class="meta"><b>&#11088; 4.4</b><span>48 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128221;</div>
+                    <h3>CloudNote Plus</h3>
+                    <div class="sub">ProductivityPro</div>
+                    <div class="meta"><b>&#11088; 4.6</b><span>28 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#f5576c,#ff9a9e)">&#128170;</div>
+                    <h3>FitTrack Health</h3>
+                    <div class="sub">HealthTech</div>
+                    <div class="meta"><b>&#11088; 4.3</b><span>42 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">&#127925;</div>
+                    <h3>MusicBox Stream</h3>
+                    <div class="sub">SoundWave</div>
+                    <div class="meta"><b>&#11088; 4.5</b><span>55 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#ff0844,#ffb199)">&#127916;</div>
+                    <h3>VideoMaker</h3>
+                    <div class="sub">CreativeApps</div>
+                    <div class="meta"><b>&#11088; 4.6</b><span>68 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+                <div class="card">
+                    <div class="card-ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128172;</div>
+                    <h3>Social Connect</h3>
+                    <div class="sub">NetSphere</div>
+                    <div class="meta"><b>&#11088; 4.0</b><span>40 MB</span></div><a href="#" class="dl">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="wrap">
+            <div class="sec-top">
+                <h2>&#128200; Top Charts</h2><a href="trending.html">Full Rankings &rarr;</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px">
+                <div>
+                    <h3 style="font-size:1rem;margin-bottom:12px;color:#888">&#127942; Top Games</h3>
+                    <div class="lst">
+                        <div class="lst-item"><span class="num top">1</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#f093fb,#f5576c)">
+                                &#128737;&#65039;</div>
+                            <div class="info">
+                                <h4>Battle Arena Online</h4><small>&#11088; 4.7 &bull; 18M+ &bull; 150 MB</small>
+                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                        </div>
+                        <div class="lst-item"><span class="num top">2</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#129513;</div>
+                            <div class="info">
+                                <h4>Brain Puzzle Master</h4><small>&#11088; 4.8 &bull; 15M+ &bull; 35 MB</small>
+                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                        </div>
+                        <div class="lst-item"><span class="num top">3</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#9876;&#65039;
+                            </div>
+                            <div class="info">
+                                <h4>Block Fusion</h4><small>&#11088; 4.7 &bull; 18 MB</small>
+                            </div><a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk" class="dl-green" download>&#11015; Download</a>
+                        </div>
+                        <div class="lst-item"><span class="num">4</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">&#9823;&#65039;
+                            </div>
+                            <div class="info">
+                                <h4>Chess Grandmaster</h4><small>&#11088; 4.9 &bull; 8M+ &bull; 30 MB</small>
+                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size:1rem;margin-bottom:12px;color:#888">&#128241; Top Apps</h3>
+                    <div class="lst">
+                        <div class="lst-item"><span class="num top">1</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128172;</div>
+                            <div class="info">
+                                <h4>Social Connect</h4><small>&#11088; 4.0 &bull; 30M+ &bull; 40 MB</small>
+                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                        </div>
+                        <div class="lst-item"><span class="num top">2</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">&#127925;</div>
+                            <div class="info">
+                                <h4>MusicBox Stream</h4><small>&#11088; 4.5 &bull; 25M+ &bull; 55 MB</small>
+                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                        </div>
+                        <div class="lst-item"><span class="num top">3</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#128248;</div>
+                            <div class="info">
+                                <h4>PhotoEdit Pro</h4><small>&#11088; 4.4 &bull; 20M+ &bull; 48 MB</small>
+                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                        </div>
+                        <div class="lst-item"><span class="num">4</span>
+                            <div class="ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128221;</div>
+                            <div class="info">
+                                <h4>CloudNote Plus</h4><small>&#11088; 4.6 &bull; 12M+ &bull; 28 MB</small>
+                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="ftr">
+        <div class="wrap">
+            <div class="ftr-grid">
+                <div class="ftr-brand"><a href="index.html" class="hdr-logo"
+                        style="font-size:1.2rem"><i>&#127918;</i>Lihka Games</a>
+                    <p>Safe and free APK downloads for Android. Verified, updated daily.</p>
+                </div>
+                <div class="ftr-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="trending.html">Trending</a></li>
+                    </ul>
+                </div>
+                <div class="ftr-col">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="ftr-bot">
+                <p>&copy; 2025 Lihka Games &bull; lihkagames@gmail.com</p>
+                <div><a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms</a> &nbsp; 
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button class="btt">&#8593;</button>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
