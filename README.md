@@ -1,8 +1,6 @@
-@ -1,280 +1,107 @@
 <!-- ══════════════════════════════════════════════════════════════════ -->
 <!--                     🎮 LIHKA GAMES README 🎮                      -->
 <!-- ══════════════════════════════════════════════════════════════════ -->
-<!-- 🎮 LIHKA GAMES README 🎮 -->
 
 <div align="center">
 
@@ -33,7 +31,6 @@
 <br/><br/>
 
 <!-- ═══════════ ANIMATED HEADER ═══════════ -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=160&section=header&text=🎮%20LIHKA%20GAMES&fontSize=50&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Android%20Games%20%26%20Apps%20Developer&descSize=18&descAlignY=55&descColor=ffffff" width="100%"/>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=🎮%20LIHKA%20GAMES%20🎮&fontSize=50&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Android%20Games%20%26%20Apps%20Developer&descSize=18&descAlignY=55&descColor=ffffff" width="100%"/>
 
@@ -54,49 +51,87 @@
 <img src="https://img.shields.io/github/followers/LihkaGames?style=for-the-badge&logo=github&color=blue&labelColor=black" alt="Followers"/>
 &nbsp;
 <img src="https://img.shields.io/badge/Made_With-❤️-red?style=for-the-badge&labelColor=black" alt="Love"/>
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=A855F7&center=true&vCenter=true&repeat=true&width=600&height=50&lines=Simple+Games+%7C+Useful+Apps+📱;Android+Developer+🚀;AI-Powered+Projects+🤖" alt="Typing"/>
 
 </div>
 
 ---
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!--                    ABOUT SECTION                        -->
+<!--                    ABOUT ME SECTION                     -->
 <!-- ═══════════════════════════════════════════════════════ -->
 
 <div align="center">
 
-## 🚀 About
+## 🚀 About Me
 
-> **Solo Android developer** making simple 2D games, lightweight utility apps & AI experiments.
-> Clean code • Android-first • Built with passion.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&pause=2000&color=00FF87&center=true&vCenter=true&width=500&height=30&lines=Welcome+to+Lihka+Games+🚀" alt="Welcome"/>
+
+</div>
 
 <br/>
 
-| 🎯 Simple & Addictive 2D Games | ⚡ Lightweight Utility Apps |
-|:---:|:---:|
-| 🤖 AI-Assisted Projects | 📱 Android-First Approach |
-## 🚀 What I Build
-
-</div>
+<table align="center">
+<tr>
+<td width="80" align="center">
+  <img src="https://img.shields.io/badge/-🎯-black?style=flat-square" width="50" height="50"/>
+</td>
+<td>
+  <strong>Simple & Addictive 2D Games</strong><br/>
+  <sub>Games that everyone enjoys playing</sub>
+</td>
+</tr>
+<tr>
+<td width="80" align="center">
+  <img src="https://img.shields.io/badge/-⚡-black?style=flat-square" width="50" height="50"/>
+</td>
+<td>
+  <strong>Lightweight & Useful Mobile Apps</strong><br/>
+  <sub>Apps designed for daily productivity</sub>
+</td>
+</tr>
+<tr>
+<td width="80" align="center">
+  <img src="https://img.shields.io/badge/-🤖-black?style=flat-square" width="50" height="50"/>
+</td>
+<td>
+  <strong>AI-Assisted Development Projects</strong><br/>
+  <sub>Pushing boundaries with artificial intelligence</sub>
+</td>
+</tr>
+<tr>
+<td width="80" align="center">
+  <img src="https://img.shields.io/badge/-📱-black?style=flat-square" width="50" height="50"/>
+</td>
+<td>
+  <strong>Android-First Approach</strong><br/>
+  <sub>Clean, efficient, and optimized code</sub>
+</td>
+</tr>
+</table>
 
 ---
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!--                  WHAT'S HERE                            -->
+<!--                  WHAT YOU'LL FIND HERE                  -->
 <!-- ═══════════════════════════════════════════════════════ -->
 
 <div align="center">
 
-## 🕹️ What's Here
+## 🕹️ What You'll Find Here
 
-| | Category | Status |
-| | What | Status |
-|:---:|:---|:---:|
-| 🎮 | **Hyper-Casual Games** | ✅ Live |
-| 🔧 | **Utility Apps** | ✅ Live |
-| 🧠 | **Learning Projects** | 🔄 Ongoing |
-| 🤖 | **AI Projects** | 🚧 Coming |
+</div>
+
+<br/>
+
+<div align="center">
+
+| | Category | Description | Status |
+|:---:|:---|:---|:---:|
+| 🎮 | **Hyper-Casual Games** | Quick, fun, pick-up-and-play games | ✅ Live |
+| 📦 | **Ready-to-Use Apps** | Useful Android app projects | ✅ Live |
+| 🧠 | **Learning Projects** | Experiments & skill-building | 🔄 Ongoing |
+| 🔧 | **Utility Apps** | Tools for daily productivity | ✅ Live |
+| 🤖 | **AI Projects** | AI-powered applications | 🚧 Coming |
 
 </div>
 
@@ -139,9 +174,6 @@
 </a>
 
 </div>
-| 🎮 | **Simple & Addictive 2D Games** | ✅ Live |
-| 📱 | **Lightweight Utility Apps** | ✅ Live |
-| 🤖 | **AI-Assisted Projects** | 🚧 Coming |
 
 ---
 
@@ -156,35 +188,42 @@
 <br/>
 
 <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android"/>
-<img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white"/>
 &nbsp;
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
-<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
 &nbsp;
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin"/>
-<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white"/>
 &nbsp;
 <img src="https://img.shields.io/badge/XML-FF6600?style=for-the-badge&logo=xml&logoColor=white" alt="XML"/>
 &nbsp;
 <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase"/>
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"/>
 
 </div>
 
 ---
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!--                 GOAL & FUTURE PLANS                     -->
+<!--                      MY GOAL                           -->
 <!-- ═══════════════════════════════════════════════════════ -->
 
 <div align="center">
 
-## 🎯 Goal & Plans
+## 🎯 My Goal
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&pause=3000&color=FFD700&center=true&vCenter=true&width=600&height=40&lines=Create+high-quality+Android+apps+%26+games+🚀;Improve+skills+every+single+day+💪" alt="Goal"/>
-## 📌 Plans
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&pause=3000&color=FFD700&center=true&vCenter=true&width=600&height=40&lines=To+create+high-quality+Android+apps+%26+games+🚀;And+improve+skills+every+single+day+💪" alt="Goal"/>
+
+</div>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                    FUTURE PLANS                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div align="center">
+
+## 📌 Future Plans
 
 </div>
 
@@ -193,16 +232,12 @@
 - [x] ✅ Create simple Android games
 - [x] ✅ Build utility apps
 - [x] ✅ Launch website on GitHub Pages
-- [ ] 🎮 More advanced Android games
+- [ ] 🎮 Create more advanced Android games
 - [ ] 🌐 Try 3D game development
-- [ ] 🤖 Build AI-powered apps
+- [ ] 🤖 Build unique AI-powered apps
 - [ ] 🏆 Reach 1000+ downloads
 - [ ] 🌟 Grow community of game lovers
-- [x] ✅ Simple Android games & utility apps
-- [x] ✅ GitHub Pages website
-- [ ] 🎮 Advanced games & 3D experiments
-- [ ] 🤖 AI-powered apps
-- [ ] 🏆 1000+ downloads
+- [ ] 💰 Monetize apps successfully
 
 ---
 
@@ -213,15 +248,12 @@
 <div align="center">
 
 ## 📊 GitHub Stats
-## 📊 Stats
 
 <br/>
 
 <img src="https://github-readme-stats.vercel.app/api?username=LihkaGames&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=A855F7&text_color=FFFFFF" alt="GitHub Stats" width="48%"/>
-<img src="https://github-readme-stats.vercel.app/api?username=LihkaGames&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=A855F7&text_color=FFFFFF" width="48%"/>
 &nbsp;
 <img src="https://github-readme-streak-stats.herokuapp.com?user=LihkaGames&theme=radical&hide_border=true&background=0D1117&ring=00D9FF&fire=FF6B6B&currStreakLabel=A855F7" alt="Streak Stats" width="48%"/>
-<img src="https://github-readme-streak-stats.herokuapp.com?user=LihkaGames&theme=radical&hide_border=true&background=0D1117&ring=00D9FF&fire=FF6B6B&currStreakLabel=A855F7" width="48%"/>
 
 </div>
 
@@ -234,7 +266,6 @@
 <div align="center">
 
 ## ⭐ Support My Work
-## ⭐ Support
 
 <br/>
 
@@ -264,18 +295,18 @@
 
 <div align="center">
 
-## 📬 Contact
+## 📬 Contact Me
 
 <br/>
 
 <a href="mailto:lihkagames@gmail.com">
   <img src="https://img.shields.io/badge/Gmail-lihkagames%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
-  <img src="https://img.shields.io/badge/Gmail-lihkagames%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
 </a>
-&nbsp;&nbsp;
+
+<br/><br/>
+
 <a href="https://lihkagames.github.io/">
   <img src="https://img.shields.io/badge/🌐_Website-lihkagames.github.io-00D9FF?style=for-the-badge&logoColor=white" alt="Website"/>
-  <img src="https://img.shields.io/badge/🌐_Website-lihkagames.github.io-00D9FF?style=for-the-badge"/>
 </a>
 
 </div>
@@ -291,18 +322,3 @@
 ## 💡 Motto
 
 <br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&pause=3000&color=00FF87&center=true&vCenter=true&width=600&height=40&lines=Build+simple.+Play+more.+Keep+creating.+🎮" alt="Motto"/>
-
-<br/><br/>
-
-<!-- ═══════════ FOOTER ═══════════ -->
-> *"Build simple. Ship fast. Improve daily."* 🚀
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" width="100%"/>
-<br/>
-
-<sub>Made with ❤️ by Lihka Games</sub>
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
-
-</div>
