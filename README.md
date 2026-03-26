@@ -1,9 +1,10 @@
-<!-- 🎮 LIHKA GAMES README 🎮 -->
-<!-- ══════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--              🎮 LIHKA GAMES README 🎮                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
 
 <div align="center">
 
-<!-- ═══════════ VISIT SITE BUTTON ═══════════ -->
+<!-- ═══════════ ANIMATED VISIT BUTTON ═══════════ -->
 
 <a href="https://lihkagames.github.io/">
   <img src="assets/visit-button.svg" alt="Visit Lihka Games" width="700"/>
