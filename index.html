@@ -8,6 +8,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* ===== BIG LOGO STYLES ===== */
+        .hdr-logo {
+            font-size: 1.8rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.5px;
+            display: flex !important;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .hdr-logo:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .hdr-logo i {
+            font-style: normal;
+            font-size: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 14px;
+            -webkit-text-fill-color: initial;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            flex-shrink: 0;
+        }
+
+        /* Footer logo override */
+        .ftr-brand .hdr-logo {
+            font-size: 1.5rem !important;
+        }
+
+        .ftr-brand .hdr-logo i {
+            font-size: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hdr-logo {
+                font-size: 1.4rem !important;
+            }
+
+            .hdr-logo i {
+                font-size: 1.8rem;
+                width: 42px;
+                height: 42px;
+                border-radius: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hdr-logo {
+                font-size: 1.2rem !important;
+            }
+
+            .hdr-logo i {
+                font-size: 1.5rem;
+                width: 36px;
+                height: 36px;
+                border-radius: 10px;
+            }
+        }
+
+        /* ===== EXISTING STYLES ===== */
         .dl-green {
             display: inline-block;
             padding: 8px 18px;
@@ -45,8 +122,8 @@
 <body>
     <header class="hdr">
         <div class="wrap">
-            <a href="index.html" class="hdr-logo"><i>&#127918;</i>Lihka Games</a>
-            <div class="hdr-search"><input placeholder="Search apps & games..." id="hs"><button>&#128270;</button>
+            <a href="index.html" class="hdr-logo"><i>🎮</i>Lihka Games</a>
+            <div class="hdr-search"><input placeholder="Search apps & games..." id="hs"><button>🔎</button>
             </div>
             <nav class="hdr-nav">
                 <a href="index.html" class="on">Home</a>
@@ -58,7 +135,7 @@
     </header>
 
     <div class="mob-nav">
-        <button class="mob-close">&#10005;</button>
+        <button class="mob-close">✕</button>
         <a href="index.html">Home</a>
         <a href="apps.html">Apps</a>
         <a href="games.html">Games</a>
@@ -86,7 +163,7 @@
     <section class="sec" style="padding-top:0">
         <div class="wrap">
             <div class="sec-top">
-                <h2>&#11088; Editor's Choice</h2><a href="apps.html">View All &rarr;</a>
+                <h2>⭐ Editor's Choice</h2><a href="apps.html">View All →</a>
             </div>
             <div class="feat">
                 <!-- BLOCK FUSION - Editor's Choice Card -->
@@ -150,9 +227,9 @@
                     </div>
                     <div class="finfo"><span class="badge">Editor's Choice</span>
                         <h3>Block Fusion</h3>
-                        <p>Lihka Games &bull; &#11088; 4.7 &bull; 26 MB</p>
+                        <p>Lihka Games &bull; ⭐ 4.7 &bull; 26 MB</p>
                         <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
-                            class="fbtn" download>&#11015; Download</a>
+                            class="fbtn" download>⬇ Download</a>
                     </div>
                 </div>
 
@@ -171,9 +248,9 @@
                     </div>
                     <div class="finfo"><span class="badge">Popular</span>
                         <h3>Blitz Storm Arena</h3>
-                        <p>Lihka Games &bull; &#11088; 4.7 &bull; 10 MB</p>
+                        <p>Lihka Games &bull; ⭐ 4.7 &bull; 10 MB</p>
                         <a href="https://github.com/LihkaGames/Blitz-Storm-Arena/raw/refs/heads/main/Blitz%20Storm%20Arena.apk"
-                            class="fbtn">&#11015; Download</a>
+                            class="fbtn">⬇ Download</a>
                     </div>
                 </div>
             </div>
@@ -183,7 +260,7 @@
     <section class="sec">
         <div class="wrap">
             <div class="sec-top">
-                <h2>&#127918; Popular Games</h2><a href="games.html">All Games &rarr;</a>
+                <h2>🎮 Popular Games</h2><a href="games.html">All Games →</a>
             </div>
             <div class="grid">
                 <!-- Block Fusion - Grid Card -->
@@ -247,7 +324,7 @@
                     </div>
                     <h3>Block Fusion</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>&#11088; 4.7</b><span>26 MB</span></div>
+                    <div class="meta"><b>⭐ 4.7</b><span>26 MB</span></div>
                     <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
                         class="dl" download>Download</a>
                 </div>
@@ -267,7 +344,7 @@
                     </div>
                     <h3>Blitz Storm Arena</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>&#11088; 4.7</b><span>10 MB</span></div>
+                    <div class="meta"><b>⭐ 4.7</b><span>10 MB</span></div>
                     <a href="https://github.com/LihkaGames/Blitz-Storm-Arena/raw/refs/heads/main/Blitz%20Storm%20Arena.apk"
                         class="dl" download>Download</a>
                 </div>
@@ -305,7 +382,7 @@
                     </div>
                     <h3>Crystal Cascade</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>&#11088; 4.5</b><span>15 MB</span></div><a href="https://github.com/LihkaGames/Crystal-Cascade-Game/raw/refs/heads/main/Crystal%20Cascade.apk" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.5</b><span>15 MB</span></div><a href="https://github.com/LihkaGames/Crystal-Cascade-Game/raw/refs/heads/main/Crystal%20Cascade.apk" class="dl">Download</a>
                 </div>
 
                 <!-- Disc Strike Arena - Grid Card -->
@@ -384,26 +461,26 @@
                     </div>
                     <h3>Disc Strike Arena</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>&#11088; 4.6</b><span>10 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.6</b><span>10 MB</span></div><a href="https://github.com/LihkaGames/Disc-Strike-Arena-Game/releases/download/v1.0/Disc.Strike.Arena.apk" class="dl">Download</a>
                 </div>
 
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#129513;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">🧩</div>
                     <h3>Brain Puzzle</h3>
                     <div class="sub">MindWorks</div>
-                    <div class="meta"><b>&#11088; 4.8</b><span>35 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.8</b><span>35 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#0c3483,#a2b6df)">&#128640;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#0c3483,#a2b6df)">🚀</div>
                     <h3>Galaxy Shooter</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>&#11088; 4.4</b><span>72 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.4</b><span>72 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">&#9823;&#65039;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">♟️</div>
                     <h3>Chess Master</h3>
                     <div class="sub">MindWorks</div>
-                    <div class="meta"><b>&#11088; 4.9</b><span>30 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.9</b><span>30 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
             </div>
         </div>
@@ -412,44 +489,44 @@
     <section class="sec">
         <div class="wrap">
             <div class="sec-top">
-                <h2>&#128241; Top Apps</h2><a href="apps.html">All Apps &rarr;</a>
+                <h2>📱 Top Apps</h2><a href="apps.html">All Apps →</a>
             </div>
             <div class="grid">
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#128248;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">📸</div>
                     <h3>PhotoEdit Pro</h3>
                     <div class="sub">CreativeApps</div>
-                    <div class="meta"><b>&#11088; 4.4</b><span>48 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.4</b><span>48 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128221;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">📝</div>
                     <h3>CloudNote Plus</h3>
                     <div class="sub">ProductivityPro</div>
-                    <div class="meta"><b>&#11088; 4.6</b><span>28 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.6</b><span>28 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#f5576c,#ff9a9e)">&#128170;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#f5576c,#ff9a9e)">💪</div>
                     <h3>FitTrack Health</h3>
                     <div class="sub">HealthTech</div>
-                    <div class="meta"><b>&#11088; 4.3</b><span>42 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.3</b><span>42 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">&#127925;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">🎵</div>
                     <h3>MusicBox Stream</h3>
                     <div class="sub">SoundWave</div>
-                    <div class="meta"><b>&#11088; 4.5</b><span>55 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.5</b><span>55 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#ff0844,#ffb199)">&#127916;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#ff0844,#ffb199)">🎬</div>
                     <h3>VideoMaker</h3>
                     <div class="sub">CreativeApps</div>
-                    <div class="meta"><b>&#11088; 4.6</b><span>68 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.6</b><span>68 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128172;</div>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">💬</div>
                     <h3>Social Connect</h3>
                     <div class="sub">NetSphere</div>
-                    <div class="meta"><b>&#11088; 4.0</b><span>40 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.0</b><span>40 MB</span></div><a href="#" class="dl">Download</a>
                 </div>
             </div>
         </div>
@@ -458,11 +535,11 @@
     <section class="sec">
         <div class="wrap">
             <div class="sec-top">
-                <h2>&#128200; Top Charts</h2><a href="trending.html">Full Rankings &rarr;</a>
+                <h2>📈 Top Charts</h2><a href="trending.html">Full Rankings →</a>
             </div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px">
                 <div>
-                    <h3 style="font-size:1rem;margin-bottom:12px;color:#888">&#127942; Top Games</h3>
+                    <h3 style="font-size:1rem;margin-bottom:12px;color:#888">🏆 Top Games</h3>
                     <div class="lst">
                         <!-- Blitz Storm Arena - Top Charts -->
                         <div class="lst-item"><span class="num top">1</span>
@@ -478,16 +555,16 @@
                                 </svg>
                             </div>
                             <div class="info">
-                                <h4>Blitz Storm Arena</h4><small>&#11088; 4.7 &bull; 10 MB</small>
+                                <h4>Blitz Storm Arena</h4><small>⭐ 4.7 &bull; 10 MB</small>
                             </div>
                             <a href="https://github.com/LihkaGames/Blitz-Storm-Arena/raw/refs/heads/main/Blitz%20Storm%20Arena.apk"
-                                class="dl-green" download>&#11015; Download</a>
+                                class="dl-green" download>⬇ Download</a>
                         </div>
                         <div class="lst-item"><span class="num top">2</span>
-                            <div class="ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#129513;</div>
+                            <div class="ico" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">🧩</div>
                             <div class="info">
-                                <h4>Brain Puzzle Master</h4><small>&#11088; 4.8 &bull; 15M+ &bull; 35 MB</small>
-                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                                <h4>Brain Puzzle Master</h4><small>⭐ 4.8 &bull; 15M+ &bull; 35 MB</small>
+                            </div><a href="#" class="dl-green">⬇ Download</a>
                         </div>
                         <!-- Block Fusion - Top Charts -->
                         <div class="lst-item"><span class="num top">3</span>
@@ -549,45 +626,45 @@
                                 </svg>
                             </div>
                             <div class="info">
-                                <h4>Block Fusion</h4><small>&#11088; 4.7 &bull; 26 MB</small>
+                                <h4>Block Fusion</h4><small>⭐ 4.7 &bull; 26 MB</small>
                             </div>
                             <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
-                                class="dl-green" download>&#11015; Download</a>
+                                class="dl-green" download>⬇ Download</a>
                         </div>
                         <div class="lst-item"><span class="num">4</span>
-                            <div class="ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">&#9823;&#65039;</div>
+                            <div class="ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">♟️</div>
                             <div class="info">
-                                <h4>Chess Grandmaster</h4><small>&#11088; 4.9 &bull; 8M+ &bull; 30 MB</small>
-                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                                <h4>Chess Grandmaster</h4><small>⭐ 4.9 &bull; 8M+ &bull; 30 MB</small>
+                            </div><a href="#" class="dl-green">⬇ Download</a>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h3 style="font-size:1rem;margin-bottom:12px;color:#888">&#128241; Top Apps</h3>
+                    <h3 style="font-size:1rem;margin-bottom:12px;color:#888">📱 Top Apps</h3>
                     <div class="lst">
                         <div class="lst-item"><span class="num top">1</span>
-                            <div class="ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128172;</div>
+                            <div class="ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">💬</div>
                             <div class="info">
-                                <h4>Social Connect</h4><small>&#11088; 4.0 &bull; 30M+ &bull; 40 MB</small>
-                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                                <h4>Social Connect</h4><small>⭐ 4.0 &bull; 30M+ &bull; 40 MB</small>
+                            </div><a href="#" class="dl-green">⬇ Download</a>
                         </div>
                         <div class="lst-item"><span class="num top">2</span>
-                            <div class="ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">&#127925;</div>
+                            <div class="ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">🎵</div>
                             <div class="info">
-                                <h4>MusicBox Stream</h4><small>&#11088; 4.5 &bull; 25M+ &bull; 55 MB</small>
-                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                                <h4>MusicBox Stream</h4><small>⭐ 4.5 &bull; 25M+ &bull; 55 MB</small>
+                            </div><a href="#" class="dl-green">⬇ Download</a>
                         </div>
                         <div class="lst-item"><span class="num top">3</span>
-                            <div class="ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#128248;</div>
+                            <div class="ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">📸</div>
                             <div class="info">
-                                <h4>PhotoEdit Pro</h4><small>&#11088; 4.4 &bull; 20M+ &bull; 48 MB</small>
-                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                                <h4>PhotoEdit Pro</h4><small>⭐ 4.4 &bull; 20M+ &bull; 48 MB</small>
+                            </div><a href="#" class="dl-green">⬇ Download</a>
                         </div>
                         <div class="lst-item"><span class="num">4</span>
-                            <div class="ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128221;</div>
+                            <div class="ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">📝</div>
                             <div class="info">
-                                <h4>CloudNote Plus</h4><small>&#11088; 4.6 &bull; 12M+ &bull; 28 MB</small>
-                            </div><a href="#" class="dl-green">&#11015; Download</a>
+                                <h4>CloudNote Plus</h4><small>⭐ 4.6 &bull; 12M+ &bull; 28 MB</small>
+                            </div><a href="#" class="dl-green">⬇ Download</a>
                         </div>
                     </div>
                 </div>
@@ -600,7 +677,7 @@
         <div class="wrap">
             <div class="ftr-grid">
                 <div class="ftr-brand"><a href="index.html" class="hdr-logo"
-                        style="font-size:1.2rem"><i>&#127918;</i>Lihka Games</a>
+                        style="font-size:1.5rem"><i>🎮</i>Lihka Games</a>
                     <p>Safe and free APK downloads for Android. Verified, updated daily.</p>
                 </div>
                 <div class="ftr-col">
@@ -628,7 +705,7 @@
             </div>
         </div>
     </footer>
-    <button class="btt">&#8593;</button>
+    <button class="btt">↑</button>
     <script src="js/app.js"></script>
 </body>
 
