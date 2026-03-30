@@ -7,6 +7,116 @@
     <title>Applications - Lihka Games</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+        <style>
+        /* ===== BIG LOGO STYLES ===== */
+        .hdr-logo {
+            font-size: 1.8rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.5px;
+            display: flex !important;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #0f0 !important;
+            -webkit-text-fill-color: #0f0 !important;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .hdr-logo:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .hdr-logo i {
+            font-style: normal;
+            font-size: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #0f0, #0a0);
+            border-radius: 14px;
+            -webkit-text-fill-color: initial;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
+            flex-shrink: 0;
+        }
+
+        /* Footer logo override */
+        .ftr-brand .hdr-logo {
+            font-size: 1.5rem !important;
+        }
+
+        .ftr-brand .hdr-logo i {
+            font-size: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hdr-logo {
+                font-size: 1.4rem !important;
+            }
+
+            .hdr-logo i {
+                font-size: 1.8rem;
+                width: 42px;
+                height: 42px;
+                border-radius: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hdr-logo {
+                font-size: 1.2rem !important;
+            }
+
+            .hdr-logo i {
+                font-size: 1.5rem;
+                width: 36px;
+                height: 36px;
+                border-radius: 10px;
+            }
+        }
+
+        /* ===== EXISTING STYLES ===== */
+        .dl-green {
+            display: inline-block;
+            padding: 8px 18px;
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 184, 148, 0.25);
+            white-space: nowrap;
+        }
+
+        .dl-green:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+            background: linear-gradient(135deg, #00cec9, #00b894);
+        }
+
+        .dl-green:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .card-ico svg,
+        .ico svg,
+        .fi svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
 </head>
 
 <body>

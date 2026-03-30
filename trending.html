@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ===== BIG LOGO STYLES (from index.html) ===== */
+        /* ===== BIG LOGO STYLES ===== */
         .hdr-logo {
             font-size: 1.8rem !important;
             font-weight: 800 !important;
@@ -17,16 +17,16 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #0f0 !important;
+            -webkit-text-fill-color: #0f0 !important;
             transition: transform 0.3s ease, filter 0.3s ease;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
         }
 
         .hdr-logo:hover {
             transform: scale(1.05);
             filter: brightness(1.2);
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         }
 
         .hdr-logo i {
@@ -37,14 +37,13 @@
             justify-content: center;
             width: 52px;
             height: 52px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #0f0, #0a0);
             border-radius: 14px;
             -webkit-text-fill-color: initial;
             color: #fff;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
             flex-shrink: 0;
         }
-
         /* Footer logo override */
         .ftr-brand .hdr-logo {
             font-size: 1.5rem !important;
@@ -84,7 +83,7 @@
             }
         }
 
-        /* ===== EXISTING STYLES ===== */
+      /* ===== EXISTING STYLES ===== */
         .dl-green {
             display: inline-block;
             padding: 8px 18px;
