@@ -84,38 +84,278 @@
             }
         }
 
-     /* ===== EXISTING STYLES ===== */
-        .dl {
-            display: inline-block;
-            padding: 8px 18px;
-            background: linear-gradient(135deg, #0f0, #0a0);
-            color: #fff;
-            border-radius: 10px;
+        /* ===== UNIFIED DOWNLOAD BUTTON ===== */
+        .dl,
+        .fbtn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 22px;
+            background: linear-gradient(135deg, #00c853, #00e676, #00c853);
+            background-size: 200% 200%;
+            color: #fff !important;
+            border-radius: 12px;
             font-size: 0.85rem;
             font-weight: 700;
             text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-            box-shadow: 0 2px 8px rgba(0, 184, 148, 0.25);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.3s ease, background-position 0.4s ease;
+            box-shadow: 0 3px 12px rgba(0, 200, 83, 0.3);
             white-space: nowrap;
+            letter-spacing: 0.3px;
+            animation: btnGradientShift 3s ease infinite;
         }
 
-        .dl:hover {
-            transform: translateY(-2px) scale(1.04);
-            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
-              background: linear-gradient(135deg, #0f0, #0a0);
+        @keyframes btnGradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        .dl:active {
-            transform: translateY(0) scale(0.98);
+        .dl::before,
+        .fbtn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.5s ease;
         }
 
+        .dl:hover::before,
+        .fbtn:hover::before {
+            left: 100%;
+        }
 
+        .dl:hover,
+        .fbtn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 200, 83, 0.45), 0 0 15px rgba(0, 230, 118, 0.2);
+            background-position: 100% 50%;
+        }
+
+        .dl:active,
+        .fbtn:active {
+            transform: translateY(0) scale(0.97);
+            box-shadow: 0 2px 8px rgba(0, 200, 83, 0.3);
+        }
+
+        /* Pulse ring on download buttons */
+        .dl::after,
+        .fbtn::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 14px;
+            border: 2px solid rgba(0, 230, 118, 0);
+            transition: border-color 0.3s ease;
+        }
+
+        .dl:hover::after,
+        .fbtn:hover::after {
+            border-color: rgba(0, 230, 118, 0.4);
+            animation: pulseRing 1.2s ease-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.15); opacity: 0; }
+        }
+
+        /* ===== CARD ANIMATIONS ===== */
+        .card,
+        .feat-card,
+        .lst-item {
+            animation: fadeSlideUp 0.6s ease both;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
+        .card:nth-child(6) { animation-delay: 0.3s; }
+        .card:nth-child(7) { animation-delay: 0.35s; }
+
+        .feat-card:nth-child(1) { animation-delay: 0.05s; }
+        .feat-card:nth-child(2) { animation-delay: 0.15s; }
+
+        .lst-item:nth-child(1) { animation-delay: 0.05s; }
+        .lst-item:nth-child(2) { animation-delay: 0.1s; }
+        .lst-item:nth-child(3) { animation-delay: 0.15s; }
+        .lst-item:nth-child(4) { animation-delay: 0.2s; }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Card hover enhancements */
+        .card {
+            transition: transform 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.35s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0, 230, 118, 0.08);
+        }
+
+        .card:hover .card-ico {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-ico {
+            transition: transform 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.35s ease;
+        }
+
+        /* Featured card hover */
+        .feat-card {
+            transition: transform 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.35s ease;
+        }
+
+        .feat-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .feat-card:hover .fi {
+            transform: scale(1.05);
+        }
+
+        .fi {
+            transition: transform 0.35s cubic-bezier(.4,2,.6,1);
+        }
+
+        /* List item hover */
+        .lst-item {
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lst-item:hover {
+            transform: translateX(6px);
+            background: rgba(255,255,255,0.04);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 12px;
+        }
+
+        .lst-item:hover .ico {
+            transform: scale(1.1) rotate(-3deg);
+        }
+
+        .ico {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+        }
+
+        /* ===== HERO ANIMATION ===== */
+        .hero h1 {
+            animation: heroTitle 0.8s ease both;
+        }
+
+        .hero p {
+            animation: heroTitle 0.8s ease 0.15s both;
+        }
+
+        .hero-search {
+            animation: heroTitle 0.8s ease 0.3s both;
+        }
+
+        .stat {
+            animation: heroTitle 0.8s ease 0.4s both;
+        }
+
+        @keyframes heroTitle {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== SECTION HEADING ANIMATION ===== */
+        .sec-top {
+            animation: fadeSlideUp 0.5s ease both;
+        }
+
+        /* ===== BADGE PULSE ===== */
+        .badge {
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.3); }
+            50% { box-shadow: 0 0 0 6px rgba(0, 230, 118, 0); }
+        }
+
+        /* ===== SMOOTH SCROLL ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .btt {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), opacity 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btt:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 200, 83, 0.4);
+        }
+
+        /* ===== SVG ICON CONTAINERS ===== */
         .card-ico svg,
         .ico svg,
         .fi svg {
             width: 100%;
             height: 100%;
             display: block;
+        }
+
+        /* ===== NUMBER BADGE IN LIST ===== */
+        .num {
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .lst-item:hover .num {
+            transform: scale(1.15);
+        }
+
+        /* ===== STAR RATING SHIMMER ===== */
+        .meta b {
+            background: linear-gradient(90deg, #ffd700, #ffec80, #ffd700);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: starShimmer 3s linear infinite;
+        }
+
+        @keyframes starShimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* ===== FOOTER HOVER ===== */
+        .ftr-col a {
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .ftr-col a:hover {
+            padding-left: 6px;
         }
     </style>
 </head>
@@ -159,8 +399,6 @@
         <div class="stat"><b>100%</b><small>Safe</small></div>
     </section>
 
-
-
     <section class="sec" style="padding-top:0">
         <div class="wrap">
             <div class="sec-top">
@@ -172,64 +410,24 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
                             <path d="M16.3,88.8 Q54,99 91.7,88.8 Q94.6,81.6 91.7,74.2 Q54,64.2 16.3,74.2 Q13.4,81.6 16.3,88.8z" fill="#000000" fill-opacity="0.12"/>
                             <path d="M22.1,85.9 Q54,93.2 85.9,85.9 Q88.8,80.1 85.9,75.7 Q54,68.6 22.1,75.7 Q19.2,80.1 22.1,85.9z" fill="#000000" fill-opacity="0.08"/>
-                            <g>
-                                <path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1"/>
-                                <path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5"/>
-                                <path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5"/>
-                            </g>
-                            <g>
-                                <path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593"/>
-                                <path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0"/>
-                                <path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5"/>
-                            </g>
-                            <g>
-                                <path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0"/>
-                                <path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2"/>
-                                <path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7"/>
-                            </g>
-                            <g>
-                                <path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C"/>
-                                <path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A"/>
-                                <path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688"/>
-                            </g>
-                            <g>
-                                <path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F"/>
-                                <path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA"/>
-                                <path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4"/>
-                            </g>
-                            <g>
-                                <path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457"/>
-                                <path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A"/>
-                                <path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63"/>
-                            </g>
-                            <g>
-                                <path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32"/>
-                                <path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A"/>
-                                <path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50"/>
-                            </g>
-                            <g>
-                                <path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100"/>
-                                <path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726"/>
-                                <path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800"/>
-                            </g>
-                            <g>
-                                <path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C"/>
-                                <path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350"/>
-                                <path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336"/>
-                            </g>
+                            <g><path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1"/><path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5"/><path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5"/></g>
+                            <g><path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593"/><path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0"/><path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5"/></g>
+                            <g><path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0"/><path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2"/><path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7"/></g>
+                            <g><path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C"/><path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A"/><path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688"/></g>
+                            <g><path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F"/><path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA"/><path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4"/></g>
+                            <g><path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457"/><path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A"/><path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63"/></g>
+                            <g><path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32"/><path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A"/><path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50"/></g>
+                            <g><path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100"/><path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726"/><path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800"/></g>
+                            <g><path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C"/><path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350"/><path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336"/></g>
                             <path d="M39.5,45.3 Q54,51.1 68.5,45.3 Q69.9,42.4 68.5,39.5 Q54,33.7 39.5,39.5 Q38.1,42.4 39.5,45.3z" fill="#000000" fill-opacity="0.15"/>
-                            <g>
-                                <path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825"/>
-                                <path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58"/>
-                                <path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600"/>
-                            </g>
+                            <g><path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825"/><path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58"/><path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600"/></g>
                         </svg>
                     </div>
                     <div class="finfo"><span class="badge">Editor's Choice</span>
                         <h3>Block Fusion</h3>
                         <p>Lihka Games &bull; ⭐ 4.7 &bull; 26 MB</p>
                         <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
-                            class="fbtn" download>⬇ Download</a>
+                            class="dl" download>⬇ Download</a>
                     </div>
                 </div>
 
@@ -250,7 +448,7 @@
                         <h3>Blitz Storm Arena</h3>
                         <p>Lihka Games &bull; ⭐ 4.7 &bull; 10 MB</p>
                         <a href="https://github.com/LihkaGames/Blitz-Storm-Arena/raw/refs/heads/main/Blitz%20Storm%20Arena.apk"
-                            class="fbtn">⬇ Download</a>
+                            class="dl">⬇ Download</a>
                     </div>
                 </div>
             </div>
@@ -269,64 +467,24 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
                             <path d="M16.3,88.8 Q54,99 91.7,88.8 Q94.6,81.6 91.7,74.2 Q54,64.2 16.3,74.2 Q13.4,81.6 16.3,88.8z" fill="#000000" fill-opacity="0.12"/>
                             <path d="M22.1,85.9 Q54,93.2 85.9,85.9 Q88.8,80.1 85.9,75.7 Q54,68.6 22.1,75.7 Q19.2,80.1 22.1,85.9z" fill="#000000" fill-opacity="0.08"/>
-                            <g>
-                                <path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1"/>
-                                <path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5"/>
-                                <path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5"/>
-                            </g>
-                            <g>
-                                <path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593"/>
-                                <path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0"/>
-                                <path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5"/>
-                            </g>
-                            <g>
-                                <path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0"/>
-                                <path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2"/>
-                                <path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7"/>
-                            </g>
-                            <g>
-                                <path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C"/>
-                                <path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A"/>
-                                <path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688"/>
-                            </g>
-                            <g>
-                                <path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F"/>
-                                <path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA"/>
-                                <path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4"/>
-                            </g>
-                            <g>
-                                <path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457"/>
-                                <path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A"/>
-                                <path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63"/>
-                            </g>
-                            <g>
-                                <path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32"/>
-                                <path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A"/>
-                                <path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50"/>
-                            </g>
-                            <g>
-                                <path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100"/>
-                                <path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726"/>
-                                <path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800"/>
-                            </g>
-                            <g>
-                                <path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C"/>
-                                <path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350"/>
-                                <path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336"/>
-                            </g>
+                            <g><path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1"/><path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5"/><path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5"/></g>
+                            <g><path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593"/><path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0"/><path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5"/></g>
+                            <g><path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0"/><path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2"/><path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7"/></g>
+                            <g><path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C"/><path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A"/><path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688"/></g>
+                            <g><path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F"/><path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA"/><path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4"/></g>
+                            <g><path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457"/><path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A"/><path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63"/></g>
+                            <g><path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32"/><path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A"/><path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50"/></g>
+                            <g><path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100"/><path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726"/><path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800"/></g>
+                            <g><path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C"/><path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350"/><path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336"/></g>
                             <path d="M39.5,45.3 Q54,51.1 68.5,45.3 Q69.9,42.4 68.5,39.5 Q54,33.7 39.5,39.5 Q38.1,42.4 39.5,45.3z" fill="#000000" fill-opacity="0.15"/>
-                            <g>
-                                <path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825"/>
-                                <path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58"/>
-                                <path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600"/>
-                            </g>
+                            <g><path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825"/><path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58"/><path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600"/></g>
                         </svg>
                     </div>
                     <h3>Block Fusion</h3>
                     <div class="sub">Lihka Games</div>
                     <div class="meta"><b>⭐ 4.7</b><span>26 MB</span></div>
                     <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
-                        class="dl" download>Download</a>
+                        class="dl" download>⬇ Download</a>
                 </div>
 
                 <!-- Blitz Storm Arena - Grid Card -->
@@ -346,7 +504,7 @@
                     <div class="sub">Lihka Games</div>
                     <div class="meta"><b>⭐ 4.7</b><span>10 MB</span></div>
                     <a href="https://github.com/LihkaGames/Blitz-Storm-Arena/raw/refs/heads/main/Blitz%20Storm%20Arena.apk"
-                        class="dl" download>Download</a>
+                        class="dl" download>⬇ Download</a>
                 </div>
 
                 <!-- Crystal Cascade - Grid Card -->
@@ -382,7 +540,7 @@
                     </div>
                     <h3>Crystal Cascade</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>⭐ 4.5</b><span>15 MB</span></div><a href="https://github.com/LihkaGames/Crystal-Cascade-Game/raw/refs/heads/main/Crystal%20Cascade.apk" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.5</b><span>15 MB</span></div><a href="https://github.com/LihkaGames/Crystal-Cascade-Game/raw/refs/heads/main/Crystal%20Cascade.apk" class="dl">⬇ Download</a>
                 </div>
 
                 <!-- Disc Strike Arena - Grid Card -->
@@ -461,7 +619,7 @@
                     </div>
                     <h3>Disc Strike Arena</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>⭐ 4.6</b><span>10 MB</span></div><a href="https://github.com/LihkaGames/Disc-Strike-Arena-Game/releases/download/v1.0/Disc.Strike.Arena.apk" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.6</b><span>10 MB</span></div><a href="https://github.com/LihkaGames/Disc-Strike-Arena-Game/releases/download/v1.0/Disc.Strike.Arena.apk" class="dl">⬇ Download</a>
                 </div>
 
                 <!-- Roll Master Quest: Ludo Game - Grid Card -->
@@ -489,14 +647,10 @@
                                 <radialGradient id="i-outerGlow" cx="54" cy="48" r="28" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD700" stop-opacity="0"/><stop offset="0.8" stop-color="#FFD700" stop-opacity="0.2"/><stop offset="1" stop-color="#FFD700" stop-opacity="0"/></radialGradient>
                             </defs>
                             <path d="M36,30h36v48h-36z" fill="#000000" fill-opacity="0.08"/>
-                            <path d="M34,28h16v16h-16z" fill="url(#i-redQ)"/>
-                            <path d="M34,28h16v16h-16z" stroke-width="0.5" stroke="#D63031" fill="none"/>
-                            <path d="M58,28h16v16h-16z" fill="url(#i-greenQ)"/>
-                            <path d="M58,28h16v16h-16z" stroke-width="0.5" stroke="#2B8A3E" fill="none"/>
-                            <path d="M34,52h16v16h-16z" fill="url(#i-yellowQ)"/>
-                            <path d="M34,52h16v16h-16z" stroke-width="0.5" stroke="#F59F00" fill="none"/>
-                            <path d="M58,52h16v16h-16z" fill="url(#i-blueQ)"/>
-                            <path d="M58,52h16v16h-16z" stroke-width="0.5" stroke="#1864AB" fill="none"/>
+                            <path d="M34,28h16v16h-16z" fill="url(#i-redQ)"/><path d="M34,28h16v16h-16z" stroke-width="0.5" stroke="#D63031" fill="none"/>
+                            <path d="M58,28h16v16h-16z" fill="url(#i-greenQ)"/><path d="M58,28h16v16h-16z" stroke-width="0.5" stroke="#2B8A3E" fill="none"/>
+                            <path d="M34,52h16v16h-16z" fill="url(#i-yellowQ)"/><path d="M34,52h16v16h-16z" stroke-width="0.5" stroke="#F59F00" fill="none"/>
+                            <path d="M58,52h16v16h-16z" fill="url(#i-blueQ)"/><path d="M58,52h16v16h-16z" stroke-width="0.5" stroke="#1864AB" fill="none"/>
                             <path d="M50,28h8v16h-8z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0"/>
                             <path d="M50,52h8v16h-8z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0"/>
                             <path d="M34,44h16v8h-16z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0"/>
@@ -508,52 +662,27 @@
                             <path d="M50,48L54,52L54,44Z" fill="#FFD43B" fill-opacity="0.85"/>
                             <path d="M54,44L58,48L54,52L50,48Z" stroke-width="0.6" stroke="#E67700" fill="none"/>
                             <circle cx="54" cy="48" r="1.8" fill="#FFFFFF" fill-opacity="0.9"/>
-                            <circle cx="39" cy="33" r="3.5" fill="url(#i-rT1)"/>
-                            <circle cx="39" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                            <circle cx="45" cy="39" r="3.5" fill="url(#i-rT2)"/>
-                            <circle cx="45" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                            <circle cx="63" cy="33" r="3.5" fill="url(#i-gT1)"/>
-                            <circle cx="63" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                            <circle cx="69" cy="39" r="3.5" fill="url(#i-gT2)"/>
-                            <circle cx="69" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                            <circle cx="39" cy="57" r="3.5" fill="url(#i-yT1)"/>
-                            <circle cx="39" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                            <circle cx="45" cy="63" r="3.5" fill="url(#i-yT2)"/>
-                            <circle cx="45" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                            <circle cx="63" cy="57" r="3.5" fill="url(#i-bT1)"/>
-                            <circle cx="63" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                            <circle cx="69" cy="63" r="3.5" fill="url(#i-bT2)"/>
-                            <circle cx="69" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="39" cy="33" r="3.5" fill="url(#i-rT1)"/><circle cx="39" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="45" cy="39" r="3.5" fill="url(#i-rT2)"/><circle cx="45" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="63" cy="33" r="3.5" fill="url(#i-gT1)"/><circle cx="63" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="69" cy="39" r="3.5" fill="url(#i-gT2)"/><circle cx="69" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="39" cy="57" r="3.5" fill="url(#i-yT1)"/><circle cx="39" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="45" cy="63" r="3.5" fill="url(#i-yT2)"/><circle cx="45" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="63" cy="57" r="3.5" fill="url(#i-bT1)"/><circle cx="63" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                            <circle cx="69" cy="63" r="3.5" fill="url(#i-bT2)"/><circle cx="69" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
                             <path d="M42,20L43.5,14L47,18L50.5,11L54,17L57.5,11L61,18L64.5,14L66,20Z" fill="url(#i-crownG)" stroke-width="0.5" stroke="#BF8F00"/>
                             <rect x="42" y="20" width="24" height="3" fill="url(#i-crownB)"/>
-                            <circle cx="47" cy="17.5" r="1.5" fill="#EE5A52"/>
-                            <circle cx="54" cy="16.5" r="1.8" fill="#339AF0"/>
-                            <circle cx="61" cy="17.5" r="1.5" fill="#51CF66"/>
-                            <circle cx="47" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/>
-                            <circle cx="54" cy="16.5" r="0.7" fill="#FFFFFF" fill-opacity="0.5"/>
-                            <circle cx="61" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/>
-                            <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" fill="url(#i-diceL)"/>
-                            <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
-                            <circle cx="22" cy="73.5" r="1.2" fill="#C92A2A"/>
-                            <circle cx="22" cy="77.5" r="1.2" fill="#C92A2A"/>
-                            <circle cx="22" cy="81.5" r="1.2" fill="#C92A2A"/>
-                            <circle cx="28" cy="73.5" r="1.2" fill="#C92A2A"/>
-                            <circle cx="28" cy="77.5" r="1.2" fill="#C92A2A"/>
-                            <circle cx="28" cy="81.5" r="1.2" fill="#C92A2A"/>
-                            <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" fill="url(#i-diceR)"/>
-                            <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
-                            <circle cx="80" cy="75" r="1.2" fill="#1864AB"/>
-                            <circle cx="86" cy="75" r="1.2" fill="#1864AB"/>
-                            <circle cx="83" cy="79.5" r="1.2" fill="#1864AB"/>
-                            <circle cx="80" cy="84" r="1.2" fill="#1864AB"/>
-                            <circle cx="86" cy="84" r="1.2" fill="#1864AB"/>
+                            <circle cx="47" cy="17.5" r="1.5" fill="#EE5A52"/><circle cx="54" cy="16.5" r="1.8" fill="#339AF0"/><circle cx="61" cy="17.5" r="1.5" fill="#51CF66"/>
+                            <circle cx="47" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/><circle cx="54" cy="16.5" r="0.7" fill="#FFFFFF" fill-opacity="0.5"/><circle cx="61" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/>
+                            <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" fill="url(#i-diceL)"/><rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
+                            <circle cx="22" cy="73.5" r="1.2" fill="#C92A2A"/><circle cx="22" cy="77.5" r="1.2" fill="#C92A2A"/><circle cx="22" cy="81.5" r="1.2" fill="#C92A2A"/><circle cx="28" cy="73.5" r="1.2" fill="#C92A2A"/><circle cx="28" cy="77.5" r="1.2" fill="#C92A2A"/><circle cx="28" cy="81.5" r="1.2" fill="#C92A2A"/>
+                            <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" fill="url(#i-diceR)"/><rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
+                            <circle cx="80" cy="75" r="1.2" fill="#1864AB"/><circle cx="86" cy="75" r="1.2" fill="#1864AB"/><circle cx="83" cy="79.5" r="1.2" fill="#1864AB"/><circle cx="80" cy="84" r="1.2" fill="#1864AB"/><circle cx="86" cy="84" r="1.2" fill="#1864AB"/>
                             <path d="M28,30L29,27L30,30L33,31L30,32L29,35L28,32L25,31Z" fill="#FFD700" fill-opacity="0.7"/>
                             <path d="M78,28L79,25.5L80,28L82.5,29L80,30L79,32.5L78,30L75.5,29Z" fill="#FFD700" fill-opacity="0.5"/>
                             <path d="M54,88L55.5,84L57,88L61,89.5L57,91L55.5,95L54,91L50,89.5Z" fill="#FFD700" fill-opacity="0.6"/>
-                            <circle cx="20" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/>
-                            <circle cx="88" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/>
-                            <circle cx="15" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/>
-                            <circle cx="93" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/>
+                            <circle cx="20" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/><circle cx="88" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/>
+                            <circle cx="15" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/><circle cx="93" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/>
                             <path d="M37,46L38,44.5L39,46L40.5,47L39,48L38,49.5L37,48L35.5,47Z" fill="#FFD700" fill-opacity="0.8"/>
                             <path d="M55,31L56,29.5L57,31L58.5,32L57,33L56,34.5L55,33L53.5,32Z" fill="#FFD700" fill-opacity="0.8"/>
                             <path d="M69,48L70,46.5L71,48L72.5,49L71,50L70,51.5L69,50L67.5,49Z" fill="#FFD700" fill-opacity="0.8"/>
@@ -563,10 +692,10 @@
                     </div>
                     <h3>Roll Master Quest: Ludo Game</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>⭐ 4.8</b><span>7 MB</span></div><a href="https://github.com/LihkaGames/Roll-Master-Quest-Ludo-Game/releases/download/v1.0.0/Roll.Master.Quest.apk" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.8</b><span>7 MB</span></div><a href="https://github.com/LihkaGames/Roll-Master-Quest-Ludo-Game/releases/download/v1.0.0/Roll.Master.Quest.apk" class="dl">⬇ Download</a>
                 </div>
 
-                <!-- ✅ SERPENT SURGE - UPDATED WITH SVG LOGO -->
+                <!-- Serpent Surge - Grid Card -->
                 <div class="card">
                     <div class="card-ico" style="background:linear-gradient(135deg,#1A1A2E,#16213E);padding:8px;display:flex;align-items:center;justify-content:center;">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
@@ -601,14 +730,78 @@
                     </div>
                     <h3>Serpent Surge</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>⭐ 4.4</b><span>6 MB</span></div><a href="https://github.com/LihkaGames/Serpent-Surge-Game/releases/download/v1.0.0/Serpent.Surge.apk" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.4</b><span>6 MB</span></div><a href="https://github.com/LihkaGames/Serpent-Surge-Game/releases/download/v1.0.0/Serpent.Surge.apk" class="dl">⬇ Download</a>
                 </div>
 
+                <!-- ✅ TURBO TRAIL RACER - UPDATED WITH SVG LOGO -->
                 <div class="card">
-                    <div class="card-ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">♟️</div>
-                    <h3>Chess Master</h3>
+                    <div class="card-ico" style="background:linear-gradient(135deg,#1A237E,#0D47A1);padding:8px;display:flex;align-items:center;justify-content:center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <defs><clipPath id="c"><rect x="10" y="10" width="492" height="492" rx="56"/></clipPath></defs>
+                            <rect width="512" height="512" rx="56" fill="#1A237E"/>
+                            <rect x="10" y="10" width="492" height="492" rx="56" fill="#0D47A1"/>
+                            <g clip-path="url(#c)">
+                            <rect x="10" y="10" width="492" height="170" fill="#1565C0"/>
+                            <rect x="10" y="150" width="492" height="90" fill="#1976D2"/>
+                            <rect x="10" y="210" width="492" height="80" fill="#2196F3"/>
+                            <circle cx="400" cy="80" r="45" fill="#FFD54F"/><circle cx="400" cy="80" r="35" fill="#FFECB3"/>
+                            <g fill="#FFD54F"><path d="M400,25l4,15h-8z"/><path d="M400,135l4-15h-8z"/><path d="M345,80l15-4v8z"/><path d="M455,80l-15-4v8z"/><path d="M361,41l9,12-6,4z"/><path d="M439,119l-9-12 6-4z"/><path d="M439,41l-9,12 6,4z"/><path d="M361,119l9-12-6-4z"/></g>
+                            <g fill="#64B5F6" opacity=".6"><ellipse cx="80" cy="100" rx="20" ry="14"/><ellipse cx="105" cy="95" rx="18" ry="12"/><ellipse cx="60" cy="95" rx="15" ry="10"/></g>
+                            <g fill="#64B5F6" opacity=".5"><ellipse cx="230" cy="70" rx="22" ry="15"/><ellipse cx="258" cy="65" rx="20" ry="13"/></g>
+                            <g fill="#90CAF9" opacity=".4"><ellipse cx="160" cy="140" rx="16" ry="10"/><ellipse cx="180" cy="136" rx="14" ry="9"/></g>
+                            <path d="M10,310L100,190l50,40 50-50 80,80 50-40 90,60 82-50v80H10z" fill="#1B5E20" opacity=".5"/>
+                            <path d="M10,330L80,250l60,40 70-50 60,40 80-30 80,50 72-30v60H10z" fill="#2E7D32" opacity=".6"/>
+                            <path d="M10,420v-40q70,0 110-20 40-20 80-50 20-15 40,0 40,30 80,60 60,40 120,25 35-7 62,5v20H10z" fill="#388E3C"/>
+                            <path d="M10,420v-30q70,0 110-18 40-20 80-50 18-14 36-4 39,27 84,60 60,37 120,24 35-7 62,5v13H10z" fill="#43A047"/>
+                            <path d="M10,420v-22q70,0 110-18 40-20 80-48 15-12 30-4 40,24 90,56 60,34 120,23 35-7 62,5v8H10z" fill="#4CAF50"/>
+                            <path d="M10,420h492v36q0,46-56,46H66q-56,0-56-46z" fill="#5D4037"/>
+                            <path d="M10,440h492M10,460h492M10,480h492" stroke="#4E342E" stroke-width="1.5" fill="none"/>
+                            <g fill="#4E342E"><ellipse cx="80" cy="445" rx="4" ry="3"/><ellipse cx="200" cy="455" rx="5" ry="3"/><ellipse cx="350" cy="448" rx="6" ry="3"/><ellipse cx="450" cy="465" rx="4" ry="2"/></g>
+                            <g stroke-width="2.5" stroke-linecap="round" fill="none"><path d="M100,370l5-15 5,15M155,348l5-15 5,15M280,365l5-13 5,13" stroke="#2E7D32"/><path d="M106,370l6-18 6,18M420,400l5-12 5,12" stroke="#388E3C"/><path d="M350,385l5-13 5,13" stroke="#2E7D32" stroke-width="2"/></g>
+                            <ellipse cx="180" cy="395" rx="50" ry="8" fill="#1B5E20" opacity=".35"/>
+                            <g stroke="#78909C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M145,330l-5-20h10l-5-20"/><path d="M260,310l-5-20h10l-5-20"/></g>
+                            <path d="M125,310l20,5 105-20 20-5z" fill="#37474F"/>
+                            <g id="w"><circle r="32" fill="#212121"/><circle r="28" fill="#424242"/><circle r="22" fill="#212121"/><circle r="14" fill="#B0BEC5"/><circle r="10" fill="#90A4AE"/><circle r="5" fill="#CFD8DC"/><g stroke="#78909C" fill="none"><path d="M0-14v28M-14,0h28" stroke-width="2.5"/><path d="M-10-10l20,20M-10,10l20-20" stroke-width="2"/></g><g stroke="#616161" stroke-width="3" stroke-linecap="round" fill="none"><path d="M0-32v6M0,26v6M-32,0h6M26,0h6"/><path d="M-23-23l4,4M19,19l4,4M-23,23l4-4M19-19l4-4"/></g></g>
+                            <use href="#w" x="145" y="340"/>
+                            <use href="#w" x="265" y="318"/>
+                            <path d="M120,295l10-10 25-5 45-12 45-13 30-5 10,5 3,10-6,10-22,7-105,23-25,5-10-2z" fill="#E53935"/>
+                            <path d="M130,285l25-5 45-12 45-13 30-5 5,3-35,7-45,13-45,12-25,5z" fill="#EF5350"/>
+                            <path d="M170,275l15-35 10-5 45-13 15,3 3,15-3,12-55,17-25,7z" fill="#C62828"/>
+                            <path d="M170,275l15-35 10-5 45-13 15,3 3,15-3,12" stroke="#B71C1C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <path d="M190,268l8-23 37-11 8,6-3,15-40,10z" fill="#29B6F6"/>
+                            <path d="M198,245l5,0-7,17-3,1z" fill="#4FC3F7" opacity=".7"/>
+                            <path d="M215,257l7-19" stroke="#0288D1" stroke-width="2" fill="none"/>
+                            <path d="M275,250l20-5 3,5-3,10-10,3-5-3z" fill="#B71C1C"/>
+                            <ellipse cx="290" cy="248" rx="5" ry="4" fill="#FFF9C4"/><ellipse cx="290" cy="248" rx="3" ry="2" fill="#FFF"/>
+                            <path d="M115,298l5-3v15l-5,2-5-4z" fill="#B71C1C"/>
+                            <ellipse cx="113" cy="300" rx="3" ry="4" fill="#FF7043"/>
+                            <path d="M135,293l125-33v5L135,298z" fill="#FF8F00" opacity=".8"/>
+                            <path d="M108,305l-10,3-2-3 9-3z" fill="#78909C"/>
+                            <path d="M98,305Q70,300 55,310 65,295 80,298 60,280 50,290 65,270 82,290 75,265 90,285 88,275 95,290L98,300z" fill="#FF6D00"/>
+                            <path d="M98,304Q78,300 68,306 75,295 85,298 72,285 65,292 78,278 88,292 85,280 93,290L96,300z" fill="#FF9100"/>
+                            <path d="M98,303Q85,300 78,304 82,296 88,298 82,290 78,295 85,285 90,294 88,288 93,293L96,300z" fill="#FFAB00"/>
+                            <path d="M98,302Q90,300 86,303 88,298 92,299 90,294 93,296L96,300z" fill="#FFD600"/>
+                            <g stroke="#FFF" stroke-linecap="round" fill="none"><path d="M50,265l45-7" stroke-width="3" opacity=".7"/><path d="M35,280l50-5" stroke-width="2.5" opacity=".6"/><path d="M45,295l35-5" stroke-width="2" opacity=".5"/><path d="M55,250l35-5" stroke-width="2" opacity=".5"/><path d="M40,310l35-5" stroke-width="1.5" opacity=".4"/></g>
+                            <g><ellipse cx="90" cy="370" rx="12" ry="8" fill="#8D6E63" opacity=".5"/><ellipse cx="70" cy="365" rx="10" ry="7" fill="#A1887F" opacity=".4"/><ellipse cx="55" cy="358" rx="8" ry="5" fill="#BCAAA4" opacity=".3"/><ellipse cx="105" cy="378" rx="8" ry="5" fill="#8D6E63" opacity=".4"/></g>
+                            <g><circle cx="75" cy="350" r="3" fill="#795548" opacity=".6"/><circle cx="55" cy="345" r="2" fill="#795548" opacity=".5"/><circle cx="95" cy="355" r="2" fill="#6D4C41" opacity=".6"/><circle cx="65" cy="340" r="2" fill="#795548" opacity=".4"/><circle cx="45" cy="355" r="2" fill="#8D6E63" opacity=".4"/></g>
+                            <path d="M340,160l5-15 5,15 15-5-13,10 8,13-13-8-7,12v-14l-15,2z" fill="#FFD54F"/>
+                            <path d="M60,180l3-8 3,8 8-2-6,5 3,7-6-4-5,6v-7l-8,2z" fill="#FFF176" opacity=".8"/>
+                            <path d="M440,160l2-5 2,5 5-1-4,3 2,5-4-3-3,4v-5l-5,1z" fill="#FFF176" opacity=".7"/>
+                            <path d="M310,120l2-5 2,5 5-1-4,3 2,5-4-3-3,4v-5l-5,1z" fill="#FFEE58" opacity=".6"/>
+                            <path d="M295,248l45-18 5,10-47,12z" fill="#FFF9C4" opacity=".2"/>
+                            <path d="M295,248l65-23 5,7-67,18z" fill="#FFF9C4" opacity=".1"/>
+                            </g>
+                            <rect width="512" height="512" rx="56" stroke="#FF6D00" stroke-width="6" fill="none"/>
+                            <rect x="4" y="4" width="504" height="504" rx="56" stroke="#FFB300" stroke-width="2" fill="none"/>
+                            <circle cx="430" cy="410" r="28" fill="#FF6D00"/><circle cx="430" cy="410" r="24" fill="#FFB300"/><circle cx="430" cy="410" r="20" fill="#FFF"/>
+                            <g fill="#212121"><rect x="420" y="400" width="10" height="10"/><rect x="430" y="410" width="10" height="10"/></g>
+                            <path d="M195,235l-7-35" stroke="#78909C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <path d="M188,200l17-5v13l-17,4z" fill="#FF6D00"/><path d="M188,200l17-5v6l-17,5z" fill="#FFB300"/>
+                        </svg>
+                    </div>
+                    <h3>Turbo Trail Racer</h3>
                     <div class="sub">Lihka Games</div>
-                    <div class="meta"><b>⭐ 4.9</b><span>30 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.9</b><span>17 MB</span></div><a href="https://github.com/LihkaGames/Turbo-Trail-Racer-Game/releases/download/v1.0.0/Turbo.Trail.Racer.apk" class="dl">⬇ Download</a>
                 </div>
             </div>
         </div>
@@ -624,37 +817,37 @@
                     <div class="card-ico" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">📸</div>
                     <h3>PhotoEdit Pro</h3>
                     <div class="sub">CreativeApps</div>
-                    <div class="meta"><b>⭐ 4.4</b><span>48 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.4</b><span>48 MB</span></div><a href="#" class="dl">⬇ Download</a>
                 </div>
                 <div class="card">
                     <div class="card-ico" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">📝</div>
                     <h3>CloudNote Plus</h3>
                     <div class="sub">ProductivityPro</div>
-                    <div class="meta"><b>⭐ 4.6</b><span>28 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.6</b><span>28 MB</span></div><a href="#" class="dl">⬇ Download</a>
                 </div>
                 <div class="card">
                     <div class="card-ico" style="background:linear-gradient(135deg,#f5576c,#ff9a9e)">💪</div>
                     <h3>FitTrack Health</h3>
                     <div class="sub">HealthTech</div>
-                    <div class="meta"><b>⭐ 4.3</b><span>42 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.3</b><span>42 MB</span></div><a href="#" class="dl">⬇ Download</a>
                 </div>
                 <div class="card">
                     <div class="card-ico" style="background:linear-gradient(135deg,#a855f7,#6366f1)">🎵</div>
                     <h3>MusicBox Stream</h3>
                     <div class="sub">SoundWave</div>
-                    <div class="meta"><b>⭐ 4.5</b><span>55 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.5</b><span>55 MB</span></div><a href="#" class="dl">⬇ Download</a>
                 </div>
                 <div class="card">
                     <div class="card-ico" style="background:linear-gradient(135deg,#ff0844,#ffb199)">🎬</div>
                     <h3>VideoMaker</h3>
                     <div class="sub">CreativeApps</div>
-                    <div class="meta"><b>⭐ 4.6</b><span>68 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.6</b><span>68 MB</span></div><a href="#" class="dl">⬇ Download</a>
                 </div>
                 <div class="card">
                     <div class="card-ico" style="background:linear-gradient(135deg,#667eea,#764ba2)">💬</div>
                     <h3>Social Connect</h3>
                     <div class="sub">NetSphere</div>
-                    <div class="meta"><b>⭐ 4.0</b><span>40 MB</span></div><a href="#" class="dl">Download</a>
+                    <div class="meta"><b>⭐ 4.0</b><span>40 MB</span></div><a href="#" class="dl">⬇ Download</a>
                 </div>
             </div>
         </div>
@@ -714,14 +907,10 @@
                                         <radialGradient id="t-outerGlow" cx="54" cy="48" r="28" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD700" stop-opacity="0"/><stop offset="0.8" stop-color="#FFD700" stop-opacity="0.2"/><stop offset="1" stop-color="#FFD700" stop-opacity="0"/></radialGradient>
                                     </defs>
                                     <path d="M36,30h36v48h-36z" fill="#000000" fill-opacity="0.08"/>
-                                    <path d="M34,28h16v16h-16z" fill="url(#t-redQ)"/>
-                                    <path d="M34,28h16v16h-16z" stroke-width="0.5" stroke="#D63031" fill="none"/>
-                                    <path d="M58,28h16v16h-16z" fill="url(#t-greenQ)"/>
-                                    <path d="M58,28h16v16h-16z" stroke-width="0.5" stroke="#2B8A3E" fill="none"/>
-                                    <path d="M34,52h16v16h-16z" fill="url(#t-yellowQ)"/>
-                                    <path d="M34,52h16v16h-16z" stroke-width="0.5" stroke="#F59F00" fill="none"/>
-                                    <path d="M58,52h16v16h-16z" fill="url(#t-blueQ)"/>
-                                    <path d="M58,52h16v16h-16z" stroke-width="0.5" stroke="#1864AB" fill="none"/>
+                                    <path d="M34,28h16v16h-16z" fill="url(#t-redQ)"/><path d="M34,28h16v16h-16z" stroke-width="0.5" stroke="#D63031" fill="none"/>
+                                    <path d="M58,28h16v16h-16z" fill="url(#t-greenQ)"/><path d="M58,28h16v16h-16z" stroke-width="0.5" stroke="#2B8A3E" fill="none"/>
+                                    <path d="M34,52h16v16h-16z" fill="url(#t-yellowQ)"/><path d="M34,52h16v16h-16z" stroke-width="0.5" stroke="#F59F00" fill="none"/>
+                                    <path d="M58,52h16v16h-16z" fill="url(#t-blueQ)"/><path d="M58,52h16v16h-16z" stroke-width="0.5" stroke="#1864AB" fill="none"/>
                                     <path d="M50,28h8v16h-8z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0"/>
                                     <path d="M50,52h8v16h-8z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0"/>
                                     <path d="M34,44h16v8h-16z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0"/>
@@ -733,52 +922,27 @@
                                     <path d="M50,48L54,52L54,44Z" fill="#FFD43B" fill-opacity="0.85"/>
                                     <path d="M54,44L58,48L54,52L50,48Z" stroke-width="0.6" stroke="#E67700" fill="none"/>
                                     <circle cx="54" cy="48" r="1.8" fill="#FFFFFF" fill-opacity="0.9"/>
-                                    <circle cx="39" cy="33" r="3.5" fill="url(#t-rT1)"/>
-                                    <circle cx="39" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                                    <circle cx="45" cy="39" r="3.5" fill="url(#t-rT2)"/>
-                                    <circle cx="45" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                                    <circle cx="63" cy="33" r="3.5" fill="url(#t-gT1)"/>
-                                    <circle cx="63" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                                    <circle cx="69" cy="39" r="3.5" fill="url(#t-gT2)"/>
-                                    <circle cx="69" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                                    <circle cx="39" cy="57" r="3.5" fill="url(#t-yT1)"/>
-                                    <circle cx="39" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                                    <circle cx="45" cy="63" r="3.5" fill="url(#t-yT2)"/>
-                                    <circle cx="45" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                                    <circle cx="63" cy="57" r="3.5" fill="url(#t-bT1)"/>
-                                    <circle cx="63" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
-                                    <circle cx="69" cy="63" r="3.5" fill="url(#t-bT2)"/>
-                                    <circle cx="69" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="39" cy="33" r="3.5" fill="url(#t-rT1)"/><circle cx="39" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="45" cy="39" r="3.5" fill="url(#t-rT2)"/><circle cx="45" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="63" cy="33" r="3.5" fill="url(#t-gT1)"/><circle cx="63" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="69" cy="39" r="3.5" fill="url(#t-gT2)"/><circle cx="69" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="39" cy="57" r="3.5" fill="url(#t-yT1)"/><circle cx="39" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="45" cy="63" r="3.5" fill="url(#t-yT2)"/><circle cx="45" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="63" cy="57" r="3.5" fill="url(#t-bT1)"/><circle cx="63" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
+                                    <circle cx="69" cy="63" r="3.5" fill="url(#t-bT2)"/><circle cx="69" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6"/>
                                     <path d="M42,20L43.5,14L47,18L50.5,11L54,17L57.5,11L61,18L64.5,14L66,20Z" fill="url(#t-crownG)" stroke-width="0.5" stroke="#BF8F00"/>
                                     <rect x="42" y="20" width="24" height="3" fill="url(#t-crownB)"/>
-                                    <circle cx="47" cy="17.5" r="1.5" fill="#EE5A52"/>
-                                    <circle cx="54" cy="16.5" r="1.8" fill="#339AF0"/>
-                                    <circle cx="61" cy="17.5" r="1.5" fill="#51CF66"/>
-                                    <circle cx="47" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/>
-                                    <circle cx="54" cy="16.5" r="0.7" fill="#FFFFFF" fill-opacity="0.5"/>
-                                    <circle cx="61" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/>
-                                    <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" fill="url(#t-diceL)"/>
-                                    <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
-                                    <circle cx="22" cy="73.5" r="1.2" fill="#C92A2A"/>
-                                    <circle cx="22" cy="77.5" r="1.2" fill="#C92A2A"/>
-                                    <circle cx="22" cy="81.5" r="1.2" fill="#C92A2A"/>
-                                    <circle cx="28" cy="73.5" r="1.2" fill="#C92A2A"/>
-                                    <circle cx="28" cy="77.5" r="1.2" fill="#C92A2A"/>
-                                    <circle cx="28" cy="81.5" r="1.2" fill="#C92A2A"/>
-                                    <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" fill="url(#t-diceR)"/>
-                                    <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
-                                    <circle cx="80" cy="75" r="1.2" fill="#1864AB"/>
-                                    <circle cx="86" cy="75" r="1.2" fill="#1864AB"/>
-                                    <circle cx="83" cy="79.5" r="1.2" fill="#1864AB"/>
-                                    <circle cx="80" cy="84" r="1.2" fill="#1864AB"/>
-                                    <circle cx="86" cy="84" r="1.2" fill="#1864AB"/>
+                                    <circle cx="47" cy="17.5" r="1.5" fill="#EE5A52"/><circle cx="54" cy="16.5" r="1.8" fill="#339AF0"/><circle cx="61" cy="17.5" r="1.5" fill="#51CF66"/>
+                                    <circle cx="47" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/><circle cx="54" cy="16.5" r="0.7" fill="#FFFFFF" fill-opacity="0.5"/><circle cx="61" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5"/>
+                                    <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" fill="url(#t-diceL)"/><rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
+                                    <circle cx="22" cy="73.5" r="1.2" fill="#C92A2A"/><circle cx="22" cy="77.5" r="1.2" fill="#C92A2A"/><circle cx="22" cy="81.5" r="1.2" fill="#C92A2A"/><circle cx="28" cy="73.5" r="1.2" fill="#C92A2A"/><circle cx="28" cy="77.5" r="1.2" fill="#C92A2A"/><circle cx="28" cy="81.5" r="1.2" fill="#C92A2A"/>
+                                    <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" fill="url(#t-diceR)"/><rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5" stroke="#CED4DA" fill="none"/>
+                                    <circle cx="80" cy="75" r="1.2" fill="#1864AB"/><circle cx="86" cy="75" r="1.2" fill="#1864AB"/><circle cx="83" cy="79.5" r="1.2" fill="#1864AB"/><circle cx="80" cy="84" r="1.2" fill="#1864AB"/><circle cx="86" cy="84" r="1.2" fill="#1864AB"/>
                                     <path d="M28,30L29,27L30,30L33,31L30,32L29,35L28,32L25,31Z" fill="#FFD700" fill-opacity="0.7"/>
                                     <path d="M78,28L79,25.5L80,28L82.5,29L80,30L79,32.5L78,30L75.5,29Z" fill="#FFD700" fill-opacity="0.5"/>
                                     <path d="M54,88L55.5,84L57,88L61,89.5L57,91L55.5,95L54,91L50,89.5Z" fill="#FFD700" fill-opacity="0.6"/>
-                                    <circle cx="20" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/>
-                                    <circle cx="88" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/>
-                                    <circle cx="15" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/>
-                                    <circle cx="93" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/>
+                                    <circle cx="20" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/><circle cx="88" cy="48" r="1" fill="#FFD700" fill-opacity="0.4"/>
+                                    <circle cx="15" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/><circle cx="93" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3"/>
                                     <path d="M37,46L38,44.5L39,46L40.5,47L39,48L38,49.5L37,48L35.5,47Z" fill="#FFD700" fill-opacity="0.8"/>
                                     <path d="M55,31L56,29.5L57,31L58.5,32L57,33L56,34.5L55,33L53.5,32Z" fill="#FFD700" fill-opacity="0.8"/>
                                     <path d="M69,48L70,46.5L71,48L72.5,49L71,50L70,51.5L69,50L67.5,49Z" fill="#FFD700" fill-opacity="0.8"/>
@@ -797,57 +961,17 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
                                     <path d="M16.3,88.8 Q54,99 91.7,88.8 Q94.6,81.6 91.7,74.2 Q54,64.2 16.3,74.2 Q13.4,81.6 16.3,88.8z" fill="#000000" fill-opacity="0.12"/>
                                     <path d="M22.1,85.9 Q54,93.2 85.9,85.9 Q88.8,80.1 85.9,75.7 Q54,68.6 22.1,75.7 Q19.2,80.1 22.1,85.9z" fill="#000000" fill-opacity="0.08"/>
-                                    <g>
-                                        <path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1"/>
-                                        <path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5"/>
-                                        <path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5"/>
-                                    </g>
-                                    <g>
-                                        <path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593"/>
-                                        <path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0"/>
-                                        <path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5"/>
-                                    </g>
-                                    <g>
-                                        <path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0"/>
-                                        <path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2"/>
-                                        <path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7"/>
-                                    </g>
-                                    <g>
-                                        <path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C"/>
-                                        <path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A"/>
-                                        <path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688"/>
-                                    </g>
-                                    <g>
-                                        <path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F"/>
-                                        <path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA"/>
-                                        <path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4"/>
-                                    </g>
-                                    <g>
-                                        <path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457"/>
-                                        <path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A"/>
-                                        <path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63"/>
-                                    </g>
-                                    <g>
-                                        <path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32"/>
-                                        <path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A"/>
-                                        <path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50"/>
-                                    </g>
-                                    <g>
-                                        <path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100"/>
-                                        <path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726"/>
-                                        <path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800"/>
-                                    </g>
-                                    <g>
-                                        <path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C"/>
-                                        <path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350"/>
-                                        <path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336"/>
-                                    </g>
+                                    <g><path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1"/><path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5"/><path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5"/></g>
+                                    <g><path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593"/><path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0"/><path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5"/></g>
+                                    <g><path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0"/><path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2"/><path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7"/></g>
+                                    <g><path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C"/><path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A"/><path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688"/></g>
+                                    <g><path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F"/><path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA"/><path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4"/></g>
+                                    <g><path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457"/><path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A"/><path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63"/></g>
+                                    <g><path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32"/><path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A"/><path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50"/></g>
+                                    <g><path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100"/><path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726"/><path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800"/></g>
+                                    <g><path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C"/><path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350"/><path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336"/></g>
                                     <path d="M39.5,45.3 Q54,51.1 68.5,45.3 Q69.9,42.4 68.5,39.5 Q54,33.7 39.5,39.5 Q38.1,42.4 39.5,45.3z" fill="#000000" fill-opacity="0.15"/>
-                                    <g>
-                                        <path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825"/>
-                                        <path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58"/>
-                                        <path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600"/>
-                                    </g>
+                                    <g><path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825"/><path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58"/><path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600"/></g>
                                 </svg>
                             </div>
                             <div class="info">
@@ -856,11 +980,49 @@
                             <a href="https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
                                 class="dl" download>⬇ Download</a>
                         </div>
+
+                        <!-- ✅ TURBO TRAIL RACER - TOP CHARTS WITH SVG LOGO -->
                         <div class="lst-item"><span class="num">4</span>
-                            <div class="ico" style="background:linear-gradient(135deg,#2b5876,#4e4376)">♟️</div>
+                            <div class="ico" style="background:linear-gradient(135deg,#1A237E,#0D47A1);padding:4px;display:flex;align-items:center;justify-content:center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <defs><clipPath id="c2"><rect x="10" y="10" width="492" height="492" rx="56"/></clipPath></defs>
+                                    <rect width="512" height="512" rx="56" fill="#1A237E"/>
+                                    <rect x="10" y="10" width="492" height="492" rx="56" fill="#0D47A1"/>
+                                    <g clip-path="url(#c2)">
+                                    <rect x="10" y="10" width="492" height="170" fill="#1565C0"/>
+                                    <rect x="10" y="150" width="492" height="90" fill="#1976D2"/>
+                                    <rect x="10" y="210" width="492" height="80" fill="#2196F3"/>
+                                    <circle cx="400" cy="80" r="45" fill="#FFD54F"/><circle cx="400" cy="80" r="35" fill="#FFECB3"/>
+                                    <g fill="#FFD54F"><path d="M400,25l4,15h-8z"/><path d="M400,135l4-15h-8z"/><path d="M345,80l15-4v8z"/><path d="M455,80l-15-4v8z"/><path d="M361,41l9,12-6,4z"/><path d="M439,119l-9-12 6-4z"/><path d="M439,41l-9,12 6,4z"/><path d="M361,119l9-12-6-4z"/></g>
+                                    <g fill="#64B5F6" opacity=".6"><ellipse cx="80" cy="100" rx="20" ry="14"/><ellipse cx="105" cy="95" rx="18" ry="12"/><ellipse cx="60" cy="95" rx="15" ry="10"/></g>
+                                    <g fill="#64B5F6" opacity=".5"><ellipse cx="230" cy="70" rx="22" ry="15"/><ellipse cx="258" cy="65" rx="20" ry="13"/></g>
+                                    <path d="M10,310L100,190l50,40 50-50 80,80 50-40 90,60 82-50v80H10z" fill="#1B5E20" opacity=".5"/>
+                                    <path d="M10,330L80,250l60,40 70-50 60,40 80-30 80,50 72-30v60H10z" fill="#2E7D32" opacity=".6"/>
+                                    <path d="M10,420v-40q70,0 110-20 40-20 80-50 20-15 40,0 40,30 80,60 60,40 120,25 35-7 62,5v20H10z" fill="#388E3C"/>
+                                    <path d="M10,420v-30q70,0 110-18 40-20 80-50 18-14 36-4 39,27 84,60 60,37 120,24 35-7 62,5v13H10z" fill="#43A047"/>
+                                    <path d="M10,420v-22q70,0 110-18 40-20 80-48 15-12 30-4 40,24 90,56 60,34 120,23 35-7 62,5v8H10z" fill="#4CAF50"/>
+                                    <path d="M10,420h492v36q0,46-56,46H66q-56,0-56-46z" fill="#5D4037"/>
+                                    <ellipse cx="180" cy="395" rx="50" ry="8" fill="#1B5E20" opacity=".35"/>
+                                    <path d="M125,310l20,5 105-20 20-5z" fill="#37474F"/>
+                                    <path d="M120,295l10-10 25-5 45-12 45-13 30-5 10,5 3,10-6,10-22,7-105,23-25,5-10-2z" fill="#E53935"/>
+                                    <path d="M130,285l25-5 45-12 45-13 30-5 5,3-35,7-45,13-45,12-25,5z" fill="#EF5350"/>
+                                    <path d="M170,275l15-35 10-5 45-13 15,3 3,15-3,12-55,17-25,7z" fill="#C62828"/>
+                                    <path d="M190,268l8-23 37-11 8,6-3,15-40,10z" fill="#29B6F6"/>
+                                    <path d="M135,293l125-33v5L135,298z" fill="#FF8F00" opacity=".8"/>
+                                    <path d="M98,305Q70,300 55,310 65,295 80,298 60,280 50,290 65,270 82,290 75,265 90,285 88,275 95,290L98,300z" fill="#FF6D00"/>
+                                    <path d="M98,304Q78,300 68,306 75,295 85,298 72,285 65,292 78,278 88,292 85,280 93,290L96,300z" fill="#FF9100"/>
+                                    <path d="M98,303Q85,300 78,304 82,296 88,298 82,290 78,295 85,285 90,294 88,288 93,293L96,300z" fill="#FFAB00"/>
+                                    <g stroke="#FFF" stroke-linecap="round" fill="none"><path d="M50,265l45-7" stroke-width="3" opacity=".7"/><path d="M35,280l50-5" stroke-width="2.5" opacity=".6"/><path d="M45,295l35-5" stroke-width="2" opacity=".5"/></g>
+                                    </g>
+                                    <rect width="512" height="512" rx="56" stroke="#FF6D00" stroke-width="6" fill="none"/>
+                                    <rect x="4" y="4" width="504" height="504" rx="56" stroke="#FFB300" stroke-width="2" fill="none"/>
+                                    <circle cx="430" cy="410" r="28" fill="#FF6D00"/><circle cx="430" cy="410" r="24" fill="#FFB300"/><circle cx="430" cy="410" r="20" fill="#FFF"/>
+                                    <g fill="#212121"><rect x="420" y="400" width="10" height="10"/><rect x="430" y="410" width="10" height="10"/></g>
+                                </svg>
+                            </div>
                             <div class="info">
-                                <h4>Chess Grandmaster</h4><small>⭐ 4.9 &bull; 8M+ &bull; 30 MB</small>
-                            </div><a href="#" class="dl">⬇ Download</a>
+                                <h4>Turbo Trail Racer</h4><small>⭐ 4.9 &bull; 17 MB</small>
+                            </div><a href="https://github.com/LihkaGames/Turbo-Trail-Racer-Game/releases/download/v1.0.0/Turbo.Trail.Racer.apk" class="dl">⬇ Download</a>
                         </div>
                     </div>
                 </div>
