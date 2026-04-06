@@ -877,6 +877,7 @@ if (window.location.pathname.includes('search.html')) {
         });
     }
 
+<<<<<<< HEAD
     if (query) {
         queryDisplay.textContent = query;
         searchInput.value = query;
@@ -954,3 +955,6 @@ if (window.location.pathname.includes('search.html')) {
         `;
     }
 }
+=======
+})();
+>>>>>>> c8bcd11005bcaa037708d8e5f8e0db0d634dd689
