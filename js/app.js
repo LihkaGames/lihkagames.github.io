@@ -1,1346 +1,169 @@
 // =============================================
-// Lihka Games - Main JavaScript
+// Lihka Games - app.js
 // =============================================
-
 (function () {
-    'use strict';
+  'use strict';
 
-    // ===== DOM Elements =====
-    const menuBtn = document.querySelector('.menu-btn');
-    const mobNav = document.querySelector('.mob-nav');
-    const mobClose = document.querySelector('.mob-close');
-    const mobOverlay = document.querySelector('.mob-overlay');
-    const btt = document.querySelector('.btt');
-    const headerSearch = document.getElementById('hs');
+  // ===== MOBILE MENU =====
+  const menuBtn = document.querySelector('.menu-btn');
+  const mobNav = document.querySelector('.mob-nav');
+  const mobClose = document.querySelector('.mob-close');
+  const mobOverlay = document.querySelector('.mob-overlay');
+  const btt = document.querySelector('.btt');
+  const headerSearch = document.getElementById('hs');
 
-    // ===== Mobile Menu - OPEN =====
-    function openMenu() {
-        if (mobNav) mobNav.classList.add('open');
-        if (mobOverlay) mobOverlay.classList.add('open');
-        if (menuBtn) menuBtn.classList.add('active');
-        document.body.classList.add('no-scroll');
-    }
+  function openMenu() {
+    mobNav && mobNav.classList.add('open');
+    mobOverlay && mobOverlay.classList.add('open');
+    menuBtn && menuBtn.classList.add('active');
+    document.body.classList.add('no-scroll');
+  }
 
-    // ===== Mobile Menu - CLOSE =====
-    function closeMenu() {
-        if (mobNav) mobNav.classList.remove('open');
-        if (mobOverlay) mobOverlay.classList.remove('open');
-        if (menuBtn) menuBtn.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-    }
+  function closeMenu() {
+    mobNav && mobNav.classList.remove('open');
+    mobOverlay && mobOverlay.classList.remove('open');
+    menuBtn && menuBtn.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  }
 
-    // ===== Menu Button Click =====
-    if (menuBtn) {
-        menuBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (mobNav && mobNav.classList.contains('open')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
-    }
+  menuBtn && menuBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    mobNav && mobNav.classList.contains('open') ? closeMenu() : openMenu();
+  });
 
-    // ===== Close Button Click =====
-    if (mobClose) {
-        mobClose.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            closeMenu();
-        });
-    }
+  mobClose && mobClose.addEventListener('click', closeMenu);
+  mobOverlay && mobOverlay.addEventListener('click', closeMenu);
 
-    // ===== Overlay Click to Close =====
-    if (mobOverlay) {
-        mobOverlay.addEventListener('click', function (e) {
-            e.preventDefault();
-            closeMenu();
-        });
-    }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
 
-    // ===== Close menu when clicking nav links =====
-    if (mobNav) {
-        var navLinks = mobNav.querySelectorAll('a');
-        for (var i = 0; i < navLinks.length; i++) {
-            navLinks[i].addEventListener('click', function () {
-                closeMenu();
-            });
-        }
-    }
-
-    // ===== Close menu on Escape key =====
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            closeMenu();
-        }
+  if (mobNav) {
+    mobNav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
     });
+  }
 
-    // ===== Back to Top Button =====
-    if (btt) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 300) {
-                btt.classList.add('show');
-            } else {
-                btt.classList.remove('show');
-            }
-        });
+  // ===== BACK TO TOP =====
+  if (btt) {
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('show', window.scrollY > 300);
+    });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-        btt.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+  // ===== HEADER SEARCH =====
+  if (headerSearch) {
+    function doSearch() {
+      var v = headerSearch.value.trim();
+      if (v) location.href = 'search.html?q=' + encodeURIComponent(v);
     }
-
-    // ===== Header Search =====
-    if (headerSearch) {
-        headerSearch.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') {
-                var v = headerSearch.value.trim();
-                if (v) {
-                    location.href = 'search.html?q=' + encodeURIComponent(v);
-                }
-            }
-        });
-
-        var searchBtn = headerSearch.parentElement.querySelector('button');
-        if (searchBtn) {
-            searchBtn.addEventListener('click', function () {
-                var v = headerSearch.value.trim();
-                if (v) {
-                    location.href = 'search.html?q=' + encodeURIComponent(v);
-                }
-            });
-        }
-    }
+    headerSearch.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') doSearch();
+    });
+    var searchBtn = headerSearch.parentElement.querySelector('button');
+    searchBtn && searchBtn.addEventListener('click', doSearch);
+  }
 
 })();
 
 // =============================================
-// 🔍 READ DATA FROM INDEX.HTML CARDS
-// This data is auto-synced from your HTML cards
+// SEARCH DATABASE - All Apps & Games
 // =============================================
-
-function getSearchDatabase() {
-    // Try to read from current page first (if on index.html)
-    const cards = document.querySelectorAll('#cardContainer .card');
-    
-    if (cards.length > 0) {
-        const data = [];
-        cards.forEach(card => {
-            const name = card.querySelector('h3')?.textContent || '';
-            const developer = card.querySelector('.sub')?.textContent || '';
-            const metaText = card.querySelector('.meta')?.textContent || '';
-            const rating = metaText.match(/⭐\s*([\d.]+)/)?.[1] || '0';
-            const size = metaText.match(/([\d.]+\s*[MG]B)/)?.[1] || '';
-            const dataName = card.getAttribute('data-name') || '';
-            const link = card.querySelector('.dl')?.href || '#';
-            
-            const iconDiv = card.querySelector('.card-ico');
-            const icon = iconDiv?.style.background || 'linear-gradient(135deg,#667eea,#764ba2)';
-            const svg = iconDiv?.innerHTML || '';
-            
-            const tags = dataName.split(' ').filter(tag => tag.length > 2);
-            
-            data.push({
-                name: name,
-                developer: developer,
-                rating: rating,
-                size: size,
-                type: 'game',
-                tags: tags,
-                icon: icon,
-                svg: svg,
-                link: link
-            });
-        });
-        return data;
-    }
-    
-    // Fallback: Return minimal database for search page
-    // UPDATE THIS WHEN YOU ADD NEW GAMES TO INDEX.HTML
-    return [
-        {
-            name: "Block Fusion",
-            developer: "Lihka Games",
-            rating: "4.7",
-            size: "26 MB",
-            tags: ["block", "fusion", "puzzle", "strategy", "casual", "game", "lihka"],
-            icon: "linear-gradient(135deg,#667eea,#764ba2)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
-                            <path
-                                d="M16.3,88.8 Q54,99 91.7,88.8 Q94.6,81.6 91.7,74.2 Q54,64.2 16.3,74.2 Q13.4,81.6 16.3,88.8z"
-                                fill="#000000" fill-opacity="0.12" />
-                            <path
-                                d="M22.1,85.9 Q54,93.2 85.9,85.9 Q88.8,80.1 85.9,75.7 Q54,68.6 22.1,75.7 Q19.2,80.1 22.1,85.9z"
-                                fill="#000000" fill-opacity="0.08" />
-                            <g>
-                                <path d="M34.6,36.6 L34.6,51.1 L43.3,46.8 L43.3,32.3z" fill="#0D47A1" />
-                                <path d="M17.2,32.3 L34.6,36.6 L43.3,32.3 L25.8,28z" fill="#42A5F5" />
-                                <path d="M17.2,32.3 L17.2,46.8 L34.6,51.1 L34.6,36.6z" fill="#1E88E5" />
-                            </g>
-                            <g>
-                                <path d="M54,40.9 L54,55.5 L62.7,51.1 L62.7,36.6z" fill="#283593" />
-                                <path d="M36.6,36.6 L54,40.9 L62.7,36.6 L45.2,32.3z" fill="#5C6BC0" />
-                                <path d="M36.6,36.6 L36.6,51.1 L54,55.5 L54,40.9z" fill="#3F51B5" />
-                            </g>
-                            <g>
-                                <path d="M74.3,45.3 L74.3,59.8 L83,55.5 L83,40.9z" fill="#4527A0" />
-                                <path d="M56.9,40.9 L74.3,45.3 L83,40.9 L65.6,36.6z" fill="#7E57C2" />
-                                <path d="M56.9,40.9 L56.9,55.5 L74.3,59.8 L74.3,45.3z" fill="#673AB7" />
-                            </g>
-                            <g>
-                                <path d="M34.6,48.2 L34.6,62.7 L43.3,58.4 L43.3,43.8z" fill="#00695C" />
-                                <path d="M17.2,43.8 L34.6,48.2 L43.3,43.8 L25.8,39.5z" fill="#26A69A" />
-                                <path d="M17.2,43.8 L17.2,58.4 L34.6,62.7 L34.6,48.2z" fill="#009688" />
-                            </g>
-                            <g>
-                                <path d="M54,52.5 L54,67.1 L62.7,62.7 L62.7,48.2z" fill="#00838F" />
-                                <path d="M36.6,48.2 L54,52.5 L62.7,48.2 L45.2,43.8z" fill="#26C6DA" />
-                                <path d="M36.6,48.2 L36.6,62.7 L54,67.1 L54,52.5z" fill="#00BCD4" />
-                            </g>
-                            <g>
-                                <path d="M74.3,56.9 L74.3,71.4 L83,67.1 L83,52.5z" fill="#AD1457" />
-                                <path d="M56.9,52.5 L74.3,56.9 L83,52.5 L65.6,48.2z" fill="#EC407A" />
-                                <path d="M56.9,52.5 L56.9,67.1 L74.3,71.4 L74.3,56.9z" fill="#E91E63" />
-                            </g>
-                            <g>
-                                <path d="M34.6,59.8 L34.6,74.3 L43.3,70 L43.3,55.5z" fill="#2E7D32" />
-                                <path d="M17.2,55.5 L34.6,59.8 L43.3,55.5 L25.8,51.1z" fill="#66BB6A" />
-                                <path d="M17.2,55.5 L17.2,70 L34.6,74.3 L34.6,59.8z" fill="#4CAF50" />
-                            </g>
-                            <g>
-                                <path d="M54,64.1 L54,78.7 L62.7,74.3 L62.7,59.8z" fill="#E65100" />
-                                <path d="M36.6,59.8 L54,64.1 L62.7,59.8 L45.2,55.5z" fill="#FFA726" />
-                                <path d="M36.6,59.8 L36.6,74.3 L54,78.7 L54,64.1z" fill="#FF9800" />
-                            </g>
-                            <g>
-                                <path d="M74.3,68.5 L74.3,83 L83,78.7 L83,64.1z" fill="#B71C1C" />
-                                <path d="M56.9,64.1 L74.3,68.5 L83,64.1 L65.6,59.8z" fill="#EF5350" />
-                                <path d="M56.9,64.1 L56.9,78.7 L74.3,83 L74.3,68.5z" fill="#F44336" />
-                            </g>
-                            <path
-                                d="M39.5,45.3 Q54,51.1 68.5,45.3 Q69.9,42.4 68.5,39.5 Q54,33.7 39.5,39.5 Q38.1,42.4 39.5,45.3z"
-                                fill="#000000" fill-opacity="0.15" />
-                            <g>
-                                <path d="M56.9,27.1 L56.9,41.6 L67,37.3 L67,22.7z" fill="#F9A825" />
-                                <path d="M39.5,22.7 L56.9,27.1 L67,22.7 L49.5,18.4z" fill="#FFEE58" />
-                                <path d="M39.5,22.7 L39.5,37.3 L56.9,41.6 L56.9,27.1z" fill="#FFD600" />
-                            </g>
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk"
-        },
-        {
-            name: "Blitz Storm Arena",
-            developer: "Lihka Games",
-            rating: "4.7",
-            size: "10 MB",
-            tags: ["blitz", "storm", "arena", "action", "battle", "multiplayer", "game", "lihka"],
-            icon: "linear-gradient(135deg,#0D1117,#1a1a2e)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
-                            <path d="M54,18 L86,30 L90,54 L82,74 L54,94 L26,74 L18,54 L22,30 Z" fill="#FFD700"
-                                stroke="#FFF176" stroke-width="0.8" />
-                            <path d="M54,22 L83,33 L87,54 L80,72 L54,90 L28,72 L21,54 L25,33 Z" fill="#0D1117" />
-                            <path d="M62,26 L47,52 L58,51 L42,82 L70,54 L58,55 Z" fill="#FFD700" />
-                            <path d="M60,32 L49,50 L57,49 L45,76 L66,56 L57,57 Z" fill="#FFEC80" />
-                            <path d="M58,38 L51,49 L56,48 L48,70 L62,57 L57,58 Z" fill="#FFFDE7" />
-                            <path d="M35,40 L32,47 L37,45 L34,52" stroke="#FFD700" stroke-width="1.2" fill="none"
-                                stroke-linecap="round" />
-                            <path d="M73,40 L76,47 L71,45 L74,52" stroke="#FFD700" stroke-width="1.2" fill="none"
-                                stroke-linecap="round" />
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Blitz-Storm-Arena/raw/refs/heads/main/Blitz%20Storm%20Arena.apk"
-        },
-        {
-            name: "Crystal Cascade",
-            developer: "Lihka Games",
-            rating: "4.5",
-            size: "15 MB",
-            tags: ["crystal", "cascade", "puzzle", "jewel", "match", "game", "lihka"],
-            icon: "linear-gradient(135deg,#0A1628,#1a237e)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
-                            <path d="M54,54 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0" fill="#0A1628" />
-                            <path d="M54,54 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0" fill="none" stroke="#00E5FF"
-                                stroke-width="1.5" stroke-opacity="0.6" />
-                            <path d="M54,54 m-32,0 a32,32 0 1,1 64,0 a32,32 0 1,1 -64,0" fill="none" stroke="#2979FF"
-                                stroke-width="0.5" stroke-opacity="0.3" />
-                            <path d="M32,38 A0.8,0.8 0 1,1 33.6,38 A0.8,0.8 0 1,1 32,38 Z" fill="#FFFFFF"
-                                fill-opacity="0.4" />
-                            <path d="M74,36 A0.8,0.8 0 1,1 75.6,36 A0.8,0.8 0 1,1 74,36 Z" fill="#FFFFFF"
-                                fill-opacity="0.3" />
-                            <path d="M28,55 A0.6,0.6 0 1,1 29.2,55 A0.6,0.6 0 1,1 28,55 Z" fill="#00E5FF"
-                                fill-opacity="0.3" />
-                            <path d="M80,54 A0.6,0.6 0 1,1 81.2,54 A0.6,0.6 0 1,1 80,54 Z" fill="#00E5FF"
-                                fill-opacity="0.3" />
-                            <path d="M54,28 L70,43 L54,66 L38,43 Z" fill="#2979FF" />
-                            <path d="M54,28 L38,43 L44,41 Z" fill="#1565C0" fill-opacity="0.85" />
-                            <path d="M38,43 L54,66 L44,53 Z" fill="#0D47A1" fill-opacity="0.75" />
-                            <path d="M54,28 L70,43 L64,41 Z" fill="#00E5FF" fill-opacity="0.85" />
-                            <path d="M70,43 L54,66 L64,53 Z" fill="#2196F3" fill-opacity="0.75" />
-                            <path d="M54,28 L46,36 L49,35 Z" fill="#FFFFFF" fill-opacity="0.5" />
-                            <path d="M49,35 L46,36 L40,44 L47,42 Z" fill="#FFFFFF" fill-opacity="0.2" />
-                            <path d="M46,36 A2,2 0 1,1 50,36 A2,2 0 1,1 46,36 Z" fill="#FFFFFF" fill-opacity="0.7" />
-                            <path d="M44,36 A4,4 0 1,1 52,36 A4,4 0 1,1 44,36 Z" fill="#FFFFFF" fill-opacity="0.15" />
-                            <path d="M33,50 L38,45 L37,55 L32,53 Z" fill="#2979FF" fill-opacity="0.45" />
-                            <path d="M75,50 L70,45 L71,55 L76,53 Z" fill="#651FFF" fill-opacity="0.45" />
-                            <path d="M54,23 L55.5,19 L57,23 L61,24.5 L57,26 L55.5,30 L54,26 L50,24.5 Z" fill="#FFFFFF"
-                                fill-opacity="0.7" />
-                            <path d="M35,35 L36,33 L37,35 L39,36 L37,37 L36,39 L35,37 L33,36 Z" fill="#00E5FF"
-                                fill-opacity="0.5" />
-                            <path d="M73,34 L74,32 L75,34 L77,35 L75,36 L74,38 L73,36 L71,35 Z" fill="#00E5FF"
-                                fill-opacity="0.5" />
-                            <path d="M50,70 L52,66 L54,70 L52,73 Z" fill="#00E5FF" fill-opacity="0.15" />
-                            <path d="M57,72 L59,68 L61,72 L59,75 Z" fill="#2979FF" fill-opacity="0.12" />
-                            <path d="M42,68 L43,66 L44,68 L46,69 L44,70 L43,72 L42,70 L40,69 Z" fill="#FFFFFF"
-                                fill-opacity="0.3" />
-                            <path d="M65,66 L66,64 L67,66 L69,67 L67,68 L66,70 L65,68 L63,67 Z" fill="#FFFFFF"
-                                fill-opacity="0.25" />
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Crystal-Cascade-Game/raw/refs/heads/main/Crystal%20Cascade.apk"
-        },
-        {
-            name: "Disc Strike Arena",
-            developer: "Lihka Games",
-            rating: "4.6",
-            size: "10 MB",
-            tags: ["disc", "strike", "arena", "carrom", "sport", "multiplayer", "game", "lihka"],
-            icon: "linear-gradient(135deg,#2E1A0E,#4E342E)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
-                            <path fill="#3E2723" d="M54,54 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
-                            <path fill="#5D4037" d="M54,54 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" />
-                            <path fill="#8D6E63" d="M54,54 m-35,0 a35,35 0 1,0 70,0" />
-                            <path fill="#4E342E" d="M54,54 m35,0 a35,35 0 1,0 -70,0" />
-                            <path fill="#6D4C41" d="M54,54 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0" />
-                            <path fill="#DABE8A" d="M54,54 m-30,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0" />
-                            <path fill="#E8D4A8" d="M54,54 m-30,0 a30,30 0 1,0 60,0" />
-                            <path fill="none" stroke="#C9A66B" stroke-width="0.4" d="M26,40 Q54,35 82,42" />
-                            <path fill="none" stroke="#C4A060" stroke-width="0.3" d="M28,48 Q54,44 80,50" />
-                            <path fill="none" stroke="#C9A66B" stroke-width="0.5" d="M24,56 Q54,52 84,58" />
-                            <path fill="none" stroke="#BF9B55" stroke-width="0.3" d="M26,64 Q54,60 82,66" />
-                            <path fill="none" stroke="#C9A66B" stroke-width="0.4" d="M30,72 Q54,68 78,74" />
-                            <path fill="none" stroke="#5D4037" stroke-width="2"
-                                d="M54,54 m-26,0 a26,26 0 1,1 52,0 a26,26 0 1,1 -52,0" />
-                            <path fill="none" stroke="#6D4C41" stroke-width="1"
-                                d="M54,54 m-22,0 a22,22 0 1,1 44,0 a22,22 0 1,1 -44,0" />
-                            <path fill="none" stroke="#8D6E63" stroke-width="0.8" d="M54,28 L54,80" />
-                            <path fill="none" stroke="#8D6E63" stroke-width="0.8" d="M28,54 L80,54" />
-                            <path fill="none" stroke="#A1887F" stroke-width="0.6" d="M35,35 L73,73 M73,35 L35,73" />
-                            <path fill="#C62828" d="M54,54 m-14,0 a14,14 0 1,1 28,0 a14,14 0 1,1 -28,0" />
-                            <path fill="#DABE8A" d="M54,54 m-12,0 a12,12 0 1,1 24,0 a12,12 0 1,1 -24,0" />
-                            <path fill="none" stroke="#5D4037" stroke-width="1.2"
-                                d="M54,54 m-8,0 a8,8 0 1,1 16,0 a8,8 0 1,1 -16,0" />
-                            <path fill="none" stroke="#6D4C41" stroke-width="0.8"
-                                d="M54,54 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#5D4037" d="M54,30 m-6,0 a6,6 0 1,1 12,0 a6,6 0 1,1 -12,0" />
-                            <path fill="#3E2723" d="M54,30 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
-                            <path fill="#1A1A1A" d="M54,30 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#0D0D0D" d="M54,30 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#5D4037" d="M78,54 m-6,0 a6,6 0 1,1 12,0 a6,6 0 1,1 -12,0" />
-                            <path fill="#3E2723" d="M78,54 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
-                            <path fill="#1A1A1A" d="M78,54 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#0D0D0D" d="M78,54 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#5D4037" d="M54,78 m-6,0 a6,6 0 1,1 12,0 a6,6 0 1,1 -12,0" />
-                            <path fill="#3E2723" d="M54,78 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
-                            <path fill="#1A1A1A" d="M54,78 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#0D0D0D" d="M54,78 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#5D4037" d="M30,54 m-6,0 a6,6 0 1,1 12,0 a6,6 0 1,1 -12,0" />
-                            <path fill="#3E2723" d="M30,54 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
-                            <path fill="#1A1A1A" d="M30,54 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#0D0D0D" d="M30,54 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#B71C1C" d="M54,54 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
-                            <path fill="#D32F2F" d="M54,52.5 m-3,0 a3,2 0 1,1 6,0 a3,2 0 1,1 -6,0" />
-                            <path fill="#E57373" d="M54,51.5 m-1.5,0 a1.5,0.8 0 1,1 3,0 a1.5,0.8 0 1,1 -3,0" />
-                            <path fill="none" stroke="#8B0000" stroke-width="0.8"
-                                d="M54,54 m-2.5,0 a2.5,2.5 0 1,1 5,0 a2.5,2.5 0 1,1 -5,0" />
-                            <path fill="#E8DCC8" stroke="#A1887F" stroke-width="0.8"
-                                d="M42,42 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#F5F0E6" d="M42,40.5 m-2.5,0 a2.5,1.5 0 1,1 5,0 a2.5,1.5 0 1,1 -5,0" />
-                            <path fill="#FFFBF0" d="M42,40 m-1.2,0 a1.2,0.6 0 1,1 2.4,0 a1.2,0.6 0 1,1 -2.4,0" />
-                            <path fill="none" stroke="#BCAAA4" stroke-width="0.5"
-                                d="M42,42 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#E8DCC8" stroke="#A1887F" stroke-width="0.8"
-                                d="M66,64 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#F5F0E6" d="M66,62.5 m-2.5,0 a2.5,1.5 0 1,1 5,0 a2.5,1.5 0 1,1 -5,0" />
-                            <path fill="#FFFBF0" d="M66,62 m-1.2,0 a1.2,0.6 0 1,1 2.4,0 a1.2,0.6 0 1,1 -2.4,0" />
-                            <path fill="none" stroke="#BCAAA4" stroke-width="0.5"
-                                d="M66,64 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#E8DCC8" stroke="#A1887F" stroke-width="0.8"
-                                d="M64,42 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#F5F0E6" d="M64,40.5 m-2.5,0 a2.5,1.5 0 1,1 5,0 a2.5,1.5 0 1,1 -5,0" />
-                            <path fill="none" stroke="#BCAAA4" stroke-width="0.5"
-                                d="M64,42 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#3E2723" stroke="#1B0F0A" stroke-width="0.8"
-                                d="M42,64 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#5D4037" d="M42,62.5 m-2.5,0 a2.5,1.5 0 1,1 5,0 a2.5,1.5 0 1,1 -5,0" />
-                            <path fill="#6D4C41" d="M42,62 m-1.2,0 a1.2,0.6 0 1,1 2.4,0 a1.2,0.6 0 1,1 -2.4,0" />
-                            <path fill="none" stroke="#4E342E" stroke-width="0.5"
-                                d="M42,64 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#3E2723" stroke="#1B0F0A" stroke-width="0.8"
-                                d="M66,48 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#5D4037" d="M66,46.5 m-2.5,0 a2.5,1.5 0 1,1 5,0 a2.5,1.5 0 1,1 -5,0" />
-                            <path fill="#6D4C41" d="M66,46 m-1.2,0 a1.2,0.6 0 1,1 2.4,0 a1.2,0.6 0 1,1 -2.4,0" />
-                            <path fill="none" stroke="#4E342E" stroke-width="0.5"
-                                d="M66,48 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#3E2723" stroke="#1B0F0A" stroke-width="0.8"
-                                d="M46,50 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
-                            <path fill="#5D4037" d="M46,48.5 m-2.5,0 a2.5,1.5 0 1,1 5,0 a2.5,1.5 0 1,1 -5,0" />
-                            <path fill="none" stroke="#4E342E" stroke-width="0.5"
-                                d="M46,50 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0" />
-                            <path fill="#D7CCC8" stroke="#8D6E63" stroke-width="1.2"
-                                d="M54,68 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
-                            <path fill="#EFEBE9" d="M54,66.5 m-3,0 a3,2 0 1,1 6,0 a3,2 0 1,1 -6,0" />
-                            <path fill="#FAFAFA" d="M54,65.5 m-1.5,0 a1.5,0.8 0 1,1 3,0 a1.5,0.8 0 1,1 -3,0" />
-                            <path fill="none" stroke="#A1887F" stroke-width="0.8"
-                                d="M54,68 m-2.5,0 a2.5,2.5 0 1,1 5,0 a2.5,2.5 0 1,1 -5,0" />
-                            <path fill="#BCAAA4" d="M54,68 m-1,0 a1,1 0 1,1 2,0 a1,1 0 1,1 -2,0" />
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Disc-Strike-Arena-Game/releases/download/v1.0/Disc.Strike.Arena.apk"
-        },
-        {
-            name: "Roll Master Quest",
-            developer: "Lihka Games",
-            rating: "4.8",
-            size: "7 MB",
-            tags: ["roll", "master", "quest", "ludo", "board", "dice", "game", "multiplayer", "lihka"],
-            icon: "linear-gradient(135deg,#251a3d,#1f0b36)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
-                            <defs>
-                                <linearGradient id="i-redQ" x1="34" y1="28" x2="50" y2="44"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FF6B6B" />
-                                    <stop offset="1" stop-color="#EE5A52" />
-                                </linearGradient>
-                                <linearGradient id="i-greenQ" x1="58" y1="28" x2="74" y2="44"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#69DB7C" />
-                                    <stop offset="1" stop-color="#51CF66" />
-                                </linearGradient>
-                                <linearGradient id="i-yellowQ" x1="34" y1="52" x2="50" y2="68"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFE066" />
-                                    <stop offset="1" stop-color="#FFD43B" />
-                                </linearGradient>
-                                <linearGradient id="i-blueQ" x1="58" y1="52" x2="74" y2="68"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#74C0FC" />
-                                    <stop offset="1" stop-color="#4DABF7" />
-                                </linearGradient>
-                                <linearGradient id="i-centerD" x1="50" y1="44" x2="58" y2="52"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFD700" />
-                                    <stop offset="1" stop-color="#FFA000" />
-                                </linearGradient>
-                                <radialGradient id="i-rT1" cx="38" cy="32" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FF8787" />
-                                    <stop offset="1" stop-color="#C92A2A" />
-                                </radialGradient>
-                                <radialGradient id="i-rT2" cx="44" cy="38" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FF8787" />
-                                    <stop offset="1" stop-color="#C92A2A" />
-                                </radialGradient>
-                                <radialGradient id="i-gT1" cx="62" cy="32" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#8CE99A" />
-                                    <stop offset="1" stop-color="#2B8A3E" />
-                                </radialGradient>
-                                <radialGradient id="i-gT2" cx="68" cy="38" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#8CE99A" />
-                                    <stop offset="1" stop-color="#2B8A3E" />
-                                </radialGradient>
-                                <radialGradient id="i-yT1" cx="38" cy="56" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFE066" />
-                                    <stop offset="1" stop-color="#F59F00" />
-                                </radialGradient>
-                                <radialGradient id="i-yT2" cx="44" cy="62" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFE066" />
-                                    <stop offset="1" stop-color="#F59F00" />
-                                </radialGradient>
-                                <radialGradient id="i-bT1" cx="62" cy="56" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#74C0FC" />
-                                    <stop offset="1" stop-color="#1864AB" />
-                                </radialGradient>
-                                <radialGradient id="i-bT2" cx="68" cy="62" r="4" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#74C0FC" />
-                                    <stop offset="1" stop-color="#1864AB" />
-                                </radialGradient>
-                                <linearGradient id="i-crownG" x1="42" y1="11" x2="66" y2="20"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFD700" />
-                                    <stop offset="0.5" stop-color="#FFEC80" />
-                                    <stop offset="1" stop-color="#FFA000" />
-                                </linearGradient>
-                                <linearGradient id="i-crownB" x1="42" y1="20" x2="66" y2="23"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFA000" />
-                                    <stop offset="1" stop-color="#FF8F00" />
-                                </linearGradient>
-                                <linearGradient id="i-diceL" x1="17.5" y1="70" x2="32.5" y2="85"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFFFFF" />
-                                    <stop offset="1" stop-color="#F1F3F5" />
-                                </linearGradient>
-                                <linearGradient id="i-diceR" x1="75.5" y1="72" x2="90.5" y2="87"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFFFFF" />
-                                    <stop offset="1" stop-color="#F1F3F5" />
-                                </linearGradient>
-                                <radialGradient id="i-outerGlow" cx="54" cy="48" r="28" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#FFD700" stop-opacity="0" />
-                                    <stop offset="0.8" stop-color="#FFD700" stop-opacity="0.2" />
-                                    <stop offset="1" stop-color="#FFD700" stop-opacity="0" />
-                                </radialGradient>
-                            </defs>
-                            <path d="M36,30h36v48h-36z" fill="#000000" fill-opacity="0.08" />
-                            <path d="M34,28h16v16h-16z" fill="url(#i-redQ)" />
-                            <path d="M34,28h16v16h-16z" stroke-width="0.5" stroke="#D63031" fill="none" />
-                            <path d="M58,28h16v16h-16z" fill="url(#i-greenQ)" />
-                            <path d="M58,28h16v16h-16z" stroke-width="0.5" stroke="#2B8A3E" fill="none" />
-                            <path d="M34,52h16v16h-16z" fill="url(#i-yellowQ)" />
-                            <path d="M34,52h16v16h-16z" stroke-width="0.5" stroke="#F59F00" fill="none" />
-                            <path d="M58,52h16v16h-16z" fill="url(#i-blueQ)" />
-                            <path d="M58,52h16v16h-16z" stroke-width="0.5" stroke="#1864AB" fill="none" />
-                            <path d="M50,28h8v16h-8z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0" />
-                            <path d="M50,52h8v16h-8z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0" />
-                            <path d="M34,44h16v8h-16z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0" />
-                            <path d="M58,44h16v8h-16z" fill="#FFFFFF" stroke-width="0.3" stroke="#E0E0E0" />
-                            <path d="M50,44h8v8h-8z" fill="url(#i-centerD)" />
-                            <path d="M54,44L50,48L58,48Z" fill="#EE5A52" fill-opacity="0.85" />
-                            <path d="M58,48L54,44L54,52Z" fill="#51CF66" fill-opacity="0.85" />
-                            <path d="M54,52L58,48L50,48Z" fill="#339AF0" fill-opacity="0.85" />
-                            <path d="M50,48L54,52L54,44Z" fill="#FFD43B" fill-opacity="0.85" />
-                            <path d="M54,44L58,48L54,52L50,48Z" stroke-width="0.6" stroke="#E67700" fill="none" />
-                            <circle cx="54" cy="48" r="1.8" fill="#FFFFFF" fill-opacity="0.9" />
-                            <circle cx="39" cy="33" r="3.5" fill="url(#i-rT1)" />
-                            <circle cx="39" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <circle cx="45" cy="39" r="3.5" fill="url(#i-rT2)" />
-                            <circle cx="45" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <circle cx="63" cy="33" r="3.5" fill="url(#i-gT1)" />
-                            <circle cx="63" cy="33" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <circle cx="69" cy="39" r="3.5" fill="url(#i-gT2)" />
-                            <circle cx="69" cy="39" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <circle cx="39" cy="57" r="3.5" fill="url(#i-yT1)" />
-                            <circle cx="39" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <circle cx="45" cy="63" r="3.5" fill="url(#i-yT2)" />
-                            <circle cx="45" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <circle cx="63" cy="57" r="3.5" fill="url(#i-bT1)" />
-                            <circle cx="63" cy="57" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <circle cx="69" cy="63" r="3.5" fill="url(#i-bT2)" />
-                            <circle cx="69" cy="63" r="1.3" fill="#FFFFFF" fill-opacity="0.6" />
-                            <path d="M42,20L43.5,14L47,18L50.5,11L54,17L57.5,11L61,18L64.5,14L66,20Z"
-                                fill="url(#i-crownG)" stroke-width="0.5" stroke="#BF8F00" />
-                            <rect x="42" y="20" width="24" height="3" fill="url(#i-crownB)" />
-                            <circle cx="47" cy="17.5" r="1.5" fill="#EE5A52" />
-                            <circle cx="54" cy="16.5" r="1.8" fill="#339AF0" />
-                            <circle cx="61" cy="17.5" r="1.5" fill="#51CF66" />
-                            <circle cx="47" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5" />
-                            <circle cx="54" cy="16.5" r="0.7" fill="#FFFFFF" fill-opacity="0.5" />
-                            <circle cx="61" cy="17.5" r="0.6" fill="#FFFFFF" fill-opacity="0.5" />
-                            <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" fill="url(#i-diceL)" />
-                            <rect x="17.5" y="70" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5"
-                                stroke="#CED4DA" fill="none" />
-                            <circle cx="22" cy="73.5" r="1.2" fill="#C92A2A" />
-                            <circle cx="22" cy="77.5" r="1.2" fill="#C92A2A" />
-                            <circle cx="22" cy="81.5" r="1.2" fill="#C92A2A" />
-                            <circle cx="28" cy="73.5" r="1.2" fill="#C92A2A" />
-                            <circle cx="28" cy="77.5" r="1.2" fill="#C92A2A" />
-                            <circle cx="28" cy="81.5" r="1.2" fill="#C92A2A" />
-                            <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" fill="url(#i-diceR)" />
-                            <rect x="75.5" y="72" width="15" height="15" rx="2.5" ry="2.5" stroke-width="0.5"
-                                stroke="#CED4DA" fill="none" />
-                            <circle cx="80" cy="75" r="1.2" fill="#1864AB" />
-                            <circle cx="86" cy="75" r="1.2" fill="#1864AB" />
-                            <circle cx="83" cy="79.5" r="1.2" fill="#1864AB" />
-                            <circle cx="80" cy="84" r="1.2" fill="#1864AB" />
-                            <circle cx="86" cy="84" r="1.2" fill="#1864AB" />
-                            <path d="M28,30L29,27L30,30L33,31L30,32L29,35L28,32L25,31Z" fill="#FFD700"
-                                fill-opacity="0.7" />
-                            <path d="M78,28L79,25.5L80,28L82.5,29L80,30L79,32.5L78,30L75.5,29Z" fill="#FFD700"
-                                fill-opacity="0.5" />
-                            <path d="M54,88L55.5,84L57,88L61,89.5L57,91L55.5,95L54,91L50,89.5Z" fill="#FFD700"
-                                fill-opacity="0.6" />
-                            <circle cx="20" cy="48" r="1" fill="#FFD700" fill-opacity="0.4" />
-                            <circle cx="88" cy="48" r="1" fill="#FFD700" fill-opacity="0.4" />
-                            <circle cx="15" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3" />
-                            <circle cx="93" cy="60" r="0.8" fill="#FFD700" fill-opacity="0.3" />
-                            <path d="M37,46L38,44.5L39,46L40.5,47L39,48L38,49.5L37,48L35.5,47Z" fill="#FFD700"
-                                fill-opacity="0.8" />
-                            <path d="M55,31L56,29.5L57,31L58.5,32L57,33L56,34.5L55,33L53.5,32Z" fill="#FFD700"
-                                fill-opacity="0.8" />
-                            <path d="M69,48L70,46.5L71,48L72.5,49L71,50L70,51.5L69,50L67.5,49Z" fill="#FFD700"
-                                fill-opacity="0.8" />
-                            <path d="M51,63L52,61.5L53,63L54.5,64L53,65L52,66.5L51,65L49.5,64Z" fill="#FFD700"
-                                fill-opacity="0.8" />
-                            <circle cx="54" cy="48" r="28" stroke-width="0.8" stroke="url(#i-outerGlow)" fill="none" />
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Roll-Master-Quest-Ludo-Game/releases/download/v1.0.0/Roll.Master.Quest.apk"
-        },
-        {
-            name: "Serpent Surge",
-            developer: "Lihka Games",
-            rating: "4.4",
-            size: "6 MB",
-            tags: ["serpent", "surge", "snake", "classic", "arcade", "retro", "game", "lihka"],
-            icon: "linear-gradient(135deg,#1A1A2E,#16213E)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
-                            <path fill="#1A1A2E" d="M0,0h108v108H0z" />
-                            <path fill="#16213E" d="M54,4A50,50,0,1,1,54,104A50,50,0,1,1,54,4Z" />
-                            <path fill="none" stroke="#39FF14" stroke-opacity="0.25" stroke-width="16"
-                                stroke-linecap="round" d="M25,82 Q12,52 38,40" />
-                            <path fill="none" stroke="#39FF14" stroke-opacity="0.25" stroke-width="16"
-                                stroke-linecap="round" d="M38,40 Q62,28 58,54" />
-                            <path fill="none" stroke="#39FF14" stroke-opacity="0.25" stroke-width="16"
-                                stroke-linecap="round" d="M58,54 Q54,78 78,72" />
-                            <path fill="none" stroke="#39FF14" stroke-opacity="0.25" stroke-width="16"
-                                stroke-linecap="round" d="M78,72 Q98,66 88,48 Q78,32 65,42" />
-                            <path fill="none" stroke="#39FF14" stroke-width="10" stroke-linecap="round"
-                                stroke-linejoin="round" d="M25,82 Q12,52 38,40" />
-                            <path fill="none" stroke="#39FF14" stroke-width="10" stroke-linecap="round"
-                                stroke-linejoin="round" d="M38,40 Q62,28 58,54" />
-                            <path fill="none" stroke="#39FF14" stroke-width="10" stroke-linecap="round"
-                                stroke-linejoin="round" d="M58,54 Q54,78 78,72" />
-                            <path fill="none" stroke="#39FF14" stroke-width="10" stroke-linecap="round"
-                                stroke-linejoin="round" d="M78,72 Q98,66 88,48 Q78,32 65,42" />
-                            <path fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="3"
-                                stroke-linecap="round" d="M26,80 Q14,54 38,42" />
-                            <path fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="3"
-                                stroke-linecap="round" d="M38,42 Q58,32 57,52" />
-                            <path fill="#39FF14" fill-opacity="0.31" d="M63,30A16,16,0,1,1,63,62A16,16,0,1,1,63,30Z" />
-                            <path fill="#39FF14" d="M63,33A13,13,0,1,1,63,59A13,13,0,1,1,63,33Z" />
-                            <path fill="#000000" fill-opacity="0.19"
-                                d="M63,46A13,6.5,0,1,1,63,59A13,6.5,0,1,1,63,46Z" />
-                            <path fill="#FFFFFF" fill-opacity="0.31" d="M58,35A7,5,0,1,1,58,45A7,5,0,1,1,58,35Z" />
-                            <path fill="#FFFFFF" d="M57,39A5,5,0,1,1,57,49A5,5,0,1,1,57,39Z" />
-                            <path fill="#FFFFFF" d="M67,39A5,5,0,1,1,67,49A5,5,0,1,1,67,39Z" />
-                            <path fill="#1A1A2E" d="M58,41A3,3,0,1,1,58,47A3,3,0,1,1,58,41Z" />
-                            <path fill="#1A1A2E" d="M68,41A3,3,0,1,1,68,47A3,3,0,1,1,68,41Z" />
-                            <path fill="#FFFFFF" d="M57,41A1.5,1.5,0,1,1,57,44A1.5,1.5,0,1,1,57,41Z" />
-                            <path fill="#FFFFFF" d="M67,41A1.5,1.5,0,1,1,67,44A1.5,1.5,0,1,1,67,41Z" />
-                            <path fill="none" stroke="#FF4D6D" stroke-width="3" stroke-linecap="round"
-                                d="M76,46 L86,42" />
-                            <path fill="none" stroke="#FF4D6D" stroke-width="3" stroke-linecap="round"
-                                d="M86,42 L92,36" />
-                            <path fill="none" stroke="#FF4D6D" stroke-width="3" stroke-linecap="round"
-                                d="M86,42 L92,48" />
-                            <path fill="none" stroke="#39FF14" stroke-width="6" stroke-linecap="round"
-                                d="M25,82 L22,88" />
-                            <path fill="none" stroke="#39FF14" stroke-opacity="0.25" stroke-width="12"
-                                stroke-linecap="round" d="M25,82 L22,88" />
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Serpent-Surge-Game/releases/download/v1.0.0/Serpent.Surge.apk"
-        },
-        {
-            name: "Turbo Trail Racer",
-            developer: "Lihka Games",
-            rating: "4.9",
-            size: "17 MB",
-            tags: ["turbo", "trail", "racer", "racing", "car", "speed", "3d", "game", "lihka"],
-            icon: "linear-gradient(135deg,#1A237E,#0D47A1)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <defs>
-                                <clipPath id="c">
-                                    <rect x="10" y="10" width="492" height="492" rx="56" />
-                                </clipPath>
-                            </defs>
-                            <rect width="512" height="512" rx="56" fill="#1A237E" />
-                            <rect x="10" y="10" width="492" height="492" rx="56" fill="#0D47A1" />
-                            <g clip-path="url(#c)">
-                                <rect x="10" y="10" width="492" height="170" fill="#1565C0" />
-                                <rect x="10" y="150" width="492" height="90" fill="#1976D2" />
-                                <rect x="10" y="210" width="492" height="80" fill="#2196F3" />
-                                <circle cx="400" cy="80" r="45" fill="#FFD54F" />
-                                <circle cx="400" cy="80" r="35" fill="#FFECB3" />
-                                <g fill="#FFD54F">
-                                    <path d="M400,25l4,15h-8z" />
-                                    <path d="M400,135l4-15h-8z" />
-                                    <path d="M345,80l15-4v8z" />
-                                    <path d="M455,80l-15-4v8z" />
-                                    <path d="M361,41l9,12-6,4z" />
-                                    <path d="M439,119l-9-12 6-4z" />
-                                    <path d="M439,41l-9,12 6,4z" />
-                                    <path d="M361,119l9-12-6-4z" />
-                                </g>
-                                <g fill="#64B5F6" opacity=".6">
-                                    <ellipse cx="80" cy="100" rx="20" ry="14" />
-                                    <ellipse cx="105" cy="95" rx="18" ry="12" />
-                                    <ellipse cx="60" cy="95" rx="15" ry="10" />
-                                </g>
-                                <g fill="#64B5F6" opacity=".5">
-                                    <ellipse cx="230" cy="70" rx="22" ry="15" />
-                                    <ellipse cx="258" cy="65" rx="20" ry="13" />
-                                </g>
-                                <g fill="#90CAF9" opacity=".4">
-                                    <ellipse cx="160" cy="140" rx="16" ry="10" />
-                                    <ellipse cx="180" cy="136" rx="14" ry="9" />
-                                </g>
-                                <path d="M10,310L100,190l50,40 50-50 80,80 50-40 90,60 82-50v80H10z" fill="#1B5E20"
-                                    opacity=".5" />
-                                <path d="M10,330L80,250l60,40 70-50 60,40 80-30 80,50 72-30v60H10z" fill="#2E7D32"
-                                    opacity=".6" />
-                                <path
-                                    d="M10,420v-40q70,0 110-20 40-20 80-50 20-15 40,0 40,30 80,60 60,40 120,25 35-7 62,5v20H10z"
-                                    fill="#388E3C" />
-                                <path
-                                    d="M10,420v-30q70,0 110-18 40-20 80-50 18-14 36-4 39,27 84,60 60,37 120,24 35-7 62,5v13H10z"
-                                    fill="#43A047" />
-                                <path
-                                    d="M10,420v-22q70,0 110-18 40-20 80-48 15-12 30-4 40,24 90,56 60,34 120,23 35-7 62,5v8H10z"
-                                    fill="#4CAF50" />
-                                <path d="M10,420h492v36q0,46-56,46H66q-56,0-56-46z" fill="#5D4037" />
-                                <path d="M10,440h492M10,460h492M10,480h492" stroke="#4E342E" stroke-width="1.5"
-                                    fill="none" />
-                                <g fill="#4E342E">
-                                    <ellipse cx="80" cy="445" rx="4" ry="3" />
-                                    <ellipse cx="200" cy="455" rx="5" ry="3" />
-                                    <ellipse cx="350" cy="448" rx="6" ry="3" />
-                                    <ellipse cx="450" cy="465" rx="4" ry="2" />
-                                </g>
-                                <g stroke-width="2.5" stroke-linecap="round" fill="none">
-                                    <path d="M100,370l5-15 5,15M155,348l5-15 5,15M280,365l5-13 5,13" stroke="#2E7D32" />
-                                    <path d="M106,370l6-18 6,18M420,400l5-12 5,12" stroke="#388E3C" />
-                                    <path d="M350,385l5-13 5,13" stroke="#2E7D32" stroke-width="2" />
-                                </g>
-                                <ellipse cx="180" cy="395" rx="50" ry="8" fill="#1B5E20" opacity=".35" />
-                                <g stroke="#78909C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                    fill="none">
-                                    <path d="M145,330l-5-20h10l-5-20" />
-                                    <path d="M260,310l-5-20h10l-5-20" />
-                                </g>
-                                <path d="M125,310l20,5 105-20 20-5z" fill="#37474F" />
-                                <g id="w">
-                                    <circle r="32" fill="#212121" />
-                                    <circle r="28" fill="#424242" />
-                                    <circle r="22" fill="#212121" />
-                                    <circle r="14" fill="#B0BEC5" />
-                                    <circle r="10" fill="#90A4AE" />
-                                    <circle r="5" fill="#CFD8DC" />
-                                    <g stroke="#78909C" fill="none">
-                                        <path d="M0-14v28M-14,0h28" stroke-width="2.5" />
-                                        <path d="M-10-10l20,20M-10,10l20-20" stroke-width="2" />
-                                    </g>
-                                    <g stroke="#616161" stroke-width="3" stroke-linecap="round" fill="none">
-                                        <path d="M0-32v6M0,26v6M-32,0h6M26,0h6" />
-                                        <path d="M-23-23l4,4M19,19l4,4M-23,23l4-4M19-19l4-4" />
-                                    </g>
-                                </g>
-                                <use href="#w" x="145" y="340" />
-                                <use href="#w" x="265" y="318" />
-                                <path d="M120,295l10-10 25-5 45-12 45-13 30-5 10,5 3,10-6,10-22,7-105,23-25,5-10-2z"
-                                    fill="#E53935" />
-                                <path d="M130,285l25-5 45-12 45-13 30-5 5,3-35,7-45,13-45,12-25,5z" fill="#EF5350" />
-                                <path d="M170,275l15-35 10-5 45-13 15,3 3,15-3,12-55,17-25,7z" fill="#C62828" />
-                                <path d="M170,275l15-35 10-5 45-13 15,3 3,15-3,12" stroke="#B71C1C" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                                <path d="M190,268l8-23 37-11 8,6-3,15-40,10z" fill="#29B6F6" />
-                                <path d="M198,245l5,0-7,17-3,1z" fill="#4FC3F7" opacity=".7" />
-                                <path d="M215,257l7-19" stroke="#0288D1" stroke-width="2" fill="none" />
-                                <path d="M275,250l20-5 3,5-3,10-10,3-5-3z" fill="#B71C1C" />
-                                <ellipse cx="290" cy="248" rx="5" ry="4" fill="#FFF9C4" />
-                                <ellipse cx="290" cy="248" rx="3" ry="2" fill="#FFF" />
-                                <path d="M115,298l5-3v15l-5,2-5-4z" fill="#B71C1C" />
-                                <ellipse cx="113" cy="300" rx="3" ry="4" fill="#FF7043" />
-                                <path d="M135,293l125-33v5L135,298z" fill="#FF8F00" opacity=".8" />
-                                <path d="M108,305l-10,3-2-3 9-3z" fill="#78909C" />
-                                <path
-                                    d="M98,305Q70,300 55,310 65,295 80,298 60,280 50,290 65,270 82,290 75,265 90,285 88,275 95,290L98,300z"
-                                    fill="#FF6D00" />
-                                <path
-                                    d="M98,304Q78,300 68,306 75,295 85,298 72,285 65,292 78,278 88,292 85,280 93,290L96,300z"
-                                    fill="#FF9100" />
-                                <path
-                                    d="M98,303Q85,300 78,304 82,296 88,298 82,290 78,295 85,285 90,294 88,288 93,293L96,300z"
-                                    fill="#FFAB00" />
-                                <path d="M98,302Q90,300 86,303 88,298 92,299 90,294 93,296L96,300z" fill="#FFD600" />
-                                <g stroke="#FFF" stroke-linecap="round" fill="none">
-                                    <path d="M50,265l45-7" stroke-width="3" opacity=".7" />
-                                    <path d="M35,280l50-5" stroke-width="2.5" opacity=".6" />
-                                    <path d="M45,295l35-5" stroke-width="2" opacity=".5" />
-                                    <path d="M55,250l35-5" stroke-width="2" opacity=".5" />
-                                    <path d="M40,310l35-5" stroke-width="1.5" opacity=".4" />
-                                </g>
-                                <g>
-                                    <ellipse cx="90" cy="370" rx="12" ry="8" fill="#8D6E63" opacity=".5" />
-                                    <ellipse cx="70" cy="365" rx="10" ry="7" fill="#A1887F" opacity=".4" />
-                                    <ellipse cx="55" cy="358" rx="8" ry="5" fill="#BCAAA4" opacity=".3" />
-                                    <ellipse cx="105" cy="378" rx="8" ry="5" fill="#8D6E63" opacity=".4" />
-                                </g>
-                                <g>
-                                    <circle cx="75" cy="350" r="3" fill="#795548" opacity=".6" />
-                                    <circle cx="55" cy="345" r="2" fill="#795548" opacity=".5" />
-                                    <circle cx="95" cy="355" r="2" fill="#6D4C41" opacity=".6" />
-                                    <circle cx="65" cy="340" r="2" fill="#795548" opacity=".4" />
-                                    <circle cx="45" cy="355" r="2" fill="#8D6E63" opacity=".4" />
-                                </g>
-                                <path d="M340,160l5-15 5,15 15-5-13,10 8,13-13-8-7,12v-14l-15,2z" fill="#FFD54F" />
-                                <path d="M60,180l3-8 3,8 8-2-6,5 3,7-6-4-5,6v-7l-8,2z" fill="#FFF176" opacity=".8" />
-                                <path d="M440,160l2-5 2,5 5-1-4,3 2,5-4-3-3,4v-5l-5,1z" fill="#FFF176" opacity=".7" />
-                                <path d="M310,120l2-5 2,5 5-1-4,3 2,5-4-3-3,4v-5l-5,1z" fill="#FFEE58" opacity=".6" />
-                                <path d="M295,248l45-18 5,10-47,12z" fill="#FFF9C4" opacity=".2" />
-                                <path d="M295,248l65-23 5,7-67,18z" fill="#FFF9C4" opacity=".1" />
-                            </g>
-                            <rect width="512" height="512" rx="56" stroke="#FF6D00" stroke-width="6" fill="none" />
-                            <rect x="4" y="4" width="504" height="504" rx="56" stroke="#FFB300" stroke-width="2"
-                                fill="none" />
-                            <circle cx="430" cy="410" r="28" fill="#FF6D00" />
-                            <circle cx="430" cy="410" r="24" fill="#FFB300" />
-                            <circle cx="430" cy="410" r="20" fill="#FFF" />
-                            <g fill="#212121">
-                                <rect x="420" y="400" width="10" height="10" />
-                                <rect x="430" y="410" width="10" height="10" />
-                            </g>
-                            <path d="M195,235l-7-35" stroke="#78909C" stroke-width="2.5" stroke-linecap="round"
-                                fill="none" />
-                            <path d="M188,200l17-5v13l-17,4z" fill="#FF6D00" />
-                            <path d="M188,200l17-5v6l-17,5z" fill="#FFB300" />
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Turbo-Trail-Racer-Game/releases/download/v1.0.0/Turbo.Trail.Racer.apk"
-        },
-        {
-            name: "Precision Shot",
-            developer: "Lihka Games",
-            rating: "4.9",
-            size: "6 MB",
-            tags: ["precision", "shot", "target", "aim", "shooting", "skill", "game", "lihka"],
-            icon: "linear-gradient(135deg,#1A237E,#0D47A1)",
-            svg: `<svg width="512" height="512" viewBox="0 0 100 100" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="48" fill="#E0E0E0" />
-
-                            <circle cx="50" cy="50" r="45" fill="#FFFFFF" />
-
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M50 90C72.0914 90 90 72.0914 90 50C90 27.9086 72.0914 10 50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90ZM50 80C66.5685 80 80 66.5685 80 50C80 33.4315 66.5685 20 50 20C33.4315 20 20 33.4315 20 50C20 66.5685 33.4315 80 50 80Z"
-                                fill="#FF0000" />
-
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M50 70C61.0457 70 70 61.0457 70 50C70 38.9543 61.0457 30 50 30C38.9543 30 30 38.9543 30 50C30 61.0457 38.9543 70 50 70ZM50 60C55.5228 60 60 55.5228 60 50C60 44.4772 55.5228 40 50 40C44.4772 40 40 44.4772 40 50C40 55.5228 44.4772 60 50 60Z"
-                                fill="#FF0000" />
-
-                            <circle cx="50" cy="50" r="10" fill="#FFD700" />
-
-                            <path d="M15 35C20 20 35 10 50 10C65 10 80 20 85 35L15 35Z" fill="white"
-                                fill-opacity="0.2" />
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Precision-Shot-Game/releases/download/v1.0.0/Precision.Shot.apk"
-        },
-        {
-            name: "Phantom Strike",
-            developer: "Lihka Games",
-            rating: "4.9",
-            size: "7 MB",
-            tags: ["phantom", "strike", "fps", "shooter", "stealth", "action", "game", "lihka"],
-            icon: "linear-gradient(135deg,#0F1A0F,#050505)",
-            svg: `<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
-
-                            <path fill="#080C08" d="M0,0h108v108H0z" />
-
-                            <path fill="#0D180D" fill-opacity="0.5"
-                                d="M54,50 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" />
-
-                            <path stroke="#141E14" stroke-width="0.2" stroke-opacity="0.4" fill="none"
-                                d="M18,36h72 M18,54h72 M18,72h72 M36,18v72 M54,18v72 M72,18v72" />
-
-                            <path stroke="#1E2E1A" stroke-width="0.8" fill="none" d="M16,16 L92,16 L92,92 L16,92z" />
-
-                            <path stroke="#CC2200" stroke-width="2.5" stroke-linecap="square" fill="none"
-                                d="M16,30 L16,16 L30,16" />
-                            <path stroke="#CC2200" stroke-width="2.5" stroke-linecap="square" fill="none"
-                                d="M78,16 L92,16 L92,30" />
-                            <path stroke="#CC2200" stroke-width="2.5" stroke-linecap="square" fill="none"
-                                d="M92,78 L92,92 L78,92" />
-                            <path stroke="#CC2200" stroke-width="2.5" stroke-linecap="square" fill="none"
-                                d="M28,92 L16,92 L16,78" />
-
-                            <path fill="#CC2200" d="M16,16 m-1.3,0 a1.3,1.3 0 1,1 2.6,0 a1.3,1.3 0 1,1 -2.6,0" />
-                            <path fill="#CC2200" d="M92,16 m-1.3,0 a1.3,1.3 0 1,1 2.6,0 a1.3,1.3 0 1,1 -2.6,0" />
-                            <path fill="#CC2200" d="M92,92 m-1.3,0 a1.3,1.3 0 1,1 2.6,0 a1.3,1.3 0 1,1 -2.6,0" />
-                            <path fill="#CC2200" d="M16,92 m-1.3,0 a1.3,1.3 0 1,1 2.6,0 a1.3,1.3 0 1,1 -2.6,0" />
-
-                            <path fill="#CC2200" fill-opacity="0.45" d="M34,17 L50,17 L50,17.6 L34,17.6z" />
-                            <path fill="#CC2200" fill-opacity="0.45" d="M58,90 L74,90 L74,90.6 L58,90.6z" />
-
-                            <path fill="#2D3D24"
-                                d="M34,36 Q34,22 54,22 Q74,22 74,36 L74,44 Q74,48 54,48 Q34,48 34,44z" />
-
-                            <path fill="#222E1C" d="M36,24 Q54,20 72,24 L72,31 Q54,27 36,31z" />
-
-                            <path fill="#1A241A" d="M48,21 L60,21 L60,28 L48,28z" />
-
-                            <path fill="#1A1A1A" d="M49,19 L59,19 L59,23 L49,23z" />
-
-                            <path fill="#141414" d="M51,17 L57,17 L57,20.5 L51,20.5z" />
-
-                            <path fill="#344028" d="M38,25 L47,24 L47,30 L38,30.5z" />
-                            <path fill="#38462C" d="M61,24 L70,25 L70,30.5 L61,30z" />
-
-                            <path fill="#2A3820" fill-opacity="0.5" d="M40,27 L44,26.5 L44,29 L40,29.5z" />
-                            <path fill="#2A3820" fill-opacity="0.5" d="M64,27 L68,27.5 L68,30 L64,29.5z" />
-
-                            <path stroke="#5D4E37" stroke-width="1.3" fill="none" d="M35,37 Q54,33 73,37" />
-
-                            <path fill="#3E4E30" d="M34,40 L74,40 L74,42.5 L34,42.5z" />
-
-                            <path stroke="#2A2A2A" stroke-width="0.6" fill="none" d="M44,22 L42,14.5" />
-                            <path fill="#CC2200" d="M41.5,13.5 L42.8,13.5 L42.8,15 L41.5,15z" />
-
-                            <path fill="#B88A5C" d="M40,42 L68,42 L68,62 Q66,68 54,68 Q42,68 40,62z" />
-
-                            <path fill="#9E7548" d="M40,42 L68,42 L68,44.5 L40,44.5z" />
-
-                            <path fill="#1E1E1E" d="M42,56 L66,56 L66,64 Q64,70 54,70 Q44,70 42,64z" />
-
-                            <path stroke="#282828" stroke-width="0.3" fill="none"
-                                d="M44,58 L64,58 M44,60 L64,60 M46,62 L62,62" />
-
-                            <path fill="#222222" d="M50,52 L58,52 L58,57 L50,57z" />
-
-                            <path fill="#161616" d="M31,42 L77,42 L77,56 L31,56z" />
-
-                            <path fill="#0E0E0E" d="M33,43 L75,43 L75,55 L33,55z" />
-
-                            <path fill="#0A0A0A" d="M34,44 L52,44 L52,54 L34,54z" />
-
-                            <path fill="#0A0A0A" d="M56,44 L74,44 L74,54 L56,54z" />
-
-                            <path fill="#0D0D0D" d="M52,45.5 L56,45.5 L56,52.5 L52,52.5z" />
-
-                            <path fill="#333333"
-                                d="M53.6,46.5 m-0.45,0 a0.45,0.45 0 1,1 0.9,0 a0.45,0.45 0 1,1 -0.9,0" />
-                            <path fill="#333333"
-                                d="M53.6,51.5 m-0.45,0 a0.45,0.45 0 1,1 0.9,0 a0.45,0.45 0 1,1 -0.9,0" />
-
-                            <path fill="#1A1A1A" d="M29,44.5 L34,44.5 L34,53.5 L29,53.5z" />
-                            <path fill="#232323" d="M30,45.5 L33,45.5 L33,52.5 L30,52.5z" />
-
-                            <path fill="#1A1A1A" d="M74,44.5 L79,44.5 L79,53.5 L74,53.5z" />
-                            <path fill="#232323" d="M75,45.5 L78,45.5 L78,52.5 L75,52.5z" />
-
-                            <path stroke="#1A3050" stroke-width="0.25" stroke-opacity="0.25" fill="none"
-                                d="M35,46 L51,46 M35,48 L51,48 M35,50 L51,50 M35,52 L51,52" />
-                            <path stroke="#1A3050" stroke-width="0.25" stroke-opacity="0.25" fill="none"
-                                d="M57,46 L73,46 M57,48 L73,48 M57,50 L73,50 M57,52 L73,52" />
-
-                            <path fill="#880000" fill-opacity="0.2" d="M35,44.5 L51.5,44.5 L51.5,53.5 L35,53.5z" />
-
-                            <path fill="#BB1100" fill-opacity="0.4" d="M37,45.5 L50,45.5 L50,52.5 L37,52.5z" />
-
-                            <path fill="#EE2200" fill-opacity="0.95" d="M39,46.5 L49,46.5 L49,51.5 L39,51.5z" />
-
-                            <path fill="#FF4400" d="M40.5,47.2 L47.5,47.2 L47.5,50.8 L40.5,50.8z" />
-
-                            <path fill="#FF7700" d="M42,48 L46,48 L46,50 L42,50z" />
-
-                            <path fill="#FFBB33" d="M43.2,48.3 L44.8,48.3 L44.8,49.7 L43.2,49.7z" />
-
-                            <path fill="#FFFFFF" fill-opacity="0.8" d="M43.7,48.6 L44.3,48.6 L44.3,49.4 L43.7,49.4z" />
-
-                            <path fill="#880000" fill-opacity="0.2" d="M56.5,44.5 L73,44.5 L73,53.5 L56.5,53.5z" />
-
-                            <path fill="#BB1100" fill-opacity="0.4" d="M58,45.5 L71,45.5 L71,52.5 L58,52.5z" />
-
-                            <path fill="#EE2200" fill-opacity="0.95" d="M59,46.5 L69,46.5 L69,51.5 L59,51.5z" />
-
-                            <path fill="#FF4400" d="M60.5,47.2 L67.5,47.2 L67.5,50.8 L60.5,50.8z" />
-
-                            <path fill="#FF7700" d="M62,48 L66,48 L66,50 L62,50z" />
-
-                            <path fill="#FFBB33" d="M63.2,48.3 L64.8,48.3 L64.8,49.7 L63.2,49.7z" />
-
-                            <path fill="#FFFFFF" fill-opacity="0.8" d="M63.7,48.6 L64.3,48.6 L64.3,49.4 L63.7,49.4z" />
-
-                            <path fill="#FF0000" fill-opacity="0.05" d="M30,40 L78,40 L78,58 L30,58z" />
-
-                            <path fill="#0C140C" fill-opacity="0.35"
-                                d="M44,66 L64,66 L64,72 Q60,76 48,76 Q44,74 44,72z" />
-
-                            <path fill="#0A100A" fill-opacity="0.55"
-                                d="M46,72 L62,72 L62,78 Q58,82 50,82 Q46,80 46,78z" />
-
-                            <path fill="#080E08" fill-opacity="0.75"
-                                d="M48,78 L60,78 L60,83 Q57,87 51,87 Q48,85 48,83z" />
-
-                            <path stroke="#1A2A1A" stroke-width="2" stroke-opacity="0.35" fill="none"
-                                d="M48,80 Q45,86 48,90 Q49,92 47,94" />
-                            <path stroke="#1E2E1E" stroke-width="2.5" stroke-opacity="0.5" fill="none"
-                                d="M54,82 Q53,88 54,92 Q54.5,94 54,97" />
-                            <path stroke="#1A2A1A" stroke-width="2" stroke-opacity="0.35" fill="none"
-                                d="M60,80 Q63,86 60,90 Q59,92 61,94" />
-
-                            <path fill="#162016" fill-opacity="0.25" d="M45,88 m-1,0 a1,1 0 1,1 2,0 a1,1 0 1,1 -2,0" />
-                            <path fill="#162016" fill-opacity="0.2"
-                                d="M63,86 m-0.8,0 a0.8,0.8 0 1,1 1.6,0 a0.8,0.8 0 1,1 -1.6,0" />
-                            <path fill="#162016" fill-opacity="0.15"
-                                d="M50,92 m-0.6,0 a0.6,0.6 0 1,1 1.2,0 a0.6,0.6 0 1,1 -1.2,0" />
-                            <path fill="#162016" fill-opacity="0.12"
-                                d="M58,94 m-0.5,0 a0.5,0.5 0 1,1 1,0 a0.5,0.5 0 1,1 -1,0" />
-
-                            <path stroke="#CC2200" stroke-width="0.4" stroke-opacity="0.3" fill="none"
-                                d="M54,16 L54,40" />
-                            <path stroke="#CC2200" stroke-width="0.4" stroke-opacity="0.3" fill="none"
-                                d="M54,58 L54,74" />
-
-                            <path stroke="#CC2200" stroke-width="0.4" stroke-opacity="0.3" fill="none"
-                                d="M16,49 L29,49" />
-                            <path stroke="#CC2200" stroke-width="0.4" stroke-opacity="0.3" fill="none"
-                                d="M79,49 L92,49" />
-
-                            <path stroke="#CC2200" stroke-width="0.7" stroke-opacity="0.45" fill="none"
-                                d="M54,38 L54,40 M54,58 L54,60 M48,49 L50,49 M58,49 L60,49" />
-
-                            <path stroke="#CC2200" stroke-width="0.35" stroke-opacity="0.18" fill="none"
-                                d="M54,49 m-22,0 a22,22 0 1,1 44,0 a22,22 0 1,1 -44,0" />
-
-                            <path stroke="#CC2200" stroke-width="0.5" stroke-opacity="0.25" fill="none"
-                                d="M54,27 L54,29 M54,69 L54,71 M32,49 L34,49 M74,49 L76,49" />
-
-                            <path stroke="#1E2E1A" stroke-width="0.3" stroke-opacity="0.4" fill="none"
-                                d="M16,42 L18.5,42 M16,46 L18.5,46 M16,50 L18.5,50 M16,54 L18.5,54 M16,58 L18.5,58" />
-                            <path stroke="#1E2E1A" stroke-width="0.3" stroke-opacity="0.4" fill="none"
-                                d="M89.5,42 L92,42 M89.5,46 L92,46 M89.5,50 L92,50 M89.5,54 L92,54 M89.5,58 L92,58" />
-
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Phantom-Strike-Game/releases/download/v1.0.0/Phantom.Strike.apk"
-        },
-        {
-            name: "Glass Velocity",
-            developer: "Lihka Games",
-            rating: "4.9",
-            size: "22 MB",
-            tags: ["glass", "velocity", "physics", "arcade", "speed", "reflex", "game", "lihka"],
-            icon: "linear-gradient(135deg,#0F1A0F,#050505)",
-            svg: ` <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
-
-                            <!-- ══════════════════════════════════════════════════════════
-       GLASS VELOCITY — Foreground Icon Layer
-       Concept: Metal ball shattering through glass panel
-       Safe zone: 72x72dp center (between 18,18 and 90,90)
-       ══════════════════════════════════════════════════════════ -->
-
-                            <!-- ── GLASS PANEL — main glass slab (slightly tilted) ──── -->
-                            <!-- Glass panel shadow/depth -->
-                            <path d="M 62,22 L 68,22 L 68,86 L 62,86 Z" fill="#0A1628" fill-opacity="0.6" />
-
-                            <!-- Glass panel bottom edge depth -->
-                            <path d="M 36,84 L 66,84 L 68,86 L 38,86 Z" fill="#0A1628" fill-opacity="0.5" />
-
-                            <!-- Main glass panel body -->
-                            <path d="M 36,22 L 62,22 L 62,84 L 36,84 Z" fill="#7BB8E8" fill-opacity="0.55" />
-
-                            <!-- Glass gradient overlay — top-left bright reflection -->
-                            <path d="M 36,22 L 56,22 L 46,50 L 36,50 Z" fill="#FFFFFF" fill-opacity="0.35" />
-
-                            <!-- Glass inner reflection stripe — diagonal -->
-                            <path d="M 40,22 L 48,22 L 42,38 L 36,38 Z" fill="#FFFFFF" fill-opacity="0.55" />
-
-                            <!-- Glass bottom-right darker area (depth) -->
-                            <path d="M 50,60 L 62,60 L 62,84 L 50,84 Z" fill="#1A3050" fill-opacity="0.3" />
-
-                            <!-- Glass panel border/edge — left -->
-                            <path d="M 36,22 L 38,22 L 38,84 L 36,84 Z" fill="#FFFFFF" fill-opacity="0.6" />
-
-                            <!-- Glass panel border — top -->
-                            <path d="M 36,22 L 62,22 L 62,24 L 36,24 Z" fill="#FFFFFF" fill-opacity="0.6" />
-
-                            <!-- Glass panel border — right -->
-                            <path d="M 60,22 L 62,22 L 62,84 L 60,84 Z" fill="#AACCE8" fill-opacity="0.4" />
-
-                            <!-- ══════════════════════════════════════════════════════════
-       SHATTER CRACKS — radiating from ball impact point
-       Impact point: approx (52, 54)
-       ══════════════════════════════════════════════════════════ -->
-
-                            <!-- Crack 1 — upper right long crack -->
-                            <path d="M 52,52 L 61,32 L 62,32 L 61,31 L 52,51 Z" fill="#FFFFFF" fill-opacity="0.9" />
-
-                            <!-- Crack 2 — right crack going to edge -->
-                            <path d="M 52,54 L 62,46 L 62,48 L 53,55 Z" fill="#FFFFFF" fill-opacity="0.85" />
-
-                            <!-- Crack 3 — lower right crack -->
-                            <path d="M 52,56 L 62,68 L 62,70 L 61,70 L 51,57 Z" fill="#FFFFFF" fill-opacity="0.8" />
-
-                            <!-- Crack 4 — lower left crack -->
-                            <path d="M 50,57 L 38,76 L 37,76 L 36,77 L 36,75 L 49,56 Z" fill="#FFFFFF"
-                                fill-opacity="0.85" />
-
-                            <!-- Crack 5 — left crack going to left edge -->
-                            <path d="M 49,54 L 36,50 L 36,52 L 50,55 Z" fill="#FFFFFF" fill-opacity="0.8" />
-
-                            <!-- Crack 6 — upper left crack -->
-                            <path d="M 50,52 L 40,36 L 41,35 L 51,51 Z" fill="#FFFFFF" fill-opacity="0.9" />
-
-                            <!-- Crack 7 — small upper crack branch -->
-                            <path d="M 52,51 L 58,38 L 59,38 L 53,51 Z" fill="#FFFFFF" fill-opacity="0.7" />
-
-                            <!-- Crack 8 — small lower branch -->
-                            <path d="M 51,57 L 44,68 L 45,69 L 52,58 Z" fill="#FFFFFF" fill-opacity="0.7" />
-
-                            <!-- ── SHATTER HOLE — dark void where ball punched through ── -->
-                            <!-- M 53,54 m -6,0 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0
-       Center: (53,54), r=6 -->
-                            <circle cx="53" cy="54" r="6" fill="#050E1C" fill-opacity="0.85" />
-
-                            <!-- Hole inner glow ring — r=7 -->
-                            <circle cx="53" cy="54" r="7" fill="#2A5888" fill-opacity="0.4" stroke="#5BC8FF"
-                                stroke-width="0.8" />
-
-                            <!-- ══════════════════════════════════════════════════════════
-       GLASS SHARDS — flying pieces
-       ══════════════════════════════════════════════════════════ -->
-
-                            <!-- Shard 1 — upper right flying piece -->
-                            <path d="M 66,28 L 74,24 L 76,32 L 68,34 Z" fill="#7BB8E8" fill-opacity="0.7" />
-                            <!-- Shard 1 bright edge -->
-                            <path d="M 66,28 L 74,24 L 74,25 L 67,29 Z" fill="#FFFFFF" fill-opacity="0.8" />
-
-                            <!-- Shard 2 — right middle shard -->
-                            <path d="M 67,46 L 76,42 L 78,50 L 69,52 Z" fill="#5BA8D8" fill-opacity="0.65" />
-                            <path d="M 67,46 L 76,42 L 76,43 L 68,47 Z" fill="#FFFFFF" fill-opacity="0.75" />
-
-                            <!-- Shard 3 — lower right small shard -->
-                            <path d="M 68,66 L 76,68 L 74,76 L 66,72 Z" fill="#7BB8E8" fill-opacity="0.6" />
-                            <path d="M 68,66 L 76,68 L 76,69 L 69,67 Z" fill="#FFFFFF" fill-opacity="0.7" />
-
-                            <!-- Shard 4 — upper left shard -->
-                            <path d="M 24,26 L 32,22 L 34,30 L 26,32 Z" fill="#7BB8E8" fill-opacity="0.5" />
-                            <path d="M 24,26 L 32,22 L 32,23 L 25,27 Z" fill="#FFFFFF" fill-opacity="0.7" />
-
-                            <!-- Shard 5 — lower left shard -->
-                            <path d="M 22,70 L 30,66 L 34,74 L 26,78 Z" fill="#5BA8D8" fill-opacity="0.55" />
-                            <path d="M 22,70 L 30,66 L 30,67 L 23,71 Z" fill="#FFFFFF" fill-opacity="0.65" />
-
-                            <!-- Shard 6 — tiny top shard -->
-                            <path d="M 48,16 L 54,14 L 56,20 L 50,22 Z" fill="#9BCCE8" fill-opacity="0.6" />
-                            <path d="M 48,16 L 54,14 L 54,15 L 49,17 Z" fill="#FFFFFF" fill-opacity="0.8" />
-
-                            <!-- ══════════════════════════════════════════════════════════
-       METAL BALL — chrome/steel sphere with specular shading
-       Center: (38, 54), Radius: 14
-       ══════════════════════════════════════════════════════════ -->
-
-                            <!-- Ball outer glow / aura — r=20 -->
-                            <circle cx="38" cy="54" r="20" fill="#3A80C0" fill-opacity="0.18" />
-
-                            <!-- Ball dark base (shadow) — r=15 -->
-                            <circle cx="38" cy="54" r="15" fill="#0D0D0D" fill-opacity="1" />
-
-                            <!-- Ball mid chrome layer — r=14 -->
-                            <circle cx="38" cy="54" r="14" fill="#3A3A4A" fill-opacity="1" />
-
-                            <!-- Ball chrome gradient — lighter top-left area -->
-                            <path d="M 30,44 Q 38,40 46,46 Q 50,52 44,60 Q 36,64 28,60 Q 22,54 26,46 Q 27,43 30,44 Z"
-                                fill="#8090A8" fill-opacity="0.9" />
-
-                            <!-- Ball chrome mid highlight band -->
-                            <path d="M 30,46 Q 38,42 44,48 Q 46,52 42,58 Q 36,62 30,58 Q 26,54 28,48 Z" fill="#A8B8C8"
-                                fill-opacity="0.6" />
-
-                            <!-- Ball primary specular highlight — top-left bright spot -->
-                            <path d="M 31,46 Q 36,42 40,46 Q 42,50 38,52 Q 34,54 31,50 Q 29,48 31,46 Z" fill="#E8F0F8"
-                                fill-opacity="0.85" />
-
-                            <!-- Ball hot specular center — pure white glint -->
-                            <path d="M 33,47 Q 36,44 39,47 Q 40,50 37,51 Q 34,52 33,50 Q 32,48 33,47 Z" fill="#FFFFFF"
-                                fill-opacity="0.95" />
-
-                            <!-- Ball tiny specular pinpoint — center (34,48), r=2 -->
-                            <circle cx="34" cy="48" r="2" fill="#FFFFFF" fill-opacity="1" />
-
-                            <!-- Ball secondary small specular (opposite side reflection) — center (44,60), r=2 -->
-                            <circle cx="44" cy="60" r="2" fill="#6080A0" fill-opacity="0.5" />
-
-                            <!-- Ball bottom shadow gradient for depth -->
-                            <path d="M 32,62 Q 38,66 44,62 Q 46,58 44,56 Q 38,60 32,56 Q 30,58 32,62 Z" fill="#050A14"
-                                fill-opacity="0.7" />
-
-                            <!-- Ball rim light — subtle bright edge on right side -->
-                            <path d="M 50,52 Q 52,54 51,58 Q 50,60 49,58 Q 50,54 50,52 Z" fill="#7090B0"
-                                fill-opacity="0.5" />
-
-                            <!-- ══════════════════════════════════════════════════════════
-       VELOCITY TRAIL — motion lines behind ball
-       ══════════════════════════════════════════════════════════ -->
-
-                            <!-- Trail line 1 — longest, top -->
-                            <path d="M 14,46 L 24,44 L 24,45.5 L 14,47.5 Z" fill="#5BC8FF" fill-opacity="0.7" />
-
-                            <!-- Trail line 2 — mid -->
-                            <path d="M 12,52 L 23,51 L 23,52.5 L 12,53.5 Z" fill="#5BC8FF" fill-opacity="0.55" />
-
-                            <!-- Trail line 3 — lower -->
-                            <path d="M 14,58 L 24,57 L 24,58.5 L 14,59.5 Z" fill="#5BC8FF" fill-opacity="0.4" />
-
-                            <!-- Trail line 4 — shortest, fades out -->
-                            <path d="M 8,48 L 16,47 L 16,48.5 L 8,49.5 Z" fill="#5BC8FF" fill-opacity="0.25" />
-
-                            <path d="M 8,55 L 16,54.5 L 16,56 L 8,56.5 Z" fill="#5BC8FF" fill-opacity="0.2" />
-
-                            <!-- ══════════════════════════════════════════════════════════
-       GLASS SPARKLE GLINTS — tiny light flares on shards
-       ══════════════════════════════════════════════════════════ -->
-
-                            <!-- Glint 1 — upper right shard -->
-                            <path d="M 73,26 L 75,24 L 76,26 L 74,28 Z" fill="#FFFFFF" fill-opacity="0.9" />
-                            <path d="M 74,23 L 74.5,25 L 75.5,25 L 75,23 Z" fill="#FFFFFF" fill-opacity="0.7" />
-
-                            <!-- Glint 2 — left upper shard -->
-                            <path d="M 29,23 L 31,21 L 32,23 L 30,25 Z" fill="#FFFFFF" fill-opacity="0.85" />
-
-                            <!-- Glint 3 — top small shard glint -->
-                            <path d="M 51,13 L 52,12 L 53,14 L 52,15 Z" fill="#FFFFFF" fill-opacity="0.8" />
-
-                            <!-- Glint 4 — mid right -->
-                            <path d="M 77,45 L 78,44 L 79,46 L 78,47 Z" fill="#FFFFFF" fill-opacity="0.75" />
-
-                            <!-- Glint 5 — lower right -->
-                            <path d="M 75,70 L 76,69 L 77,71 L 76,72 Z" fill="#FFFFFF" fill-opacity="0.7" />
-
-                        </svg>`,
-            link: "https://github.com/LihkaGames/Glass-Velocity-Game/releases/download/v1.0.0/Glass.Velocity.apk"
-        }
-    ];
-}
+var DB = [
+  { name: "Block Fusion",                  type: "game", link: "https://github.com/LihkaGames/Block-Fusion-Game/raw/refs/heads/main/Block%20Fusion.apk" },
+  { name: "Blitz Storm Arena",             type: "game", link: "https://github.com/LihkaGames/Blitz-Storm-Arena/raw/refs/heads/main/Blitz%20Storm%20Arena.apk" },
+  { name: "Crystal Cascade",               type: "game", link: "https://github.com/LihkaGames/Crystal-Cascade-Game/raw/refs/heads/main/Crystal%20Cascade.apk" },
+  { name: "Disc Strike Arena",             type: "game", link: "https://github.com/LihkaGames/Disc-Strike-Arena-Game/releases/download/v1.0/Disc.Strike.Arena.apk" },
+  { name: "Roll Master Quest: Ludo Game",  type: "game", link: "https://github.com/LihkaGames/Roll-Master-Quest-Ludo-Game/releases/download/v1.0.0/Roll.Master.Quest.apk" },
+  { name: "Serpent Surge",                 type: "game", link: "https://github.com/LihkaGames/Serpent-Surge-Game/releases/download/v1.0.0/Serpent.Surge.apk" },
+  { name: "Turbo Trail Racer",             type: "game", link: "https://github.com/LihkaGames/Turbo-Trail-Racer-Game/releases/download/v1.0.0/Turbo.Trail.Racer.apk" },
+  { name: "Precision Shot",                type: "game", link: "https://github.com/LihkaGames/Precision-Shot-Game/releases/download/v1.0.0/Precision.Shot.apk" },
+  { name: "Phantom Strike",                type: "game", link: "https://github.com/LihkaGames/Phantom-Strike-Game/releases/download/v1.0.0/Phantom.Strike.apk" },
+  { name: "Glass Velocity",                type: "game", link: "https://github.com/LihkaGames/Glass-Velocity-Game/releases/download/v1.0.0/Glass.Velocity.apk" },
+  { name: "Axe Splitter",                  type: "game", link: "https://github.com/LihkaGames/Axe-Splitter-Game/releases/download/v1.0.0/Axe.Splitter.apk" },
+  { name: "Toon Crosser",                  type: "game", link: "https://github.com/LihkaGames/Toon-Crosser-Game/releases/download/v1.0.0/Toon.Crosser.apk" },
+  { name: "PhotoEdit Pro",                 type: "app",  link: "#" },
+  { name: "CloudNote Plus",               type: "app",  link: "#" },
+  { name: "FitTrack Health",              type: "app",  link: "#" },
+  { name: "MusicBox Stream",              type: "app",  link: "#" },
+  { name: "VideoMaker",                   type: "app",  link: "#" },
+  { name: "Social Connect",               type: "app",  link: "#" }
+];
 
 // =============================================
-// 🎯 SEARCH ALGORITHM
+// SEARCH PAGE
 // =============================================
-
-function searchGames(query) {
-    if (!query || query.trim() === '') return [];
-    
-    const database = getSearchDatabase();
-    query = query.toLowerCase().trim();
-    
-    const results = database.map(item => {
-        let score = 0;
-        
-        // Check name
-        if (item.name.toLowerCase().includes(query)) {
-            score = 100;
-        }
-        
-        // Check tags
-        if (item.tags) {
-            for (let tag of item.tags) {
-                if (tag.toLowerCase().includes(query)) {
-                    score = Math.max(score, 80);
-                }
-            }
-        }
-        
-        // Check developer
-        if (item.developer.toLowerCase().includes(query)) {
-            score = Math.max(score, 70);
-        }
-        
-        return { ...item, score };
-    });
-    
-    return results
-        .filter(item => item.score > 0)
-        .sort((a, b) => b.score - a.score);
-}
-
-// =============================================
-// 🔍 SEARCH PAGE FUNCTIONALITY
-// =============================================
-
 if (window.location.pathname.includes('search.html')) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get('q');
-    
-    const queryDisplay = document.getElementById('qd');
-    const resultCount = document.getElementById('rc');
-    const resultsContainer = document.getElementById('search-results');
-    const searchInput = document.getElementById('si');
+  var params  = new URLSearchParams(window.location.search);
+  var query   = params.get('q') || '';
+  var qdEl    = document.getElementById('qd');
+  var rcEl    = document.getElementById('rc');
+  var resEl   = document.getElementById('search-results');
+  var siEl    = document.getElementById('si');
 
-    if (query && queryDisplay && resultCount && resultsContainer) {
-        queryDisplay.textContent = query;
-        if (searchInput) searchInput.value = query;
-
-        const results = searchGames(query);
-        resultCount.textContent = results.length;
-
-        if (results.length > 0) {
-            let html = '<div class="grid">';
-            results.forEach(item => {
-                html += `
-                    <div class="card">
-                        <div class="card-ico" style="background:${item.icon};padding:8px;display:flex;align-items:center;justify-content:center;">
-                            ${item.svg}
-                        </div>
-                        <h3>${item.name}</h3>
-                        <div class="sub">${item.developer}</div>
-                        <div class="meta"><b>⭐ ${item.rating}</b><span>${item.size}</span></div>
-                        <a href="${item.link}" class="dl" download>⬇ Download</a>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            resultsContainer.innerHTML = html;
-        } else {
-            resultsContainer.innerHTML = `
-                <div style="text-align:center;padding:60px 20px;color:#666">
-                    <h2 style="font-size:3rem;margin-bottom:10px">🔍</h2>
-                    <h3 style="margin-bottom:8px;color:#aaa">No results found for "${query}"</h3>
-                    <p style="margin-bottom:20px">Try: "Block", "Racing", "Ludo", "Puzzle"</p>
-                </div>
-            `;
-        }
-    } else if (!query && resultsContainer) {
-        if (queryDisplay) queryDisplay.textContent = "";
-        if (resultCount) resultCount.textContent = "0";
-        resultsContainer.innerHTML = `
-            <div style="text-align:center;padding:60px 20px;color:#666">
-                <h2 style="font-size:3rem;margin-bottom:10px">🔎</h2>
-                <h3 style="margin-bottom:8px;color:#aaa">Start typing to search</h3>
-                <p style="margin-bottom:20px">Popular searches:</p>
-                <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-                    <span style="padding:8px 16px;background:#1a1a1a;border-radius:20px;font-size:0.85rem;cursor:pointer;border:1px solid #333" onclick="window.location.href='search.html?q=Block%20Fusion'">Block Fusion</span>
-                    <span style="padding:8px 16px;background:#1a1a1a;border-radius:20px;font-size:0.85rem;cursor:pointer;border:1px solid #333" onclick="window.location.href='search.html?q=Racing'">Racing</span>
-                    <span style="padding:8px 16px;background:#1a1a1a;border-radius:20px;font-size:0.85rem;cursor:pointer;border:1px solid #333" onclick="window.location.href='search.html?q=Ludo'">Ludo</span>
-                </div>
-            </div>
-        `;
-    }
-}
-
-// =============================================
-// 🔍 SIMPLE SEARCH ON INDEX.HTML
-// =============================================
-
-function filterCards(query) {
-    const cards = document.querySelectorAll('#cardContainer .card');
-    
-    query = query.toLowerCase().trim();
-    
-    let visibleCount = 0;
-    
-    cards.forEach(card => {
-        const name = card.getAttribute('data-name') || '';
-        
-        if (name.includes(query)) {
-            card.style.display = '';
-            visibleCount++;
-        } else {
-            card.style.display = 'none';
-        }
+  // Live search input on search page
+  if (siEl) {
+    siEl.value = query;
+    siEl.addEventListener('input', function () {
+      runSearch(siEl.value.trim());
     });
-    
-    let noResultsMsg = document.getElementById('no-results-msg');
-    
-    if (visibleCount === 0 && query !== '') {
-        if (!noResultsMsg) {
-            noResultsMsg = document.createElement('div');
-            noResultsMsg.id = 'no-results-msg';
-            noResultsMsg.style.cssText = 'text-align:center;padding:60px 20px;color:#666;grid-column:1/-1';
-            noResultsMsg.innerHTML = `
-                <h2 style="font-size:3rem;margin-bottom:10px">🔍</h2>
-                <h3 style="margin-bottom:8px;color:#aaa">No results found for "${query}"</h3>
-                <p>Try: "Block", "Racing", "Ludo", "Puzzle"</p>
-            `;
-            const container = document.getElementById('cardContainer');
-            if (container) container.appendChild(noResultsMsg);
-        }
-    } else {
-        if (noResultsMsg) {
-            noResultsMsg.remove();
-        }
+    siEl.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        var v = siEl.value.trim();
+        if (v) location.href = 'search.html?q=' + encodeURIComponent(v);
+      }
+    });
+  }
+
+  if (qdEl) qdEl.textContent = query;
+  runSearch(query);
+
+  function runSearch(q) {
+    if (!resEl) return;
+
+    if (!q) {
+      if (rcEl) rcEl.textContent = '0';
+      resEl.innerHTML =
+        '<div style="text-align:center;padding:60px 20px;color:#666">' +
+        '<p style="font-size:2rem">🔎</p>' +
+        '<p style="color:#aaa">Type to search apps & games</p></div>';
+      return;
     }
+
+    var lower   = q.toLowerCase();
+    var results = DB.filter(function (item) {
+      return item.name.toLowerCase().includes(lower);
+    });
+
+    if (rcEl) rcEl.textContent = results.length;
+
+    if (results.length === 0) {
+      resEl.innerHTML =
+        '<div style="text-align:center;padding:60px 20px;color:#666">' +
+        '<p style="font-size:2rem">😕</p>' +
+        '<p style="color:#aaa">No results for "<b>' + q + '</b>"</p>' +
+        '<p>Try: Block, Racing, Ludo, Snake</p></div>';
+      return;
+    }
+
+    // ── Show name + download button ONLY (no images) ──
+    var html = '<div style="display:flex;flex-direction:column;gap:10px;">';
+    results.forEach(function (item) {
+      html +=
+        '<div style="display:flex;align-items:center;justify-content:space-between;' +
+        'padding:14px 18px;background:#111;border-radius:12px;border:1px solid #222;">' +
+        '<div>' +
+        '<div style="font-weight:700;font-size:1rem;color:#fff;">' + item.name + '</div>' +
+        '<div style="font-size:0.75rem;color:#888;margin-top:2px;">Lihka Games &bull; ' + item.type + '</div>' +
+        '</div>' +
+        '<a href="' + item.link + '" class="dl" download style="flex-shrink:0;">⬇ Download</a>' +
+        '</div>';
+    });
+    html += '</div>';
+    resEl.innerHTML = html;
+  }
 }
