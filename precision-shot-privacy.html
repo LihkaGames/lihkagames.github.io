@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Privacy Policy for Precision Shot — A challenging target shooting game by Lihka"/>
+    <meta name="author" content="Lihka"/>
+    <title>Privacy Policy — Precision Shot by Lihka</title>
+    <style>
+        /* ═══════════════════════════════════════════════════════════ */
+        /* RESET & BASE                                                */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Arial', sans-serif;
+            font-size: 16px;
+            color: #2C3E50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* NAVIGATION HEADER                                           */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .navbar {
+            background: linear-gradient(90deg, #FF6B6B 0%, #FF8E53 100%);
+            padding: 16px 24px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .navbar-logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .navbar-logo:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            color: rgba(255,255,255,0.95);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+            transition: all 0.3s;
+        }
+
+        .navbar-links a:hover {
+            background: rgba(255,255,255,0.30);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* HERO BANNER                                                 */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .hero-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 24px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-banner h1 {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .hero-banner .subtitle {
+            font-size: 16px;
+            color: rgba(255,255,255,0.90);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .update-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* MAIN CONTAINER                                              */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* HIGHLIGHTS GRID                                             */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-box {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid #FF6B6B;
+            transition: all 0.3s;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .highlight-box .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #FF6B6B;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight-box p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* CONTENT SECTIONS                                            */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border-top: 4px solid #667eea;
+        }
+
+        .section h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #2C3E50;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 28px;
+            background: #FF6B6B;
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            margin: 20px 0 12px;
+            margin-top: 24px;
+        }
+
+        .section p {
+            color: #555;
+            margin-bottom: 14px;
+            font-size: 15px;
+        }
+
+        .section ul {
+            margin: 12px 0 12px 24px;
+            padding: 0;
+        }
+
+        .section li {
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .section a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .section a:hover {
+            border-bottom-color: #667eea;
+            color: #764ba2;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* INFO BOXES - DIFFERENT COLORS                               */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .info-box {
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin: 16px 0;
+            font-size: 14px;
+            line-height: 1.7;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .info-box-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .box-success {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            color: #2E7D32;
+        }
+
+        .box-warning {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            color: #E65100;
+        }
+
+        .box-danger {
+            background: #FFEBEE;
+            border-left: 4px solid #F44336;
+            color: #C62828;
+        }
+
+        .box-info {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            color: #1565C0;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* DATA CARDS                                                  */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .data-card {
+            background: #F8F9FA;
+            border: 1px solid #E0E6ED;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+
+        .data-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .data-card-title {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-card-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* NETWORK CARD                                                */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .network-card {
+            background: linear-gradient(135deg, #F5F7FA 0%, #C3CFE2 100%);
+            border: 2px solid #E0E6ED;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .network-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .network-info h3 {
+            font-size: 16px;
+            color: #2C3E50;
+            font-weight: 800;
+            margin-bottom: 6px;
+            margin-top: 0;
+        }
+
+        .network-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .network-info a {
+            display: inline-block;
+            font-size: 13px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* TABLE OF CONTENTS                                           */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .toc-section {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #FF9800;
+        }
+
+        .toc-section h2 {
+            font-size: 20px;
+            color: #2C3E50;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .toc-list li {
+            margin: 0;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 10px 14px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 8px;
+            background: #F5F7FA;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .toc-list a:hover {
+            background: #E8EEFF;
+            border-left-color: #667eea;
+            transform: translateX(4px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* CONTACT SECTION                                             */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 14px;
+            padding: 28px;
+            margin-top: 24px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-section h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+            margin-top: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            width: 32px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .contact-item a:hover {
+            border-bottom-color: white;
+            opacity: 0.9;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* FOOTER                                                      */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .footer {
+            background: linear-gradient(90deg, #2C3E50 0%, #34495E 100%);
+            color: #ECF0F1;
+            text-align: center;
+            padding: 40px 24px;
+            margin-top: 60px;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 8px;
+            color: #FF6B6B;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: #BDC3C7;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: #FF6B6B;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #FF8E53;
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #95A5A6;
+            border-top: 1px solid #445566;
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* COMMITMENT BOX                                              */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .commitment-box {
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            color: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+            text-align: center;
+        }
+
+        .commitment-box h3 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: white;
+            margin-top: 0;
+        }
+
+        .commitment-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.95);
+            margin: 0;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* RESPONSIVE                                                  */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            .hero-banner {
+                padding: 40px 16px;
+            }
+
+            .hero-icon {
+                font-size: 48px;
+            }
+
+            .hero-banner h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 20px 16px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-links a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .network-card {
+                grid-template-columns: 1fr;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="https://www.lihka.in" class="navbar-logo">🎯 Precision Shot</a>
+    <div class="navbar-links">
+        <a href="#section1">Game Info</a>
+        <a href="#section2">Data Collection</a>
+        <a href="#section4">Ads & Networks</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>
+
+<!-- HERO BANNER -->
+<div class="hero-banner">
+    <span class="hero-icon">🎯</span>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Precision Shot — by Lihka</p>
+    <span class="update-badge">📅 Last Updated: January 2025</span>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- HIGHLIGHTS -->
+    <div class="highlights">
+        <div class="highlight-box">
+            <div class="icon">🎮</div>
+            <h3>100% Free</h3>
+            <p>No paywalls, no hidden charges. Play forever for free.</p>
+        </div>
+        <div class="highlight-box">
+            <div class="icon">🔒</div>
+            <h3>Your Data Safe</h3>
+            <p>We don't collect personal info or track your location.</p>
+        </div>
+        <div class="highlight-box">
+            <div class="icon">✅</div>
+            <h3>COPPA Safe</h3>
+            <p>Child-friendly gaming with all safety measures in place.</p>
+        </div>
+        <div class="highlight-box">
+            <div class="icon">🌐</div>
+            <h3>Transparent</h3>
+            <p>Clear policies about ads and third-party services.</p>
+        </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc-section">
+        <h2>📑 Quick Navigation</h2>
+        <ul class="toc-list">
+            <li><a href="#section1">🎮 About Precision Shot</a></li>
+            <li><a href="#section2">📊 What We Collect</a></li>
+            <li><a href="#section3">🚫 What We Don't Collect</a></li>
+            <li><a href="#section4">📢 Ad Networks & Services</a></li>
+            <li><a href="#section5">📋 How We Use Data</a></li>
+            <li><a href="#section6">🧒 Children's Privacy</a></li>
+            <li><a href="#section7">🔗 Third-Party Integrations</a></li>
+            <li><a href="#section8">🔐 Security & Protection</a></li>
+            <li><a href="#section9">✏️ Your Rights</a></li>
+            <li><a href="#section10">📝 Policy Updates</a></li>
+            <li><a href="#contact">📞 Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="section" id="section1">
+        <h2>🎮 About Precision Shot</h2>
+        <p>
+            <strong>Precision Shot</strong> is an engaging mobile shooting game where players 
+            aim to hit colorful targets with accuracy. Featuring multiple game modes, daily challenges, 
+            power-ups, and a shop system, it delivers arcade-style fun for players of all ages.
+        </p>
+        <p>
+            <strong>Precision Shot</strong> is proudly developed by <strong>Lihka</strong>, 
+            based in <strong>Nagpur, Maharashtra, India</strong>. We are committed to delivering 
+            fun, engaging games while maintaining the highest standards of user privacy and data protection.
+        </p>
+        <p>
+            This Privacy Policy explains what information we collect, how we use it, and your rights 
+            regarding your data when you use the Precision Shot application.
+        </p>
+        
+        <div class="info-box box-info">
+            <span class="info-box-icon">ℹ️</span>
+            <div>
+                <strong>By using Precision Shot, you agree to this Privacy Policy.</strong> 
+                If you don't agree with our practices, please don't use the app.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section" id="section2">
+        <h2>📊 Information We Collect</h2>
+        
+        <h3>🔹 Device Identifiers</h3>
+        <ul>
+            <li>Android Advertising ID (used for ad targeting)</li>
+            <li>Device model, OS version, and screen size</li>
+            <li>Network connection type (Wi-Fi or Mobile)</li>
+            <li>Device language and timezone settings</li>
+        </ul>
+
+        <h3>🔹 Gameplay Analytics</h3>
+        <ul>
+            <li>High scores and performance metrics</li>
+            <li>Game mode preferences and completion rates</li>
+            <li>Level progression and difficulty selected</li>
+            <li>App crashes and performance errors (for debugging)</li>
+        </ul>
+
+        <h3>🔹 Advertising Data</h3>
+        <ul>
+            <li>Ad impressions and interactions</li>
+            <li>Ad clicks and video completions</li>
+            <li>General demographic targeting signals</li>
+        </ul>
+
+        <div class="info-box box-success">
+            <span class="info-box-icon">✅</span>
+            <div>
+                <strong>We collect the minimum necessary data</strong> to provide the game, 
+                show relevant ads, and improve performance. Nothing more.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section" id="section3">
+        <h2>🚫 What We Absolutely Don't Collect</h2>
+        <ul>
+            <li>❌ Your name, email address, or phone number</li>
+            <li>❌ Your precise GPS location or location history</li>
+            <li>❌ Credit card, payment, or financial information</li>
+            <li>❌ Social media accounts or personal IDs</li>
+            <li>❌ Contact lists, SMS messages, or call logs</li>
+            <li>❌ Photos, videos, or personal media files</li>
+            <li>❌ Calendar, reminders, or personal schedules</li>
+            <li>❌ Browser history or web activity tracking</li>
+            <li>❌ Biometric data (fingerprints, facial recognition)</li>
+            <li>❌ Any personally identifiable information without consent</li>
+        </ul>
+
+        <div class="info-box box-success">
+            <span class="info-box-icon">✅</span>
+            <div>
+                <strong>Precision Shot respects your privacy completely.</strong> 
+                Play the game without worrying about your personal data being harvested.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="section" id="section4">
+        <h2>📢 Advertising Networks & Third-Party Services</h2>
+        <p>
+            Precision Shot is free because of advertising revenue. We partner with reputable 
+            ad networks to show you relevant ads. Here's who they are:
+        </p>
+
+        <div class="info-box box-warning">
+            <span class="info-box-icon">⚠️</span>
+            <div>
+                <strong>We use 2 advertising networks:</strong> Google AdMob and Unity Ads. 
+                Their privacy practices are governed by their own policies (linked below).
+            </div>
+        </div>
+
+        <!-- GOOGLE ADMOB -->
+        <div class="network-card">
+            <div class="network-icon">📊</div>
+            <div class="network-info">
+                <h3>Google AdMob</h3>
+                <p>
+                    Google's advertising platform serving banner and interstitial ads 
+                    throughout the game.
+                </p>
+                <p><strong>Data AdMob May Access:</strong></p>
+                <ul style="margin-left: 16px;">
+                    <li>Google Advertising ID</li>
+                    <li>Device model and Android version</li>
+                    <li>General location (country/city level)</li>
+                    <li>Ad interaction signals</li>
+                    <li>Network type and carrier info</li>
+                </ul>
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                    📖 Google Privacy Policy
+                </a>
+                <a href="https://support.google.com/ads/answer/2662922" target="_blank" rel="noopener noreferrer">
+                    ⚙️ Opt Out of Personalized Ads
+                </a>
+            </div>
+        </div>
+
+        <!-- UNITY ADS -->
+        <div class="network-card">
+            <div class="network-icon">🎮</div>
+            <div class="network-info">
+                <h3>Unity Ads</h3>
+                <p>
+                    Unity's in-game advertising platform for rewarded video ads and 
+                    interstitials to monetize the free game.
+                </p>
+                <p><strong>Data Unity Ads May Access:</strong></p>
+                <ul style="margin-left: 16px;">
+                    <li>Unity Advertising ID</li>
+                    <li>Device information</li>
+                    <li>Ad engagement data</li>
+                    <li>General location info</li>
+                    <li>Network connection type</li>
+                </ul>
+                <a href="https://unity3d.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+                    📖 Unity Privacy Policy
+                </a>
+            </div>
+        </div>
+
+        <div class="info-box box-success">
+            <span class="info-box-icon">✅</span>
+            <div>
+                <strong>How to Opt Out of Personalized Ads:</strong><br/>
+                Go to <strong>Settings → Privacy → Ads → Opt out of Ads Personalization</strong>
+                <br/>You can also reset your Advertising ID to receive less targeted ads.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="section" id="section5">
+        <h2>📋 How We Use Your Information</h2>
+        <p>We use the limited data we collect for these specific purposes:</p>
+        <ul>
+            <li>✅ Display targeted advertisements within the game</li>
+            <li>✅ Monitor app performance and stability</li>
+            <li>✅ Debug crashes and technical issues</li>
+            <li>✅ Improve gameplay experience and features</li>
+            <li>✅ Prevent fraud and abuse</li>
+            <li>✅ Serve analytics to game developers</li>
+        </ul>
+
+        <div class="info-box box-danger">
+            <span class="info-box-icon">🚫</span>
+            <div>
+                <strong>We NEVER:</strong><br/>
+                • Sell your data to third parties<br/>
+                • Share info with unauthorized parties<br/>
+                • Use data for anything beyond stated purposes<br/>
+                • Track you outside this game<br/>
+                • Send spam or unsolicited messages<br/>
+                • Use data for discrimination or profiling
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="section" id="section6">
+        <h2>🧒 Children's Privacy (COPPA Compliance)</h2>
+        <p>
+            Precision Shot is designed for all ages, including children under 13. 
+            We fully comply with COPPA (Children's Online Privacy Protection Act).
+        </p>
+
+        <div class="info-box box-success">
+            <span class="info-box-icon">✅</span>
+            <div>
+                <strong>Child Safety Features:</strong><br/>
+                ✓ No collection of personal info from children<br/>
+                ✓ Ad networks configured for COPPA compliance<br/>
+                ✓ No account registration required<br/>
+                ✓ No in-app purchases (in-game coins earned by playing)<br/>
+                ✓ No external links to unsafe content<br/>
+                ✓ Age-appropriate advertising only<br/>
+                ✓ No social features or messaging
+            </div>
+        </div>
+
+        <p>
+            Parents: If your child has provided personal information, 
+            please contact us immediately at <strong>support@lihka.in</strong> 
+            and we will delete it within 7 days.
+        </p>
+    </div>
+
+    <!-- SECTION 7 -->
+    <div class="section" id="section7">
+        <h2>🔗 Third-Party Integrations</h2>
+        <p>Precision Shot uses these third-party services:</p>
+
+        <div class="data-card">
+            <div class="data-card-title">Firebase (Google)</div>
+            <div class="data-card-text">
+                Analytics, crash reporting, and app performance monitoring.
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">View Policy →</a>
+            </div>
+        </div>
+
+        <div class="data-card">
+            <div class="data-card-title">Google Play Services</div>
+            <div class="data-card-text">
+                Required for app updates, distribution, and device integrity checks.
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">View Policy →</a>
+            </div>
+        </div>
+
+        <div class="data-card">
+            <div class="data-card-title">Google AdMob</div>
+            <div class="data-card-text">
+                Banner and interstitial advertisements.
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">View Policy →</a>
+            </div>
+        </div>
+
+        <div class="data-card">
+            <div class="data-card-title">Unity Ads</div>
+            <div class="data-card-text">
+                Rewarded video ads for monetization.
+                <a href="https://unity3d.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">View Policy →</a>
+            </div>
+        </div>
+
+        <div class="info-box box-info">
+            <span class="info-box-icon">ℹ️</span>
+            <div>
+                We're not responsible for third-party services' privacy practices. 
+                Review their policies linked above for details.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 8 -->
+    <div class="section" id="section8">
+        <h2>🔐 Data Security & Protection</h2>
+        <p>We implement industry-standard security measures to protect your information:</p>
+        <ul>
+            <li>🔒 HTTPS/SSL encryption for all data transmission</li>
+            <li>🔒 Secure data storage on your device</li>
+            <li>🔒 Regular security audits and updates</li>
+            <li>🔒 No storage of sensitive personal data</li>
+            <li>🔒 Minimal data retention (auto-deletion after use)</li>
+            <li>🔒 Only authorized third-party integrations</li>
+        </ul>
+
+        <div class="info-box box-warning">
+            <span class="info-box-icon">⚠️</span>
+            <div>
+                <strong>No system is 100% secure.</strong> While we use strong security, 
+                we cannot guarantee absolute protection. Internet transmission always carries 
+                some risk, which is why we minimize data collection.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 9 -->
+    <div class="section" id="section9">
+        <h2>✏️ Your Privacy Rights</h2>
+        <p>You have the following rights regarding your data:</p>
+
+        <div class="data-card">
+            <div class="data-card-title">📋 Right to Access</div>
+            <div class="data-card-text">
+                Request information about what data we collect and store about you.
+            </div>
+        </div>
+
+        <div class="data-card">
+            <div class="data-card-title">🗑️ Right to Deletion</div>
+            <div class="data-card-text">
+                Request deletion of any personal data we may have collected.
+            </div>
+        </div>
+
+        <div class="data-card">
+            <div class="data-card-title">✏️ Right to Correction</div>
+            <div class="data-card-text">
+                Request correction or updates to inaccurate information.
+            </div>
+        </div>
+
+        <div class="data-card">
+            <div class="data-card-title">🚫 Right to Opt Out</div>
+            <div class="data-card-text">
+                Opt out of personalized ads via device settings.
+            </div>
+        </div>
+
+        <p style="margin-top: 20px;">
+            <strong>To exercise your rights:</strong> Contact us at 
+            <strong>support@lihka.in</strong>. We'll respond within 7 business days.
+        </p>
+    </div>
+
+    <!-- SECTION 10 -->
+    <div class="section" id="section10">
+        <h2>📝 Policy Updates & Changes</h2>
+        <p>
+            We may update this Privacy Policy to reflect changes in our practices, 
+            legal requirements, or app features. When we make significant changes:
+        </p>
+        <ul>
+            <li>We'll update the "Last Updated" date at the top</li>
+            <li>We'll notify you through the app if changes significantly impact privacy</li>
+            <li>You can review the updated policy anytime</li>
+        </ul>
+
+        <div class="info-box box-info">
+            <span class="info-box-icon">ℹ️</span>
+            <div>
+                Continued use of Precision Shot after policy updates means you accept 
+                the new terms. Please review updates periodically.
+            </div>
+        </div>
+    </div>
+
+    <!-- COMMITMENT BOX -->
+    <div class="commitment-box">
+        <h3>✅ Our Privacy Promise</h3>
+        <p>
+            Precision Shot is built with privacy-first principles. We never collect unnecessary data, 
+            never sell your information, and never track you beyond what's needed for the game. 
+            <br/><br/>
+            <strong>🎯 Precision Shot by Lihka: Hit Your Goals, Not Your Privacy!</strong>
+        </p>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="contact-section" id="contact">
+        <h3>📞 Get in Touch</h3>
+        
+        <div class="contact-item">
+            <span class="contact-icon">🏢</span>
+            <span><strong>Company:</strong> A game by Lihka</span>
+        </div>
+
+        <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span><strong>Location:</strong> Nagpur, Maharashtra, India</span>
+        </div>
+
+        <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <span>
+                <strong>Email:</strong>
+                <a href="mailto:support@lihka.in">support@lihka.in</a>
+            </span>
+        </div>
+
+        <div class="contact-item">
+            <span class="contact-icon">💬</span>
+            <span>
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">+91 7350157047</a>
+            </span>
+        </div>
+
+        <div class="contact-item">
+            <span class="contact-icon">🌐</span>
+            <span>
+                <strong>Website:</strong>
+                <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">www.lihka.in</a>
+            </span>
+        </div>
+
+        <div class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <span><strong>Response Time:</strong> Within 7 business days</span>
+        </div>
+
+        <p style="margin-top: 20px; opacity: 0.95;">
+            Have privacy questions or concerns? We're here to help and clarify anything 
+            in this policy. Reach out to us anytime!
+        </p>
+    </div>
+
+</div><!-- end .container -->
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="footer-brand">🎯 Precision Shot</div>
+    <div class="footer-tagline">by Lihka — Target Your Fun, Not Your Privacy</div>
+    <div class="footer-links">
+        <a href="#section1">About</a>
+        <a href="#section2">Data Policy</a>
+        <a href="#section4">Ads & Services</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">Website</a>
+    </div>
+    <div class="footer-copyright">
+        © 2025 Lihka. All rights reserved.<br/>
+        This privacy policy applies to the Precision Shot Android mobile application.<br/>
+        Nagpur, Maharashtra, India
+    </div>
+</div>
+
+</body>
+</html>
