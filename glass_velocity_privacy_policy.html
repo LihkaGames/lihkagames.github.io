@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Privacy Policy for Glass Velocity — Break glass, escape obstacles, survive the challenge"/>
+    <meta name="author" content="Lihka"/>
+    <title>Privacy Policy — Glass Velocity by Lihka</title>
+    <style>
+        /* ═══════════════════════════════════════════════════════════ */
+        /* GLOBAL RESET & VARIABLES                                    */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0099ff;
+            --secondary: #00d4ff;
+            --accent: #ffd700;
+            --dark-bg: #0a0e1a;
+            --card-bg: #1a1f2e;
+            --text-light: #e8f0ff;
+            --text-muted: #a0a8c0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-size: 16px;
+            color: var(--text-light);
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #0f1219 50%, var(--dark-bg) 100%);
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 153, 255, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 212, 255, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* HEADER & NAVIGATION                                         */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, rgba(10, 14, 26, 0.95) 0%, rgba(26, 31, 46, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 153, 255, 0.15);
+            padding: 16px 0;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.08);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            filter: drop-shadow(0 0 8px rgba(0, 153, 255, 0.5));
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            padding: 8px 16px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(0, 153, 255, 0.05);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+            border-color: var(--secondary);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* HERO SECTION                                                */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .hero {
+            margin-top: 70px;
+            padding: 100px 24px 80px;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.15) 0%, rgba(0, 212, 255, 0.08) 50%, rgba(255, 215, 0, 0.05) 100%);
+            border-bottom: 1px solid rgba(0, 153, 255, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 153, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 100px;
+            display: block;
+            margin-bottom: 24px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px rgba(0, 153, 255, 0.4));
+                transform: scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.6));
+                transform: scale(1.05);
+            }
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, rgba(0, 153, 255, 0.1), rgba(0, 212, 255, 0.1));
+            border: 1px solid var(--secondary);
+            border-radius: 20px;
+            color: var(--secondary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* MAIN CONTAINER                                              */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* HIGHLIGHT BOXES                                             */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .highlight-box {
+            padding: 24px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .highlight-box:hover {
+            border-color: var(--secondary);
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 153, 255, 0.15);
+        }
+
+        .highlight-icon {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .highlight-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+
+        .highlight-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* CONTENT SECTIONS                                            */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .section {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.08) 0%, rgba(26, 31, 46, 0.5) 100%);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+        }
+
+        .section h2 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-icon {
+            font-size: 32px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--secondary);
+            margin: 32px 0 16px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0, 153, 255, 0.15);
+        }
+
+        .section p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .section ul, .section ol {
+            margin: 16px 0 16px 28px;
+            padding: 0;
+        }
+
+        .section li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .section a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .section a:hover {
+            border-bottom-color: var(--secondary);
+            color: #00ffff;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* INFO CARDS                                                  */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .info-card {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.12) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-left-color: var(--secondary);
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.18) 0%, rgba(0, 212, 255, 0.1) 100%);
+            transform: translateX(6px);
+        }
+
+        .info-card-title {
+            font-weight: 800;
+            color: var(--secondary);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* ALERTS                                                      */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .alert {
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 12px;
+            border-left: 4px solid;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+        }
+
+        .alert-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            margin-top: 0;
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-content strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.15) 0%, rgba(0, 212, 255, 0.08) 100%);
+            border-left-color: var(--primary);
+            color: var(--text-muted);
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.08) 100%);
+            border-left-color: #22c55e;
+            color: var(--text-muted);
+        }
+
+        .alert-warning {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%);
+            border-left-color: #f59e0b;
+            color: var(--text-muted);
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.08) 100%);
+            border-left-color: #ef4444;
+            color: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* TWO-COLUMN LAYOUT                                           */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .column-card {
+            padding: 28px;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.08) 0%, rgba(0, 212, 255, 0.04) 100%);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .column-card:hover {
+            border-color: var(--secondary);
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.12) 0%, rgba(0, 212, 255, 0.08) 100%);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 153, 255, 0.1);
+        }
+
+        .column-card h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .column-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .column-card ul {
+            margin: 12px 0;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .column-card li {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* QUICK NAV / TOC                                             */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .quick-nav {
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.12) 0%, rgba(0, 212, 255, 0.06) 100%);
+            border: 1px solid rgba(0, 153, 255, 0.25);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quick-nav h3 {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 14px 16px;
+            background: rgba(0, 153, 255, 0.08);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            background: rgba(0, 153, 255, 0.15);
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* CONTACT SECTION                                             */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            border-radius: 16px;
+            padding: 48px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 32px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-item:hover {
+            border-color: var(--secondary);
+            background: rgba(0, 153, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .contact-item-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .contact-item h3 {
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 8px 0;
+            padding: 0;
+            border: none;
+        }
+
+        .contact-item p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* COMMITMENT BOX                                              */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .commitment-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.08) 100%);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .commitment-box h3 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #22c55e;
+            margin-bottom: 16px;
+            margin-top: 0;
+            padding: 0;
+            border: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .commitment-box p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* FOOTER                                                      */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        footer {
+            background: linear-gradient(90deg, #0a0e1a 0%, #1a1f2e 50%, #0a0e1a 100%);
+            border-top: 1px solid rgba(0, 153, 255, 0.15);
+            padding: 60px 24px 30px;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(0, 153, 255, 0.15);
+            padding-top: 24px;
+            margin-top: 24px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .footer-brand {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* SCROLLBAR STYLING                                           */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 153, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 153, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 153, 255, 0.5);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* RESPONSIVE DESIGN                                           */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 0;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            nav {
+                width: 100%;
+                gap: 6px;
+            }
+
+            nav a {
+                flex: 1;
+                text-align: center;
+            }
+
+            .hero {
+                margin-top: 60px;
+                padding: 60px 20px 50px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-icon {
+                font-size: 70px;
+            }
+
+            .container {
+                padding: 60px 16px;
+            }
+
+            .section {
+                padding: 28px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .highlights {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 12px;
+            }
+
+            .contact-section {
+                padding: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-icon {
+                font-size: 60px;
+            }
+
+            .section h2 {
+                font-size: 22px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-content">
+        <a href="https://www.lihka.in" class="logo">
+            <span class="logo-icon">🔥</span>
+            Glass Velocity
+        </a>
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#data-collection">Data Collection</a>
+            <a href="#ads">Advertising</a>
+            <a href="#safety">Safety</a>
+            <a href="#security">Security</a>
+            <a href="#contact-us">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <div class="hero-inner">
+        <span class="hero-icon">🎯</span>
+        <h1>Privacy Policy</h1>
+        <p>Break Glass. Escape. Survive. | Your Privacy Matters.</p>
+        <div class="hero-badge">📅 Last Updated: January 2025</div>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- HIGHLIGHTS -->
+    <div class="highlights">
+        <div class="highlight-box">
+            <span class="highlight-icon">✨</span>
+            <div class="highlight-title">Fast & Free</div>
+            <div class="highlight-text">Enjoy instant gameplay with zero cost or account requirement</div>
+        </div>
+
+        <div class="highlight-box">
+            <span class="highlight-icon">🔒</span>
+            <div class="highlight-title">Privacy Protected</div>
+            <div class="highlight-text">Minimal data collection, maximum security, zero tracking</div>
+        </div>
+
+        <div class="highlight-box">
+            <span class="highlight-icon">👨‍👩‍👧‍👦</span>
+            <div class="highlight-title">Family Friendly</div>
+            <div class="highlight-text">Safe for all ages with COPPA compliance built-in</div>
+        </div>
+
+        <div class="highlight-box">
+            <span class="highlight-icon">📊</span>
+            <div class="highlight-title">Crystal Clear</div>
+            <div class="highlight-text">Transparent policies with simple, honest explanations</div>
+        </div>
+    </div>
+
+    <!-- QUICK NAVIGATION -->
+    <div class="quick-nav">
+        <h3>📍 Jump to Sections</h3>
+        <div class="nav-grid">
+            <a href="#overview" class="nav-link">Game Overview</a>
+            <a href="#data-collection" class="nav-link">Data We Collect</a>
+            <a href="#dont-collect" class="nav-link">What We Don't Collect</a>
+            <a href="#data-usage" class="nav-link">How We Use Data</a>
+            <a href="#ads" class="nav-link">Ad Networks</a>
+            <a href="#safety" class="nav-link">Child Safety</a>
+            <a href="#third-party" class="nav-link">Third-Party Services</a>
+            <a href="#security" class="nav-link">Data Security</a>
+            <a href="#your-rights" class="nav-link">Your Rights</a>
+            <a href="#updates" class="nav-link">Policy Updates</a>
+        </div>
+    </div>
+
+    <!-- OVERVIEW SECTION -->
+    <div class="section" id="overview">
+        <h2><span class="section-icon">🎮</span> About Glass Velocity</h2>
+        <p>
+            <strong>Glass Velocity</strong> is a fast-paced, action-packed game where you break glass obstacles, 
+            dodge challenges, and race against time. With progressive difficulty, dynamic levels, and smooth 
+            physics-based gameplay, it delivers non-stop entertainment for casual and competitive gamers alike.
+        </p>
+        <p>
+            Created by <strong>Lihka</strong> (based in Nagpur, Maharashtra, India), Glass Velocity is 
+            built with a privacy-first philosophy. We believe great gaming doesn't require compromising your data.
+        </p>
+        <p>
+            This Privacy Policy explains what information Glass Velocity collects, how we use it, and what 
+            rights you have. Our commitment: <strong>minimal collection, maximum protection, complete transparency.</strong>
+        </p>
+        
+        <div class="alert alert-info">
+            <span class="alert-icon">ℹ️</span>
+            <div class="alert-content">
+                <strong>Your consent matters.</strong> By using Glass Velocity, you agree to this Privacy Policy. 
+                If you have concerns, you can uninstall anytime. We'd love feedback to improve!
+            </div>
+        </div>
+    </div>
+
+    <!-- DATA COLLECTION SECTION -->
+    <div class="section" id="data-collection">
+        <h2><span class="section-icon">📊</span> Information We Collect</h2>
+        <p>
+            Glass Velocity operates with minimal data collection. Here's what we gather to run the game smoothly:
+        </p>
+
+        <h3>Device & Technical Information</h3>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">📱 Device Specs</div>
+                <p>Model, OS version, screen size, RAM, processor for optimization</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🆔 Unique IDs</div>
+                <p>Advertising ID, app installation ID, device fingerprint</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🌐 Network Info</div>
+                <p>Connection type (WiFi/mobile), carrier, network strength</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">⏰ System Data</div>
+                <p>Time zone, language, locale settings</p>
+            </div>
+        </div>
+
+        <h3>Gameplay Analytics</h3>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">🎯 Game Progress</div>
+                <p>Levels completed, scores, performance metrics, achievements</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">⏱️ Session Data</div>
+                <p>Play duration, frequency, daily activity, peak times</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🛠️ Technical Events</div>
+                <p>Crashes, errors, performance issues, app stability data</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">✨ Feature Usage</div>
+                <p>Which game modes you play, power-ups used, menus accessed</p>
+            </div>
+        </div>
+
+        <h3>Advertising Data</h3>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">📺 Ad Impressions</div>
+                <p>Ads shown to you, timing, placement, format type</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">👆 Ad Interactions</div>
+                <p>Clicks, video completions, engagement with advertisements</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🎯 Ad Performance</div>
+                <p>Conversion tracking, ad effectiveness metrics</p>
+            </div>
+        </div>
+
+        <div class="alert alert-success">
+            <span class="alert-icon">✅</span>
+            <div class="alert-content">
+                <strong>We keep it minimal!</strong> We only collect data essential to run Glass Velocity 
+                and show relevant ads. No excessive tracking or surveillance.
+            </div>
+        </div>
+    </div>
+
+    <!-- DON'T COLLECT SECTION -->
+    <div class="section" id="dont-collect">
+        <h2><span class="section-icon">🚫</span> Data We Absolutely Don't Collect</h2>
+        <p>
+            Your privacy is sacred. <strong>These things are completely off-limits:</strong>
+        </p>
+
+        <div class="two-column">
+            <div class="column-card">
+                <h3>❌ Personal Information</h3>
+                <p>We never ask for or store:</p>
+                <ul>
+                    <li>Names, usernames, or display names</li>
+                    <li>Email addresses or phone numbers</li>
+                    <li>Home address or physical location</li>
+                    <li>Birth date or age (except COPPA checks)</li>
+                    <li>Social security numbers or financial data</li>
+                </ul>
+            </div>
+
+            <div class="column-card">
+                <h3>❌ Sensitive Data</h3>
+                <p>We never access or collect:</p>
+                <ul>
+                    <li>Location tracking or GPS coordinates</li>
+                    <li>Contacts, phone book, or messaging</li>
+                    <li>Photos, videos, or files from your device</li>
+                    <li>Calendar events or reminders</li>
+                    <li>Social media accounts or credentials</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="two-column">
+            <div class="column-card">
+                <h3>❌ Online Activity</h3>
+                <p>We never track:</p>
+                <ul>
+                    <li>Browsing history or web activity</li>
+                    <li>App usage outside Glass Velocity</li>
+                    <li>Search queries or search history</li>
+                    <li>Downloaded files or documents</li>
+                </ul>
+            </div>
+
+            <div class="column-card">
+                <h3>❌ Biometric & Advanced Data</h3>
+                <p>We never collect:</p>
+                <ul>
+                    <li>Fingerprints or facial recognition</li>
+                    <li>Iris scans or biometric identifiers</li>
+                    <li>Health or fitness data</li>
+                    <li>Behavioral psychology or personality profiles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alert alert-success">
+            <span class="alert-icon">✅</span>
+            <div class="alert-content">
+                <strong>Your privacy is guaranteed.</strong> Glass Velocity doesn't need personal information 
+                to work great. Play with complete confidence!
+            </div>
+        </div>
+    </div>
+
+    <!-- DATA USAGE SECTION -->
+    <div class="section" id="data-usage">
+        <h2><span class="section-icon">📋</span> How We Use Your Data</h2>
+        <p>Every piece of data we collect serves a specific, legitimate purpose:</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">⚙️ Game Operation</div>
+                <p>Running Glass Velocity smoothly, syncing progress, managing features</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">📊 Analytics</div>
+                <p>Understanding how players use the game to improve features</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">📢 Advertising</div>
+                <p>Showing you relevant ads and measuring ad campaign performance</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🔧 Technical Support</div>
+                <p>Fixing crashes, bugs, and performance issues for stability</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🎮 Improvements</div>
+                <p>Creating new levels, features, and content based on your gameplay</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🛡️ Safety & Security</div>
+                <p>Preventing cheating, fraud, and protecting the game community</p>
+            </div>
+        </div>
+
+        <div class="alert alert-danger">
+            <span class="alert-icon">🚫</span>
+            <div class="alert-content">
+                <strong>What we NEVER do:</strong><br/>
+                ✗ Sell data to third parties for profit<br/>
+                ✗ Share info with unauthorized companies<br/>
+                ✗ Use data for spam emails or unwanted calls<br/>
+                ✗ Discriminate or manipulate based on data<br/>
+                ✗ Track you outside Glass Velocity
+            </div>
+        </div>
+    </div>
+
+    <!-- ADVERTISING SECTION -->
+    <div class="section" id="ads">
+        <h2><span class="section-icon">📢</span> Advertising & Ad Networks</h2>
+        <p>
+            Glass Velocity is free because of advertising. We partner with trusted, industry-leading ad networks 
+            that follow strict privacy standards and regulations. Here's who delivers your ads:
+        </p>
+
+        <h3>Our Ad Partners</h3>
+        <div class="two-column">
+            <div class="column-card">
+                <h3>📊 Google AdMob</h3>
+                <p>
+                    Google's premium ad platform delivering banner ads and interstitials throughout 
+                    Glass Velocity.
+                </p>
+                <p><strong>Data Access:</strong></p>
+                <ul>
+                    <li>Google Advertising ID (anonymized)</li>
+                    <li>Device type and OS version</li>
+                    <li>General location (country/city level only)</li>
+                    <li>Ad interaction metrics</li>
+                    <li>Network connection type</li>
+                </ul>
+                <a href="https://policies.google.com/privacy" target="_blank">📖 Google Privacy Policy</a>
+            </div>
+
+            <div class="column-card">
+                <h3>🎬 Unity Ads</h3>
+                <p>
+                    Unity's video ad platform showing rewarded ads. Watch videos to earn in-game 
+                    coins and power-ups!
+                </p>
+                <p><strong>Data Access:</strong></p>
+                <ul>
+                    <li>Unity Advertising ID (anonymized)</li>
+                    <li>Device specifications</li>
+                    <li>Video ad watch duration</li>
+                    <li>Engagement metrics</li>
+                    <li>General location info</li>
+                </ul>
+                <a href="https://unity3d.com/legal/privacy-policy" target="_blank">📖 Unity Privacy Policy</a>
+            </div>
+        </div>
+
+        <h3>Opt Out of Personalized Ads</h3>
+        <p>Don't want personalized ads? You have full control:</p>
+        <div class="alert alert-success">
+            <span class="alert-icon">✅</span>
+            <div class="alert-content">
+                <strong>How to disable personalized ads:</strong><br/>
+                1. Go to your phone Settings → Google → Manage your Google account<br/>
+                2. Select "Data & Privacy" tab<br/>
+                3. Find "Ad personalization" and toggle it OFF<br/>
+                <br/>
+                You can also reset your Advertising ID anytime in Settings → Privacy → Ads
+            </div>
+        </div>
+    </div>
+
+    <!-- CHILD SAFETY SECTION -->
+    <div class="section" id="safety">
+        <h2><span class="section-icon">👨‍👩‍👧‍👦</span> Children's Privacy & COPPA Compliance</h2>
+        <p>
+            Glass Velocity is designed for players of all ages, including children under 13. 
+            We fully comply with COPPA (Children's Online Privacy Protection Act) and other 
+            international child safety regulations.
+        </p>
+
+        <h3>🛡️ Safety Features</h3>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">✅ No Personal Data</div>
+                <p>Never collect names, emails, or personal info from children</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">✅ Age-Appropriate Ads</div>
+                <p>All ads are screened and filtered for child safety</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">✅ No Account Required</div>
+                <p>Play instantly without registration or sign-up</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">✅ Safe Gameplay</div>
+                <p>No in-app purchases, no external links, age-appropriate content</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">✅ No Social Features</div>
+                <p>No chat, messaging, or contact with other players online</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">✅ Parental Controls</div>
+                <p>Parents can manage ads and app settings via device controls</p>
+            </div>
+        </div>
+
+        <div class="commitment-box">
+            <h3>🛡️ Parents: We've Got Your Back</h3>
+            <p>
+                Glass Velocity is built with children's safety at the core. If you're a parent and believe 
+                we've collected data from your child under 13, contact us immediately at 
+                <strong>support@lihka.in</strong> and we'll delete it within 24 hours, no questions asked.
+            </p>
+        </div>
+    </div>
+
+    <!-- THIRD PARTY SERVICES -->
+    <div class="section" id="third-party">
+        <h2><span class="section-icon">🔗</span> Third-Party Services & Integrations</h2>
+        <p>
+            Glass Velocity uses trusted third-party services to function smoothly. 
+            Each has its own privacy policy that you should review:
+        </p>
+
+        <div class="two-column">
+            <div class="column-card">
+                <h3>🔥 Firebase (Google)</h3>
+                <p>
+                    Google's platform for crash reporting, analytics, and performance monitoring 
+                    to keep Glass Velocity stable and bug-free.
+                </p>
+                <p><strong>Data:</strong> Device info, crash logs, performance metrics</p>
+                <a href="https://policies.google.com/privacy" target="_blank">View Firebase Privacy Policy</a>
+            </div>
+
+            <div class="column-card">
+                <h3>📦 Google Play Services</h3>
+                <p>
+                    Required for app distribution, updates, security checks, and payment 
+                    processing on Google Play Store.
+                </p>
+                <p><strong>Data:</strong> Device ID, app version, update checks</p>
+                <a href="https://policies.google.com/privacy" target="_blank">View Google Play Privacy Policy</a>
+            </div>
+
+            <div class="column-card">
+                <h3>🎯 Google AdMob</h3>
+                <p>
+                    Advertising network delivering banner and interstitial ads. 
+                    Google's sophisticated matching helps show relevant ads.
+                </p>
+                <p><strong>Data:</strong> Advertising ID, device info, ad interactions</p>
+                <a href="https://policies.google.com/privacy" target="_blank">View AdMob Privacy Policy</a>
+            </div>
+
+            <div class="column-card">
+                <h3>🎬 Unity Ads</h3>
+                <p>
+                    Video ad platform offering rewarded ads. Watch videos to earn coins 
+                    and special power-ups in Glass Velocity.
+                </p>
+                <p><strong>Data:</strong> Unity ID, video watch time, engagement data</p>
+                <a href="https://unity3d.com/legal/privacy-policy" target="_blank">View Unity Privacy Policy</a>
+            </div>
+        </div>
+
+        <div class="alert alert-warning">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-content">
+                <strong>We don't control these companies.</strong> Each third-party has its own 
+                privacy practices. Review their policies directly for complete details on how they handle data.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECURITY SECTION -->
+    <div class="section" id="security">
+        <h2><span class="section-icon">🔐</span> Data Security & Protection</h2>
+        <p>
+            Protecting your data is a top priority. We implement industry-standard security measures 
+            to prevent unauthorized access, loss, or misuse.
+        </p>
+
+        <h3>Our Security Practices</h3>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">🔒 Encryption</div>
+                <p>HTTPS/TLS encryption for all data transmission between your device and servers</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🔒 Secure Storage</div>
+                <p>Local data encrypted using Android's built-in security framework</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🔒 Limited Access</div>
+                <p>Only authorized personnel can access data, for legitimate purposes only</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🔒 Data Retention</div>
+                <p>Data automatically deleted after it's no longer needed</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🔒 Regular Audits</div>
+                <p>Continuous security monitoring and updates to respond to new threats</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🔒 Vendor Vetting</div>
+                <p>All third-party vendors reviewed and verified for security compliance</p>
+            </div>
+        </div>
+
+        <div class="alert alert-warning">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-content">
+                <strong>No system is 100% secure.</strong> While we use robust security protocols, 
+                internet transmission always carries some inherent risk. This is why we minimize 
+                the sensitive data we collect in the first place.
+            </div>
+        </div>
+    </div>
+
+    <!-- YOUR RIGHTS SECTION -->
+    <div class="section" id="your-rights">
+        <h2><span class="section-icon">✏️</span> Your Privacy Rights</h2>
+        <p>
+            You have legal rights regarding your personal data under various privacy laws including 
+            GDPR, CCPA, and others. Here's what you can do:
+        </p>
+
+        <div class="two-column">
+            <div class="column-card">
+                <h3>📋 Right to Access</h3>
+                <p>
+                    Request to see what personal data we've collected about you and how it's used.
+                </p>
+            </div>
+
+            <div class="column-card">
+                <h3>🗑️ Right to Delete</h3>
+                <p>
+                    Request permanent deletion of your personal data from our systems.
+                </p>
+            </div>
+
+            <div class="column-card">
+                <h3>✏️ Right to Correct</h3>
+                <p>
+                    Request correction or update of inaccurate or incomplete data we hold.
+                </p>
+            </div>
+
+            <div class="column-card">
+                <h3>🚫 Right to Opt-Out</h3>
+                <p>
+                    Opt out of personalized ads anytime through your device settings.
+                </p>
+            </div>
+
+            <div class="column-card">
+                <h3>📤 Right to Portability</h3>
+                <p>
+                    Request your data in a portable, machine-readable format.
+                </p>
+            </div>
+
+            <div class="column-card">
+                <h3>⚖️ Right to Object</h3>
+                <p>
+                    Object to certain types of data processing or profiling.
+                </p>
+            </div>
+        </div>
+
+        <h3>How to Exercise Your Rights</h3>
+        <p>
+            To exercise any of these rights, email us at <strong>support@lihka.in</strong> with:
+        </p>
+        <ul>
+            <li>📌 Your request clearly stating which right you're exercising</li>
+            <li>🪪 Proof of identity (we handle sensitive requests carefully)</li>
+            <li>📝 Any details that help us locate your specific data</li>
+        </ul>
+        <p>
+            <strong>Response Time:</strong> We'll respond to verified requests within 7 business days. 
+            Most requests are handled much faster. If we can't fulfill a request, we'll explain why.
+        </p>
+
+        <div class="alert alert-info">
+            <span class="alert-icon">ℹ️</span>
+            <div class="alert-content">
+                <strong>We'll never charge for exercising your rights.</strong> Data access, 
+                deletion, and correction requests are always free.
+            </div>
+        </div>
+    </div>
+
+    <!-- POLICY UPDATES SECTION -->
+    <div class="section" id="updates">
+        <h2><span class="section-icon">📝</span> Policy Updates & Changes</h2>
+        <p>
+            This Privacy Policy may be updated when our practices change, new features launch, 
+            or legal requirements evolve. We'll keep you informed of significant changes.
+        </p>
+
+        <h3>How Updates Work</h3>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">📅 Update Dates</div>
+                <p>The "Last Updated" date at the top changes with every revision</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">🔔 Notifications</div>
+                <p>Major changes are announced in-game or via email to affected players</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">📜 Version History</div>
+                <p>Previous policy versions available upon request</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-title">✅ Acceptance</div>
+                <p>Continuing to play means you accept updated policies</p>
+            </div>
+        </div>
+
+        <div class="alert alert-info">
+            <span class="alert-icon">ℹ️</span>
+            <div class="alert-content">
+                <strong>Stay in the loop!</strong> Check back periodically for updates. 
+                We're transparent about any changes to how we handle your data.
+            </div>
+        </div>
+    </div>
+
+    <!-- COMMITMENT -->
+    <div class="commitment-box">
+        <h3>💜 Our Promise to You</h3>
+        <p>
+            Glass Velocity is built on the principle that great gaming doesn't require invading your privacy. 
+            We collect only essential data, never sell your information, and never track you beyond the game.<br/><br/>
+            <strong>Break glass with confidence. Enjoy Glass Velocity. Trust Lihka.</strong>
+        </p>
+    </div>
+
+</div><!-- end .container -->
+
+<!-- CONTACT SECTION -->
+<div class="contact-section" id="contact-us">
+    <div class="contact-inner">
+        <h2>💬 Get in Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="contact-item-icon">🏢</span>
+                <h3>Company</h3>
+                <p>Glass Velocity by Lihka</p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">📍</span>
+                <h3>Location</h3>
+                <p>Nagpur, Maharashtra, India</p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">✉️</span>
+                <h3>Email</h3>
+                <p><a href="mailto:support@lihka.in">support@lihka.in</a></p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">💬</span>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">+91 7350157047</a></p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">🌐</span>
+                <h3>Website</h3>
+                <p><a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">www.lihka.in</a></p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">⏰</span>
+                <h3>Response Time</h3>
+                <p>Within 7 business days</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">🔥 Glass Velocity</div>
+                <p>
+                    Break glass. Escape obstacles. Survive the challenge. 
+                    A fast-paced, action-packed game for all ages.
+                </p>
+                <p style="margin-top: 16px; font-size: 12px;">
+                    Developed by Lihka with privacy and player safety at the core.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#overview">About Game</a>
+                <a href="#data-collection">Data Policy</a>
+                <a href="#ads">Ad Networks</a>
+                <a href="#safety">Child Safety</a>
+                <a href="#contact-us">Contact Us</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Information</h4>
+                <a href="#security">Data Security</a>
+                <a href="#your-rights">Your Rights</a>
+                <a href="#dont-collect">Data We Don't Collect</a>
+                <a href="#updates">Policy Updates</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Lihka Games</h4>
+                <p>We create engaging, privacy-respecting games for all players.</p>
+                <p style="margin-top: 16px; font-size: 12px;">
+                    <strong>📍 Nagpur, Maharashtra, India</strong><br/>
+                    <strong>📧</strong> <a href="mailto:support@lihka.in">support@lihka.in</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-divider">
+            <div class="footer-bottom">
+                <p><strong>© 2025 Glass Velocity by Lihka. All rights reserved.</strong></p>
+                <p>This privacy policy applies to the Glass Velocity mobile game on Google Play Store.</p>
+                <p>🔒 Privacy • 🛡️ Security • ✨ Transparency</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
