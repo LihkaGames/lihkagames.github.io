@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turbo Trail Racer — Privacy Policy</title>
+<style>
+  :root{
+    --bg:#0b0d12;
+    --panel:#12151c;
+    --panel2:#171b24;
+    --line:#242a36;
+    --orange:#ff6a1a;
+    --yellow:#ffc53d;
+    --red:#ff3b4e;
+    --blue:#2fb3ff;
+    --text:#e8eaf0;
+    --muted:#8a90a0;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+  }
+  a{color:var(--orange); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* checkered strip */
+  .flagstrip{
+    height:10px;
+    background-image:
+      linear-gradient(45deg, #000 25%, transparent 25%),
+      linear-gradient(-45deg, #000 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #000 75%),
+      linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size:20px 20px;
+    background-position:0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color:#fff;
+  }
+
+  /* LAYOUT: sidebar + main */
+  .layout{
+    display:flex;
+    min-height:100vh;
+  }
+  .sidebar{
+    width:230px;
+    background:linear-gradient(180deg,#0e1117,#0a0c10);
+    border-right:1px solid var(--line);
+    padding:26px 18px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .side-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:26px;
+  }
+  .side-logo .ic{
+    width:44px;height:44px;
+    background:conic-gradient(var(--orange),var(--yellow),var(--orange));
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;
+  }
+  .side-logo .t{font-weight:800; font-size:1rem; letter-spacing:0.5px;}
+  .side-logo .t span{display:block; font-size:0.7rem; color:var(--muted); font-weight:400;}
+
+  .sidebar nav a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:8px;
+    color:var(--muted);
+    font-size:0.85rem;
+    margin-bottom:2px;
+    border-left:3px solid transparent;
+  }
+  .sidebar nav a:hover{
+    background:var(--panel2);
+    color:var(--white);
+    text-decoration:none;
+    border-left:3px solid var(--orange);
+  }
+  .sidebar .meter{
+    margin-top:auto;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px;
+    text-align:center;
+  }
+  .sidebar .meter .num{font-size:1.5rem; font-weight:800; color:var(--yellow);}
+  .sidebar .meter .lbl{font-size:0.7rem; color:var(--muted); text-transform:uppercase;}
+
+  .main{
+    flex:1;
+    min-width:0;
+  }
+
+  @media(max-width:900px){
+    .sidebar{display:none;}
+  }
+
+  /* HERO - dashboard style */
+  .hero{
+    background:
+      radial-gradient(ellipse at top left, rgba(255,106,26,0.18), transparent 55%),
+      radial-gradient(ellipse at bottom right, rgba(47,179,255,0.12), transparent 55%),
+      #0d1016;
+    padding:56px 40px 40px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .speed-arc{
+    position:absolute;
+    right:-80px; top:-80px;
+    width:280px;height:280px;
+    border:18px solid rgba(255,106,26,0.08);
+    border-radius:50%;
+    border-top-color:rgba(255,106,26,0.25);
+  }
+  .hero h1{
+    font-size:2.1rem;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    background:linear-gradient(90deg,var(--orange),var(--yellow));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    display:inline-block;
+  }
+  .hero .sub{
+    color:var(--text);
+    font-size:1.05rem;
+    margin-top:6px;
+    font-weight:600;
+  }
+  .hero .meta{
+    margin-top:18px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .hero .pill{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:7px 16px;
+    border-radius:30px;
+    font-size:0.8rem;
+    color:var(--muted);
+  }
+  .hero .pill b{color:var(--white);}
+
+  .content{
+    padding:36px 40px 60px;
+    max-width:980px;
+  }
+
+  /* dashboard gauges row */
+  .gauges{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:40px;
+  }
+  @media(max-width:800px){.gauges{grid-template-columns:repeat(2,1fr);}}
+  .gauge{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 16px;
+    text-align:center;
+    position:relative;
+  }
+  .gauge .ring{
+    width:54px;height:54px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;
+    background:#0d1016;
+    border:3px solid var(--orange);
+  }
+  .gauge.blue .ring{border-color:var(--blue);}
+  .gauge.red .ring{border-color:var(--red);}
+  .gauge.yellow .ring{border-color:var(--yellow);}
+  .gauge h5{font-size:0.82rem; color:var(--white); margin-bottom:4px;}
+  .gauge p{font-size:0.72rem; color:var(--muted);}
+
+  /* route / TOC styled like a track */
+  .route-box{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 28px;
+    margin-bottom:34px;
+  }
+  .route-box h3{
+    font-size:1rem;
+    margin-bottom:16px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--yellow);
+  }
+  .route-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px 24px;
+  }
+  @media(max-width:600px){.route-list{grid-template-columns:1fr;}}
+  .route-list a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.86rem;
+    color:var(--text);
+    padding:8px 0;
+    border-bottom:1px dotted var(--line);
+  }
+  .route-list a .num{
+    color:var(--orange);
+    font-weight:800;
+    font-size:0.78rem;
+    min-width:20px;
+  }
+  .route-list a:hover{color:var(--orange); text-decoration:none;}
+
+  /* section blocks */
+  .block{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:30px 32px;
+    margin-bottom:24px;
+    scroll-margin-top:30px;
+    position:relative;
+  }
+  .block::before{
+    content:"";
+    position:absolute;
+    left:0; top:18px; bottom:18px;
+    width:4px;
+    background:linear-gradient(180deg,var(--orange),var(--yellow));
+    border-radius:4px;
+  }
+  .block h2{
+    font-size:1.25rem;
+    color:var(--white);
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .block h2 .tag{
+    font-size:0.65rem;
+    background:var(--orange);
+    color:#1a0e04;
+    padding:3px 9px;
+    border-radius:20px;
+    font-weight:800;
+    text-transform:uppercase;
+  }
+  .block h4{
+    color:var(--yellow);
+    margin:18px 0 8px;
+    font-size:0.95rem;
+  }
+  .block p{font-size:0.93rem; color:var(--text); margin-bottom:10px;}
+  .block ul{list-style:none; margin-bottom:14px;}
+  .block ul li{
+    font-size:0.9rem;
+    padding:7px 0 7px 26px;
+    position:relative;
+    color:var(--text);
+    border-bottom:1px solid #1b1f28;
+  }
+  .block ul li:last-child{border-bottom:none;}
+  .block ul li::before{
+    content:"🏁";
+    position:absolute;
+    left:0;
+    font-size:0.8rem;
+  }
+  .block ul.cross li::before{content:"🚫";}
+
+  .note{
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:0.88rem;
+    margin:16px 0;
+    border:1px solid var(--line);
+  }
+  .note.orange{background:rgba(255,106,26,0.08); border-color:rgba(255,106,26,0.35); color:#ffd3b0;}
+  .note.red{background:rgba(255,59,78,0.08); border-color:rgba(255,59,78,0.35); color:#ffc3c9;}
+  .note.blue{background:rgba(47,179,255,0.08); border-color:rgba(47,179,255,0.35); color:#bfe6ff;}
+  .note.green{background:rgba(70,200,130,0.08); border-color:rgba(70,200,130,0.35); color:#b9f0d1;}
+
+  /* network cards garage style */
+  .garage-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:16px;
+  }
+  @media(max-width:700px){.garage-grid{grid-template-columns:1fr;}}
+  .car-card{
+    background:var(--panel2);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px;
+  }
+  .car-card .head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+  }
+  .car-card .head h4{margin:0; color:var(--white);}
+  .car-card .stat{
+    font-size:0.7rem;
+    background:#0d1016;
+    border:1px solid var(--line);
+    padding:3px 10px;
+    border-radius:20px;
+    color:var(--orange);
+  }
+  .car-card p{font-size:0.85rem; color:var(--muted); margin-bottom:10px;}
+  .car-card ul li{font-size:0.82rem;}
+  .car-card .links{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;}
+  .car-card .links a{
+    background:var(--orange);
+    color:#1a0e04;
+    font-size:0.78rem;
+    padding:6px 13px;
+    border-radius:6px;
+    font-weight:700;
+  }
+  .car-card .links a:hover{background:var(--yellow); text-decoration:none;}
+
+  .badges{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0;}
+  .badges span{
+    background:#0d1016;
+    border:1px solid var(--line);
+    color:var(--yellow);
+    font-size:0.75rem;
+    padding:5px 13px;
+    border-radius:20px;
+  }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:16px;
+  }
+  @media(max-width:600px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-cell{
+    background:var(--panel2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .contact-cell .ic{
+    width:38px;height:38px;
+    background:#0d1016;
+    border:1px solid var(--line);
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.1rem;
+    flex-shrink:0;
+  }
+  .contact-cell .lbl{font-size:0.7rem; color:var(--muted); text-transform:uppercase;}
+  .contact-cell .val{font-size:0.9rem; color:var(--white); font-weight:700;}
+
+  footer{
+    background:#0a0c10;
+    border-top:1px solid var(--line);
+    text-align:center;
+    padding:40px 20px;
+  }
+  footer .flogo{font-size:1.1rem; font-weight:800; color:var(--white);}
+  footer .ftag{color:var(--orange); font-size:0.85rem; margin:6px 0 18px;}
+  footer .flinks{display:flex; justify-content:center; gap:22px; flex-wrap:wrap; font-size:0.82rem; margin-bottom:16px;}
+  footer .flinks a{color:var(--muted);}
+  footer .flinks a:hover{color:var(--orange);}
+  footer .fine{font-size:0.75rem; color:#555b69;}
+</style>
+</head>
+<body>
+
+<div class="flagstrip"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-logo">
+      <div class="ic">🏎️</div>
+      <div class="t">Turbo Trail Racer<span>Privacy Policy</span></div>
+    </div>
+    <nav>
+      <a href="#about">🏁 About the Game</a>
+      <a href="#collect">📋 Data We Collect</a>
+      <a href="#dontcollect">🚫 Not Collected</a>
+      <a href="#ads">📢 Ad Networks</a>
+      <a href="#usage">⚙️ Data Usage</a>
+      <a href="#children">🧒 Kids Privacy</a>
+      <a href="#thirdparty">🔗 Third Parties</a>
+      <a href="#security">🔒 Security</a>
+      <a href="#rights">✏️ Your Rights</a>
+      <a href="#changes">🔄 Policy Updates</a>
+      <a href="#contact">📞 Contact</a>
+    </nav>
+    <div class="meter">
+      <div class="num">0%</div>
+      <div class="lbl">Personal Data Collected</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="hero">
+      <div class="speed-arc"></div>
+      <h1>Privacy Policy</h1>
+      <div class="sub">🎮 Turbo Trail Racer — Hill Climb Racing Game</div>
+      <div class="meta">
+        <div class="pill">📅 Last Updated: <b>January 2025</b></div>
+        <div class="pill">🆓 Status: <b>Free to Play</b></div>
+        <div class="pill">🧒 Rating: <b>Everyone</b></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="gauges">
+        <div class="gauge">
+          <div class="ring">🚫</div>
+          <h5>No Personal Info</h5>
+          <p>No name, email or phone needed to race.</p>
+        </div>
+        <div class="gauge blue">
+          <div class="ring">🪙</div>
+          <h5>Virtual Coins Only</h5>
+          <p>Earned via races, spins & daily rewards.</p>
+        </div>
+        <div class="gauge yellow">
+          <div class="ring">📢</div>
+          <h5>Ad-Supported</h5>
+          <p>AdMob & Unity Ads keep the game free.</p>
+        </div>
+        <div class="gauge red">
+          <div class="ring">🧒</div>
+          <h5>Family Friendly</h5>
+          <p>COPPA compliant, safe for all ages.</p>
+        </div>
+      </div>
+
+      <div class="route-box">
+        <h3>🗺️ Policy Route Map</h3>
+        <div class="route-list">
+          <a href="#about"><span class="num">01</span> About Turbo Trail Racer</a>
+          <a href="#collect"><span class="num">02</span> Information We Collect</a>
+          <a href="#dontcollect"><span class="num">03</span> What We DON'T Collect</a>
+          <a href="#ads"><span class="num">04</span> Advertising Networks</a>
+          <a href="#usage"><span class="num">05</span> How We Use Data</a>
+          <a href="#children"><span class="num">06</span> Children's Privacy</a>
+          <a href="#thirdparty"><span class="num">07</span> Third-Party Services</a>
+          <a href="#security"><span class="num">08</span> Data Security</a>
+          <a href="#rights"><span class="num">09</span> Your Privacy Rights</a>
+          <a href="#changes"><span class="num">10</span> Policy Changes</a>
+          <a href="#contact"><span class="num">11</span> Contact Us</a>
+        </div>
+      </div>
+
+      <!-- 1 -->
+      <div class="block" id="about">
+        <h2>🏁 About Turbo Trail Racer <span class="tag">Game Info</span></h2>
+        <p><strong>Turbo Trail Racer</strong> is a fast-paced hill-climb style racing game developed by <strong>Lihka</strong>, based in Nagpur, Maharashtra, India.</p>
+        <p>Control your vehicle's <strong>Gas</strong> and <strong>Brake</strong> across bumpy off-road trails, manage your <strong>Fuel</strong> meter, protect your <strong>Hearts (Lives)</strong>, and race to the finish line while collecting coins along the track.</p>
+        <p>Unlock and upgrade vehicles in the <strong>Garage/Shop</strong> — from Sports and Muscle cars to Supercars, Legendary rides, and Bikes — each with its own <strong>Speed (SPD)</strong>, <strong>Acceleration (ACC)</strong>, and <strong>Grip (GRP)</strong> stats. Climb the global <strong>Leaderboard</strong>, complete <strong>Missions</strong>, unlock <strong>Achievements</strong>, spin the <strong>Lucky Spin</strong> wheel, open the <strong>Lucky Box</strong>, and collect <strong>Daily Rewards</strong> for free coins.</p>
+        <div class="badges">
+          <span>🚗 Garage & Shop</span>
+          <span>🏆 Leaderboard</span>
+          <span>🎖️ Achievements</span>
+          <span>🎡 Lucky Spin</span>
+          <span>🎁 Lucky Box</span>
+          <span>📅 Daily Rewards</span>
+          <span>📋 Missions</span>
+        </div>
+        <div class="note orange">This Privacy Policy applies only to the Turbo Trail Racer Android application. It explains what information is collected, how it's used, and the controls available to you. By playing the game, you agree to the terms below.</div>
+      </div>
+
+      <!-- 2 -->
+      <div class="block" id="collect">
+        <h2>📋 Information We Collect <span class="tag">Data</span></h2>
+
+        <h4>a) Device Information</h4>
+        <ul>
+          <li>Device Advertising ID (used for ad personalization)</li>
+          <li>Device model and Android OS version</li>
+          <li>Network connection type (Wi-Fi / Mobile Data)</li>
+        </ul>
+
+        <h4>b) Gameplay Data (Anonymous)</h4>
+        <ul>
+          <li>Vehicles unlocked, equipped, and upgraded (Garage progress)</li>
+          <li>Coins earned/spent, race distance, and best scores</li>
+          <li>Level progress, stars earned, and mission completions</li>
+          <li>Lucky Spin results and Lucky Box openings</li>
+          <li>Daily Rewards streak and claim history</li>
+          <li>Achievements unlocked and Leaderboard rank</li>
+          <li>Crash reports and app performance metrics</li>
+        </ul>
+
+        <h4>c) Advertising Identifiers</h4>
+        <ul>
+          <li>Google Advertising ID — used by ad partners to serve relevant ads</li>
+          <li>Fully anonymous and resettable anytime from device settings</li>
+        </ul>
+
+        <div class="note green">✅ None of this data includes your name, email, phone number, GPS location, or any personally identifiable information.</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="block" id="dontcollect">
+        <h2>🚫 What We DON'T Collect <span class="tag">Zero Data</span></h2>
+        <p>Turbo Trail Racer does NOT collect:</p>
+        <ul class="cross">
+          <li>Your name, email address, or phone number</li>
+          <li>Financial or payment card details (Google Play handles purchases securely, if any)</li>
+          <li>GPS location or real-time whereabouts</li>
+          <li>Contacts, SMS messages, or call logs</li>
+          <li>Photos, videos, or media files</li>
+          <li>Calendar entries or personal reminders</li>
+          <li>Login credentials — no account required to race</li>
+        </ul>
+        <div class="note green">✅ Just install, hit the gas, and race. No signup, no personal strings attached.</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="block" id="ads">
+        <h2>📢 Advertising Networks <span class="tag">Ads</span></h2>
+        <p>Turbo Trail Racer is completely free. To keep development going, we show ads — including rewarded videos for bonus coins or extra Lucky Spins — through two trusted partners:</p>
+
+        <div class="note orange">📌 We use exactly 2 ad networks: ✅ Google AdMob &nbsp; ✅ Unity Ads</div>
+
+        <div class="garage-grid">
+          <div class="car-card">
+            <div class="head"><h4>📊 Google AdMob</h4><span class="stat">Banner / Interstitial</span></div>
+            <p>Serves banner and interstitial ads inside the game.</p>
+            <ul>
+              <li>Advertising ID (Google Ad ID)</li>
+              <li>IP address (country/city level)</li>
+              <li>Device model & OS version</li>
+              <li>Ad interaction data (views/clicks)</li>
+            </ul>
+            <div class="links">
+              <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>
+              <a href="https://adssettings.google.com" target="_blank">Opt Out</a>
+            </div>
+          </div>
+          <div class="car-card">
+            <div class="head"><h4>🎮 Unity Ads</h4><span class="stat">Rewarded Video</span></div>
+            <p>Powers rewarded video ads for bonus coins, spins, and extra fuel/lives.</p>
+            <ul>
+              <li>Unity Advertising ID</li>
+              <li>IP address & general location</li>
+              <li>Device information (model, OS)</li>
+              <li>Ad interaction signals</li>
+            </ul>
+            <div class="links">
+              <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="note blue">⚙️ To opt out of personalized ads: go to <strong>Settings → Privacy → Ads → Opt out of Ads Personalization</strong> on your Android device, or reset your Advertising ID anytime.</div>
+        <div class="note red">⚠️ Data handled by AdMob and Unity Ads is governed entirely by their own privacy policies. Lihka has no access to personally identifiable data from these networks — only aggregate revenue reports.</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="block" id="usage">
+        <h2>⚙️ How We Use Your Information <span class="tag">Usage</span></h2>
+        <ul>
+          <li>Display banner, interstitial, and rewarded video ads</li>
+          <li>Track race progress, coins, and vehicle unlocks (on your device)</li>
+          <li>Balance vehicle stats, fuel economy, and in-game rewards</li>
+          <li>Diagnose crashes and improve game stability</li>
+          <li>Maintain Leaderboard rankings and Achievements</li>
+          <li>Prevent fraud and cheating</li>
+        </ul>
+        <div class="note red">
+          🚫 We NEVER:<br>
+          • Sell your data to third parties<br>
+          • Track your real-world location<br>
+          • Store personally identifiable information<br>
+          • Send spam notifications outside the game<br>
+          • Share data beyond what's described here
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="block" id="children">
+        <h2>🧒 Children's Privacy <span class="tag">COPPA</span></h2>
+        <p>Turbo Trail Racer is suitable for players of all ages, including children.</p>
+        <ul>
+          <li>No personal information is knowingly collected from children under 13</li>
+          <li>Google AdMob is configured for COPPA compliance</li>
+          <li>No account registration is required to play</li>
+          <li>Coins, vehicles, and rewards are earned purely through gameplay</li>
+          <li>Leaderboard shows usernames only — never personal details</li>
+        </ul>
+        <div class="note orange">If you're a parent/guardian and believe your child shared personal data, contact us at <strong>support@lihka.in</strong> for prompt removal.</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="block" id="thirdparty">
+        <h2>🔗 Third-Party Services <span class="tag">Partners</span></h2>
+        <ul>
+          <li><strong>Firebase (Google):</strong> Crash reporting and performance analytics.</li>
+          <li><strong>Google Play Services:</strong> App updates, distribution, device integrity.</li>
+          <li><strong>Google AdMob:</strong> Banner & interstitial ads.</li>
+          <li><strong>Unity Ads / Unity Engine:</strong> Rewarded video ads for coins & spins.</li>
+        </ul>
+        <div class="note blue">We recommend reviewing each partner's privacy policy, as their data practices are outside our direct control.</div>
+      </div>
+
+      <!-- 8 -->
+      <div class="block" id="security">
+        <h2>🔒 Data Security <span class="tag">Protection</span></h2>
+        <ul>
+          <li>HTTPS/SSL encryption for data transmission</li>
+          <li>Secure on-device local storage for game progress</li>
+          <li>Minimal data collection by design</li>
+          <li>Regular app updates and security patches</li>
+        </ul>
+        <div class="note red">⚠️ No digital transmission or storage method is 100% secure. We work hard to protect your data but cannot guarantee absolute security.</div>
+      </div>
+
+      <!-- 9 -->
+      <div class="block" id="rights">
+        <h2>✏️ Your Privacy Rights <span class="tag">Control</span></h2>
+        <ul>
+          <li><strong>Access:</strong> Ask what data we hold about your device</li>
+          <li><strong>Deletion:</strong> Request removal of collected data</li>
+          <li><strong>Opt-Out:</strong> Disable personalized ads anytime</li>
+          <li><strong>Reset:</strong> Reset your Advertising ID in device settings</li>
+        </ul>
+        <div class="note green">Contact <strong>support@lihka.in</strong> to exercise any of these rights. We respond within 7 business days.</div>
+      </div>
+
+      <!-- 10 -->
+      <div class="block" id="changes">
+        <h2>🔄 Changes to This Policy <span class="tag">Updates</span></h2>
+        <p>We may revise this Privacy Policy as the app or legal requirements evolve. Updates will be reflected by:</p>
+        <ul>
+          <li>Revising the "Last Updated" date above</li>
+          <li>In-app notice for significant privacy changes</li>
+        </ul>
+        <div class="note blue">Continuing to play Turbo Trail Racer after updates means you accept the revised policy.</div>
+      </div>
+
+      <!-- 11 -->
+      <div class="block" id="contact">
+        <h2>📞 Contact Us <span class="tag">Support</span></h2>
+        <p>Have questions about this policy or your data? Reach our team:</p>
+        <div class="contact-grid">
+          <div class="contact-cell"><div class="ic">🏢</div><div><div class="lbl">Developer</div><div class="val">Lihka</div></div></div>
+          <div class="contact-cell"><div class="ic">📍</div><div><div class="lbl">Location</div><div class="val">Nagpur, Maharashtra, India</div></div></div>
+          <div class="contact-cell"><div class="ic">📧</div><div><div class="lbl">Email</div><div class="val">support@lihka.in</div></div></div>
+          <div class="contact-cell"><div class="ic">💬</div><div><div class="lbl">WhatsApp</div><div class="val">+91 7350157047</div></div></div>
+          <div class="contact-cell"><div class="ic">🌐</div><div><div class="lbl">Website</div><div class="val">www.lihka.in</div></div></div>
+          <div class="contact-cell"><div class="ic">⏰</div><div><div class="lbl">Response</div><div class="val">Within 7 business days</div></div></div>
+        </div>
+        <div class="note green" style="margin-top:20px;">✅ <strong>Our Promise:</strong> Turbo Trail Racer is built for fun, speed, and fair play — not data harvesting. No personal info required, no hidden tracking. Just buckle up and race!</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo">🏎️ Turbo Trail Racer</div>
+  <div class="ftag">by Lihka — Race Your Way to the Top</div>
+  <div class="flinks">
+    <a href="#about">🏁 Home</a>
+    <a href="#">🔒 Lihka Common Privacy Policy</a>
+    <a href="mailto:support@lihka.in">📧 Email Support</a>
+  </div>
+  <div class="fine">© 2025 Lihka. All rights reserved.<br>This privacy policy applies exclusively to the Turbo Trail Racer Android application.</div>
+</footer>
+
+</body>
+</html>
