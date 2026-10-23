@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Privacy Policy for Quick Voice Calculator — Voice powered calculator & unit converter app by Lihka"/>
+<meta name="author" content="Lihka"/>
+<title>Privacy Policy | Quick Voice Calculator</title>
+<style>
+
+/* ============================================================= */
+/* RESET & BASE                                                   */
+/* ============================================================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    background:#F4F8FB;
+    color:#1F2A37;
+    line-height:1.75;
+    font-size:15px;
+}
+
+a{color:inherit;}
+
+/* ============================================================= */
+/* STICKY NAV                                                     */
+/* ============================================================= */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#FFFFFF;
+    border-bottom:1px solid #E3ECF2;
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    box-shadow:0 2px 10px rgba(16,65,110,0.06);
+}
+
+.navbar-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:17px;
+    color:#0B5FA5;
+    text-decoration:none;
+}
+
+.navbar-logo .logo-dot{
+    width:34px;height:34px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#1C86EE,#00C2A8);
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;
+    color:#fff;
+}
+
+.navbar-pill{
+    background:#EAF4FF;
+    color:#0B5FA5;
+    padding:7px 16px;
+    border-radius:30px;
+    font-size:12.5px;
+    font-weight:600;
+    text-decoration:none;
+    border:1px solid #CDE6FB;
+    transition:.2s;
+}
+.navbar-pill:hover{background:#0B5FA5;color:#fff;}
+
+/* ============================================================= */
+/* HERO                                                            */
+/* ============================================================= */
+.hero{
+    background:linear-gradient(120deg,#0B5FA5 0%,#1C86EE 45%,#00C2A8 100%);
+    color:#fff;
+    padding:60px 24px 70px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:400px;height:400px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-150px;right:-100px;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    width:300px;height:300px;
+    background:rgba(255,255,255,0.07);
+    border-radius:50%;
+    bottom:-120px;left:-80px;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.4);
+    padding:6px 18px;
+    border-radius:30px;
+    font-size:12px;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero-icon{
+    font-size:52px;
+    margin-bottom:10px;
+    display:block;
+    position:relative;
+}
+
+.hero h1{
+    font-size:32px;
+    font-weight:800;
+    margin-bottom:10px;
+    position:relative;
+}
+
+.hero p.sub{
+    font-size:15px;
+    color:rgba(255,255,255,0.92);
+    max-width:520px;
+    margin:0 auto 18px;
+    position:relative;
+}
+
+.hero .updated{
+    font-size:12.5px;
+    background:rgba(0,0,0,0.15);
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:30px;
+    position:relative;
+}
+
+/* ============================================================= */
+/* CONTAINER                                                       */
+/* ============================================================= */
+.container{
+    max-width:880px;
+    margin:-40px auto 0;
+    padding:0 20px 60px;
+    position:relative;
+}
+
+/* ============================================================= */
+/* AT-A-GLANCE STRIP                                                */
+/* ============================================================= */
+.glance{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(16,65,110,0.10);
+    padding:26px;
+    margin-bottom:30px;
+}
+
+.glance h2{
+    font-size:15px;
+    color:#0B5FA5;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    margin-bottom:18px;
+    font-weight:800;
+}
+
+.glance-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:14px;
+}
+
+.glance-item{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:#F6FBFF;
+    border:1px solid #E3F0FB;
+    border-radius:12px;
+    padding:13px 14px;
+}
+
+.glance-item .gi-icon{
+    font-size:20px;
+    background:#fff;
+    width:36px;height:36px;
+    border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 6px rgba(16,65,110,0.10);
+    flex-shrink:0;
+}
+
+.glance-item .gi-text strong{
+    display:block;
+    font-size:13px;
+    color:#0B5FA5;
+    margin-bottom:2px;
+}
+.glance-item .gi-text span{
+    font-size:12.5px;
+    color:#5A6B7A;
+}
+
+/* ============================================================= */
+/* QUICK JUMP PILLS                                                 */
+/* ============================================================= */
+.jump-wrap{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(16,65,110,0.08);
+    padding:20px 24px;
+    margin-bottom:34px;
+}
+.jump-wrap h2{
+    font-size:14px;
+    color:#0B5FA5;
+    margin-bottom:14px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+.jump-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.jump-pills a{
+    font-size:12.5px;
+    text-decoration:none;
+    background:#EAF4FF;
+    color:#0B5FA5;
+    padding:7px 14px;
+    border-radius:20px;
+    font-weight:600;
+    border:1px solid #CDE6FB;
+    transition:.2s;
+}
+.jump-pills a:hover{
+    background:#0B5FA5;
+    color:#fff;
+}
+
+/* ============================================================= */
+/* TIMELINE SECTIONS                                                */
+/* ============================================================= */
+.timeline{
+    position:relative;
+    padding-left:38px;
+}
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:14px;
+    top:6px;
+    bottom:6px;
+    width:3px;
+    background:linear-gradient(to bottom,#1C86EE,#00C2A8);
+    border-radius:3px;
+}
+
+.tl-section{
+    position:relative;
+    margin-bottom:28px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 4px 16px rgba(16,65,110,0.07);
+    padding:24px 26px;
+}
+
+.tl-section::before{
+    content:attr(data-num);
+    position:absolute;
+    left:-38px;
+    top:24px;
+    width:30px;height:30px;
+    background:#1C86EE;
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+    font-weight:800;
+    box-shadow:0 0 0 5px #F4F8FB;
+}
+
+.tl-section h2{
+    font-size:18px;
+    color:#0B5FA5;
+    font-weight:800;
+    margin-bottom:14px;
+}
+
+.tl-section h3{
+    font-size:14.5px;
+    color:#10709C;
+    font-weight:700;
+    margin:16px 0 8px;
+}
+
+.tl-section p{
+    color:#3B4A58;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.tl-section ul{
+    margin:0 0 10px 20px;
+}
+.tl-section li{
+    color:#3B4A58;
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+/* ============================================================= */
+/* CALLOUTS                                                         */
+/* ============================================================= */
+.callout{
+    border-radius:12px;
+    padding:15px 18px;
+    margin:14px 0;
+    font-size:13.5px;
+    line-height:1.7;
+}
+.callout-blue{background:#EAF4FF;border:1px solid #BEE0FB;color:#0B5FA5;}
+.callout-green{background:#EAFBF3;border:1px solid #B9EAD2;color:#117A4C;}
+.callout-amber{background:#FFF7E6;border:1px solid #FCE2A8;color:#8A5A00;}
+.callout-red{background:#FFECEC;border:1px solid #FAC5C5;color:#B42121;}
+
+/* ============================================================= */
+/* PERMISSION GRID                                                  */
+/* ============================================================= */
+.perm-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:14px;
+    margin-top:12px;
+}
+.perm-card{
+    border:1px solid #E3ECF2;
+    border-radius:12px;
+    padding:15px 16px;
+    background:#FAFDFF;
+}
+.perm-card .pc-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:6px;
+}
+.perm-card .pc-icon{
+    font-size:18px;
+    width:32px;height:32px;
+    background:#EAF4FF;
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+}
+.perm-card .pc-name{
+    font-weight:700;
+    color:#0B5FA5;
+    font-size:13.5px;
+}
+.perm-card .pc-desc{
+    font-size:12.5px;
+    color:#5A6B7A;
+    line-height:1.6;
+}
+
+/* ============================================================= */
+/* AD / SERVICE CARD                                                */
+/* ============================================================= */
+.service-card{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:#FAFDFF;
+    border:1px solid #E3ECF2;
+    border-radius:14px;
+    padding:16px 18px;
+    margin-bottom:14px;
+}
+.service-logo{
+    width:46px;height:46px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#1C86EE,#00C2A8);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    flex-shrink:0;
+}
+.service-info h3{
+    font-size:14.5px;
+    color:#0B5FA5;
+    font-weight:800;
+    margin-bottom:4px;
+}
+.service-info p{
+    font-size:13px;
+    color:#5A6B7A;
+    margin-bottom:6px;
+}
+.service-info a{
+    font-size:12.5px;
+    color:#0B5FA5;
+    font-weight:700;
+    text-decoration:none;
+    border-bottom:1px solid #1C86EE;
+}
+.service-tags{
+    margin-top:6px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+.service-tags span{
+    background:#EAF4FF;
+    color:#0B5FA5;
+    font-size:11px;
+    padding:3px 9px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+/* ============================================================= */
+/* CONTACT CARD                                                      */
+/* ============================================================= */
+.contact-box{
+    background:linear-gradient(135deg,#0B5FA5,#00A98F);
+    border-radius:18px;
+    padding:28px;
+    color:#fff;
+    margin-top:10px;
+}
+.contact-box h3{
+    font-size:17px;
+    margin-bottom:16px;
+    font-weight:800;
+}
+.contact-line{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+    font-size:14px;
+}
+.contact-line .cl-icon{
+    width:30px;height:30px;
+    background:rgba(255,255,255,0.18);
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+}
+.contact-line a{
+    color:#fff;
+    font-weight:700;
+    text-decoration:underline;
+}
+
+/* ============================================================= */
+/* FOOTER                                                            */
+/* ============================================================= */
+.footer{
+    text-align:center;
+    padding:34px 20px;
+    background:#0B2447;
+    color:rgba(255,255,255,0.75);
+    font-size:13px;
+}
+.footer strong{
+    color:#fff;
+    font-size:17px;
+    display:block;
+    margin-bottom:6px;
+}
+.footer .f-links{
+    margin:14px 0;
+}
+.footer .f-links a{
+    color:#7FD6FF;
+    text-decoration:none;
+    margin:0 10px;
+    font-size:13px;
+}
+.footer .f-links a:hover{text-decoration:underline;}
+.footer .f-copy{
+    color:rgba(255,255,255,0.5);
+    font-size:12px;
+    margin-top:10px;
+}
+
+/* ============================================================= */
+/* RESPONSIVE                                                        */
+/* ============================================================= */
+@media(max-width:620px){
+    .hero h1{font-size:24px;}
+    .hero-icon{font-size:40px;}
+    .timeline{padding-left:30px;}
+    .tl-section::before{left:-30px;width:26px;height:26px;font-size:11px;}
+    .glance-grid{grid-template-columns:1fr;}
+    .perm-grid{grid-template-columns:1fr;}
+    .service-card{flex-direction:column;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="https://www.lihka.in" class="navbar-logo">
+        <span class="logo-dot">🎙️</span>
+        Quick Voice Calculator
+    </a>
+    <a href="mailto:support@lihka.in" class="navbar-pill">✉️ Contact Support</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <span class="hero-badge">Privacy & Data Policy</span>
+    <span class="hero-icon">🧮</span>
+    <h1>Your Privacy, Calculated Simply</h1>
+    <p class="sub">
+        Quick Voice Calculator lets you calculate with your voice, camera & keypad —
+        here's exactly what data we touch, and what we never do.
+    </p>
+    <span class="updated">🗓️ Last Updated: June 10, 2025</span>
+</div>
+
+<div class="container">
+
+    <!-- AT A GLANCE -->
+    <div class="glance">
+        <h2>⚡ At a Glance</h2>
+        <div class="glance-grid">
+            <div class="glance-item">
+                <div class="gi-icon">🎙️</div>
+                <div class="gi-text">
+                    <strong>Voice stays on-device</strong>
+                    <span>Speech is converted to numbers locally using your OS speech engine.</span>
+                </div>
+            </div>
+            <div class="glance-item">
+                <div class="gi-icon">📷</div>
+                <div class="gi-text">
+                    <strong>Camera used only when you tap it</strong>
+                    <span>No background camera access, ever.</span>
+                </div>
+            </div>
+            <div class="glance-item">
+                <div class="gi-icon">🙅</div>
+                <div class="gi-text">
+                    <strong>No account, no sign-up</strong>
+                    <span>Use the app instantly — we never ask who you are.</span>
+                </div>
+            </div>
+            <div class="glance-item">
+                <div class="gi-icon">💾</div>
+                <div class="gi-text">
+                    <strong>History stays on your phone</strong>
+                    <span>Calculation history is stored locally, not on our servers.</span>
+                </div>
+            </div>
+            <div class="glance-item">
+                <div class="gi-icon">💱</div>
+                <div class="gi-text">
+                    <strong>Currency rates need internet</strong>
+                    <span>Only exchange-rate numbers are fetched — nothing personal.</span>
+                </div>
+            </div>
+            <div class="glance-item">
+                <div class="gi-icon">📢</div>
+                <div class="gi-text">
+                    <strong>Ads keep it free</strong>
+                    <span>Google AdMob shows ads; see full details below.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK JUMP -->
+    <div class="jump-wrap">
+        <h2>🧭 Jump to a Section</h2>
+        <div class="jump-pills">
+            <a href="#s1">Overview</a>
+            <a href="#s2">Permissions We Request</a>
+            <a href="#s3">Data We Collect</a>
+            <a href="#s4">Data We Never Collect</a>
+            <a href="#s5">Voice & Camera Handling</a>
+            <a href="#s6">Advertising</a>
+            <a href="#s7">Unit Converter & Currency</a>
+            <a href="#s8">Data Storage & Security</a>
+            <a href="#s9">Children's Privacy</a>
+            <a href="#s10">Your Rights</a>
+            <a href="#s11">Policy Updates</a>
+            <a href="#s12">Contact</a>
+        </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+
+        <!-- 1 -->
+        <div class="tl-section" id="s1" data-num="1">
+            <h2>📱 Overview</h2>
+            <p>
+                <strong>Quick Voice Calculator</strong> is a free calculator app by
+                <strong>Lihka</strong>, based in Nagpur, Maharashtra, India. It lets you
+                perform calculations by <strong>speaking</strong>, <strong>typing</strong>, or
+                <strong>scanning numbers with your camera</strong>. It also includes a
+                scientific calculator mode and an All-in-One Unit Converter
+                (Currency, Length, Area, Volume, Weight, Temperature, Speed, Pressure, Power).
+            </p>
+            <p>
+                This Privacy Policy explains what information the app accesses, how it is used,
+                and the controls you have. By installing or using Quick Voice Calculator,
+                you agree to the practices described here.
+            </p>
+            <div class="callout callout-blue">
+                This policy applies only to the <strong>Quick Voice Calculator</strong> Android
+                application and its built-in features (voice input, camera scan, history,
+                scientific mode, unit converter).
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="tl-section" id="s2" data-num="2">
+            <h2>🔑 Permissions We Request</h2>
+            <p>The app requests only the permissions it needs to function — nothing more.</p>
+            <div class="perm-grid">
+                <div class="perm-card">
+                    <div class="pc-head">
+                        <div class="pc-icon">🎙️</div>
+                        <div class="pc-name">Microphone</div>
+                    </div>
+                    <div class="pc-desc">
+                        Required for the voice calculator feature. Captures audio only while you
+                        are actively holding/tapping the mic button — never in the background.
+                    </div>
+                </div>
+                <div class="perm-card">
+                    <div class="pc-head">
+                        <div class="pc-icon">📷</div>
+                        <div class="pc-name">Camera</div>
+                    </div>
+                    <div class="pc-desc">
+                        Used only when you tap the camera icon to scan a printed equation or
+                        number. The camera is never accessed without your explicit action.
+                    </div>
+                </div>
+                <div class="perm-card">
+                    <div class="pc-head">
+                        <div class="pc-icon">📁</div>
+                        <div class="pc-name">Storage (optional)</div>
+                    </div>
+                    <div class="pc-desc">
+                        Lets you save or export calculation history/notes locally to your device,
+                        if you choose to use that feature.
+                    </div>
+                </div>
+                <div class="perm-card">
+                    <div class="pc-head">
+                        <div class="pc-icon">🌐</div>
+                        <div class="pc-name">Internet Access</div>
+                    </div>
+                    <div class="pc-desc">
+                        Needed to fetch live currency exchange rates and to serve ads. Core
+                        calculator functions work fully offline.
+                    </div>
+                </div>
+            </div>
+            <div class="callout callout-green">
+                ✅ You can deny Camera or Microphone permission and still use the basic keypad
+                calculator, scientific mode, and unit converter normally.
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="tl-section" id="s3" data-num="3">
+            <h2>📊 Data We Collect</h2>
+            <h3>a) Technical & Device Data</h3>
+            <ul>
+                <li>Device model, OS version, and screen configuration (for compatibility)</li>
+                <li>Advertising ID (anonymous, used for ad delivery)</li>
+                <li>App crash logs and performance diagnostics</li>
+            </ul>
+            <h3>b) Usage Data (Anonymous)</h3>
+            <ul>
+                <li>Feature usage counts (e.g., voice input used X times) — aggregated, not linked to you</li>
+                <li>Calculator mode preference (basic / scientific / converter)</li>
+            </ul>
+            <h3>c) Locally Stored Data</h3>
+            <ul>
+                <li>Calculation history — saved only on your device</li>
+                <li>Unit converter preferences (default units selected)</li>
+            </ul>
+            <div class="callout callout-blue">
+                None of this data is tied to your name, email, or identity. It cannot be used
+                to personally identify you.
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="tl-section" id="s4" data-num="4">
+            <h2>🚫 Data We Never Collect</h2>
+            <ul>
+                <li>❌ Your name, email address, or phone number</li>
+                <li>❌ Precise GPS location</li>
+                <li>❌ Contacts, SMS, or call logs</li>
+                <li>❌ Photos/media gallery (camera is used live, not gallery access)</li>
+                <li>❌ Audio recordings stored or uploaded to a server</li>
+                <li>❌ Payment or banking information — the app has no in-app purchases</li>
+                <li>❌ Login credentials — there is no account system at all</li>
+            </ul>
+            <div class="callout callout-green">
+                <strong>✅ Bottom line:</strong> Quick Voice Calculator is built to calculate,
+                not to collect. We keep it that simple.
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="tl-section" id="s5" data-num="5">
+            <h2>🎙️📷 How Voice & Camera Features Work</h2>
+            <p><strong>Voice Input:</strong></p>
+            <ul>
+                <li>When you tap the microphone icon, your device's built-in speech-recognition
+                    engine (Android Speech-to-Text) converts your voice into numbers/operators.</li>
+                <li>Audio is processed in real time and is <strong>not stored or uploaded</strong>
+                    by Quick Voice Calculator.</li>
+                <li>Recognition may rely on your device's OS-level speech service, which is
+                    governed by your device manufacturer's / Google's own privacy policy.</li>
+            </ul>
+            <p><strong>Camera / Scan Input:</strong></p>
+            <ul>
+                <li>Tapping the camera icon opens a live camera view to capture a printed
+                    number or equation.</li>
+                <li>The captured frame is processed on-device for text/number recognition and
+                    is <strong>discarded immediately after use</strong> — it is not saved to
+                    your gallery or sent to any server.</li>
+            </ul>
+            <div class="callout callout-amber">
+                ⚠️ We do not retain, transmit, or analyze your voice or camera data beyond the
+                single calculation you're performing in the moment.
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="tl-section" id="s6" data-num="6">
+            <h2>📢 Advertising</h2>
+            <p>
+                Quick Voice Calculator is completely free. To support that, we display ads via:
+            </p>
+
+            <div class="service-card">
+                <div class="service-logo">G</div>
+                <div class="service-info">
+                    <h3>Google AdMob</h3>
+                    <p>Serves banner and interstitial ads within the app.</p>
+                    <div class="service-tags">
+                        <span>Advertising ID</span>
+                        <span>IP Address</span>
+                        <span>Device Info</span>
+                        <span>Ad Interactions</span>
+                    </div>
+                    <p style="margin-top:8px;">
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                            View Google Privacy Policy →
+                        </a>
+                        &nbsp; | &nbsp;
+                        <a href="https://support.google.com/ads/answer/2662922" target="_blank" rel="noopener noreferrer">
+                            Opt out of Ad Personalization →
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="callout callout-blue">
+                You can limit ad personalization anytime via
+                <strong>Device Settings → Privacy → Ads → Opt out of Ads Personalization.</strong>
+            </div>
+            <div class="callout callout-amber">
+                We don't control what AdMob itself collects — that is governed by Google's own
+                privacy policy linked above. We never receive personally identifiable data from
+                our ad partner.
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="tl-section" id="s7" data-num="7">
+            <h2>💱 Unit Converter & Currency Rates</h2>
+            <p>
+                The All-in-One Unit Converter (Currency, Length, Area, Volume, Weight,
+                Temperature, Speed, Pressure, Power) works mostly offline using standard
+                conversion formulas.
+            </p>
+            <ul>
+                <li>Only the <strong>Currency</strong> converter requires an internet connection,
+                    to fetch up-to-date exchange rates from a third-party financial data provider.</li>
+                <li>No personal or financial account information is sent — only the currency
+                    codes and amount you want converted (processed locally after rates are fetched).</li>
+                <li>All other converters (Length, Area, Volume, Weight, Temp, Speed, Pressure,
+                    Power) work fully offline with no data transmission.</li>
+            </ul>
+        </div>
+
+        <!-- 8 -->
+        <div class="tl-section" id="s8" data-num="8">
+            <h2>🔒 Data Storage & Security</h2>
+            <ul>
+                <li>Calculation history and preferences are stored locally in your device's app storage.</li>
+                <li>Any network communication (ads, currency rates) uses encrypted HTTPS connections.</li>
+                <li>We do not operate a central server that stores your personal calculations.</li>
+                <li>Uninstalling the app permanently removes all locally stored history and preferences.</li>
+            </ul>
+            <div class="callout callout-amber">
+                ⚠️ While we use industry-standard safeguards, no digital system is 100% secure.
+                We encourage keeping your device's OS and security patches up to date.
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="tl-section" id="s9" data-num="9">
+            <h2>🧒 Children's Privacy</h2>
+            <p>
+                Quick Voice Calculator is a general-audience utility app and is not directed
+                at children under 13. We do not knowingly collect personal information from
+                children. Ads served through AdMob follow Google's standard content guidelines.
+            </p>
+            <div class="callout callout-green">
+                If you believe a child has provided us with personal data, contact us at
+                <strong>support@lihka.in</strong> and we will act promptly to remove it.
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="tl-section" id="s10" data-num="10">
+            <h2>✅ Your Rights & Choices</h2>
+            <ul>
+                <li><strong>Revoke Permissions:</strong> Disable Camera/Microphone anytime from your device's App Settings.</li>
+                <li><strong>Clear History:</strong> Use the in-app option to clear calculation history, or clear app data from device settings.</li>
+                <li><strong>Reset Advertising ID:</strong> Available in your device's Google Settings → Ads.</li>
+                <li><strong>Uninstall:</strong> Removing the app deletes all locally stored data immediately.</li>
+                <li><strong>Request Info:</strong> Email us at <strong>support@lihka.in</strong> to ask what limited data categories apply to you.</li>
+            </ul>
+        </div>
+
+        <!-- 11 -->
+        <div class="tl-section" id="s11" data-num="11">
+            <h2>🔄 Changes to This Policy</h2>
+            <p>
+                We may revise this Privacy Policy from time to time to reflect feature updates
+                or legal requirements. Material changes will be reflected by updating the
+                "Last Updated" date at the top of this page. Continued use of the app after
+                changes means you accept the revised policy.
+            </p>
+        </div>
+
+        <!-- 12 -->
+        <div class="tl-section" id="s12" data-num="12">
+            <h2>📞 Contact Us</h2>
+            <p>Questions or concerns about this Privacy Policy or your data? Reach out to us:</p>
+
+            <div class="contact-box">
+                <h3>🧮 Quick Voice Calculator — Support Team</h3>
+
+                <div class="contact-line">
+                    <span class="cl-icon">🏢</span>
+                    <span><strong>Company:</strong> A game/app by Lihka</span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="cl-icon">📍</span>
+                    <span><strong>Location:</strong> Nagpur, Maharashtra, India</span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="cl-icon">📧</span>
+                    <span><strong>Email:</strong> <a href="mailto:support@lihka.in">support@lihka.in</a></span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="cl-icon">💬</span>
+                    <span><strong>WhatsApp:</strong> <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">+91 7350157047</a></span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="cl-icon">🌐</span>
+                    <span><strong>Website:</strong> <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">www.lihka.in</a></span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="cl-icon">⏰</span>
+                    <span><strong>Response Time:</strong> Within 7 business days</span>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end timeline -->
+
+    <div class="callout callout-green" style="border-radius:16px;padding:20px 22px;margin-top:6px;">
+        <strong>✅ Our Promise:</strong> Quick Voice Calculator is built to make math faster
+        with your voice and camera — not to harvest your data. No accounts, no spying, just
+        calculations. 🧮🎙️📷
+    </div>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="footer">
+    <strong>🧮 Quick Voice Calculator</strong>
+    Speak It. Scan It. Calculate It. — by Lihka
+    <div class="f-links">
+        <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">🏠 Home</a>
+        <a href="mailto:support@lihka.in">📧 Email Support</a>
+        <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        <a href="#s1">⬆️ Back to Top</a>
+    </div>
+    <div class="f-copy">
+        © 2025 Lihka. All rights reserved.<br/>
+        This privacy policy applies exclusively to the Quick Voice Calculator Android application.
+    </div>
+</div>
+
+</body>
+</html>
