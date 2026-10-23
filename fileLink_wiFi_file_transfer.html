@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Privacy Policy for FileLink: WiFi File Transfer app by Lihka"/>
+<meta name="author" content="Lihka"/>
+<title>Privacy Policy — FileLink: WiFi File Transfer by Lihka</title>
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root{
+  --purple-deep:#5B21B6;
+  --purple-mid:#7C3AED;
+  --pink:#D946EF;
+  --pink-light:#F472B6;
+  --bg:#FAF7FF;
+  --card:#FFFFFF;
+  --text-dark:#2E1065;
+  --text-body:#4B4458;
+  --text-light:#8B7FA3;
+  --border:#ECE4FB;
+}
+
+body{
+  font-family:'Poppins','Segoe UI',Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text-body);
+  line-height:1.75;
+  font-size:15px;
+}
+
+/* ============ SIDEBAR LAYOUT WRAPPER ============ */
+.app-shell{
+  display:flex;
+  min-height:100vh;
+}
+
+/* ============ LEFT RAIL / BRAND NAV ============ */
+.side-rail{
+  width:260px;
+  flex-shrink:0;
+  background:linear-gradient(200deg,#4C1D95 0%, #7C3AED 45%, #D946EF 100%);
+  color:#fff;
+  padding:36px 24px;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+}
+
+.side-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:6px;
+}
+
+.side-logo-icon{
+  width:42px;
+  height:42px;
+  background:rgba(255,255,255,0.18);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  backdrop-filter:blur(4px);
+}
+
+.side-logo-text{
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:0.3px;
+}
+
+.side-tagline{
+  font-size:11.5px;
+  color:rgba(255,255,255,0.75);
+  margin-bottom:28px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+
+.side-updated{
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:11.5px;
+  margin-bottom:28px;
+  line-height:1.5;
+}
+
+.side-updated b{ display:block; font-size:12.5px; margin-bottom:2px;}
+
+.side-nav-title{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:10px;
+  margin-top:10px;
+}
+
+.side-nav{
+  list-style:none;
+}
+
+.side-nav li{ margin-bottom:2px; }
+
+.side-nav a{
+  display:block;
+  color:rgba(255,255,255,0.88);
+  text-decoration:none;
+  font-size:12.8px;
+  padding:8px 10px;
+  border-radius:8px;
+  transition:all .2s;
+}
+
+.side-nav a:hover{
+  background:rgba(255,255,255,0.16);
+  color:#fff;
+  padding-left:14px;
+}
+
+.side-footer-link{
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.2);
+}
+
+.side-footer-link a{
+  display:inline-block;
+  color:#fff;
+  font-size:12px;
+  text-decoration:none;
+  background:rgba(255,255,255,0.15);
+  padding:8px 14px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.35);
+  margin-bottom:8px;
+}
+
+.side-footer-link a:hover{
+  background:rgba(255,255,255,0.25);
+}
+
+/* ============ MAIN CONTENT ============ */
+.main-content{
+  flex:1;
+  min-width:0;
+}
+
+/* HERO */
+.hero-band{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(217,70,239,0.12), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(124,58,237,0.12), transparent 40%),
+    #fff;
+  padding:50px 48px 36px;
+  border-bottom:1px solid var(--border);
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(90deg,#F3E8FF,#FCE7F3);
+  color:var(--purple-deep);
+  font-size:12px;
+  font-weight:700;
+  padding:7px 16px;
+  border-radius:20px;
+  margin-bottom:18px;
+}
+
+.hero-band h1{
+  font-size:34px;
+  font-weight:800;
+  color:var(--text-dark);
+  margin-bottom:10px;
+  letter-spacing:-0.5px;
+}
+
+.hero-band p.hero-sub{
+  font-size:15px;
+  color:var(--text-light);
+  max-width:620px;
+}
+
+.hero-chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.hero-chip{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:var(--card);
+  border:1px solid var(--border);
+  box-shadow:0 2px 8px rgba(124,58,237,0.06);
+  padding:8px 14px;
+  border-radius:12px;
+  font-size:12.5px;
+  color:var(--text-dark);
+  font-weight:600;
+}
+
+/* CONTENT PADDING WRAP */
+.content-pad{
+  padding:40px 48px 70px;
+  max-width:920px;
+}
+
+/* ============ OVERVIEW GRID ============ */
+.overview-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:44px;
+}
+
+.overview-tile{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px 18px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s;
+}
+
+.overview-tile::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--purple-mid),var(--pink));
+}
+
+.overview-tile:hover{ transform:translateY(-3px); }
+
+.overview-tile .ot-icon{
+  font-size:26px;
+  margin-bottom:10px;
+  display:block;
+}
+
+.overview-tile h4{
+  font-size:13.5px;
+  color:var(--text-dark);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.overview-tile p{
+  font-size:12.3px;
+  color:var(--text-light);
+  line-height:1.6;
+}
+
+/* ============ NUMBERED SECTIONS ============ */
+.policy-section{
+  display:flex;
+  gap:22px;
+  margin-bottom:38px;
+  scroll-margin-top:30px;
+}
+
+.sec-num-col{
+  flex-shrink:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.sec-num{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--purple-mid),var(--pink));
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:16px;
+  box-shadow:0 4px 14px rgba(124,58,237,0.3);
+}
+
+.sec-line{
+  flex:1;
+  width:2px;
+  background:var(--border);
+  margin-top:8px;
+}
+
+.sec-body{
+  flex:1;
+  padding-bottom:6px;
+}
+
+.sec-body h2{
+  font-size:19px;
+  color:var(--text-dark);
+  font-weight:800;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.sec-body p{
+  color:var(--text-body);
+  font-size:14.3px;
+  margin-bottom:12px;
+}
+
+.sec-body ul{
+  margin:0 0 12px 18px;
+}
+
+.sec-body li{
+  color:var(--text-body);
+  font-size:14px;
+  margin-bottom:8px;
+  line-height:1.65;
+}
+
+/* ============ NOTE BOXES ============ */
+.note{
+  border-radius:14px;
+  padding:16px 18px;
+  font-size:13.6px;
+  line-height:1.7;
+  margin:14px 0;
+  border:1.5px dashed;
+}
+
+.note-purple{ background:#F5F0FF; border-color:#C4B5FD; color:#5B21B6; }
+.note-pink{ background:#FDF2FB; border-color:#F0ABFC; color:#A21CAF; }
+.note-green{ background:#F0FDF6; border-color:#86EFAC; color:#15803D; }
+.note-amber{ background:#FFFBEB; border-color:#FCD34D; color:#92400E; }
+
+.note strong{ display:block; margin-bottom:5px; font-size:13.8px; }
+
+/* ============ PERMISSION CARDS ============ */
+.perm-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:12px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+
+.perm-icon{
+  width:40px;height:40px;
+  background:linear-gradient(135deg,#EDE9FE,#FCE7F3);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;
+  flex-shrink:0;
+}
+
+.perm-text strong{
+  display:block;
+  color:var(--text-dark);
+  font-size:13.8px;
+  margin-bottom:4px;
+}
+
+.perm-text span{
+  font-size:12.8px;
+  color:var(--text-light);
+  line-height:1.6;
+}
+
+/* ============ DATA TABLE ============ */
+.data-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0;
+  font-size:13px;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(124,58,237,0.06);
+}
+
+.data-table th{
+  background:linear-gradient(135deg,var(--purple-mid),var(--pink));
+  color:#fff;
+  text-align:left;
+  padding:11px 14px;
+  font-weight:700;
+}
+
+.data-table td{
+  padding:11px 14px;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  color:var(--text-body);
+}
+
+.data-table tr:last-child td{ border-bottom:none; }
+
+/* ============ CONTACT PANEL ============ */
+.contact-panel{
+  background:linear-gradient(135deg,#4C1D95,#7C3AED 55%,#D946EF);
+  border-radius:22px;
+  padding:34px;
+  color:#fff;
+  margin-top:10px;
+}
+
+.contact-panel h3{
+  font-size:19px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.contact-panel p.sub{
+  font-size:13.5px;
+  color:rgba(255,255,255,0.85);
+  margin-bottom:22px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.contact-tile{
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:14px;
+  padding:14px 16px;
+  backdrop-filter:blur(4px);
+}
+
+.contact-tile .ct-label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:5px;
+}
+
+.contact-tile a, .contact-tile span.val{
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+}
+
+.contact-tile a:hover{
+  text-decoration:underline;
+}
+
+/* ============ FOOTER ============ */
+.site-footer{
+  text-align:center;
+  padding:30px 20px 40px;
+  color:var(--text-light);
+  font-size:12.5px;
+  border-top:1px solid var(--border);
+}
+
+.site-footer a{
+  color:var(--purple-mid);
+  text-decoration:none;
+  font-weight:600;
+  margin:0 6px;
+}
+
+.site-footer a:hover{
+  text-decoration:underline;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:900px){
+  .app-shell{ flex-direction:column; }
+  .side-rail{ width:100%; height:auto; position:relative; padding:24px; }
+  .hero-band, .content-pad{ padding-left:24px; padding-right:24px; }
+  .overview-grid{ grid-template-columns:1fr 1fr; }
+  .contact-grid{ grid-template-columns:1fr; }
+}
+
+@media (max-width:560px){
+  .overview-grid{ grid-template-columns:1fr; }
+  .hero-band h1{ font-size:26px; }
+  .policy-section{ gap:14px; }
+  .sec-num{ width:36px;height:36px;font-size:13px;border-radius:11px; }
+  .sec-body h2{ font-size:16.5px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ===== LEFT SIDE RAIL ===== -->
+  <nav class="side-rail">
+    <div class="side-logo">
+      <div class="side-logo-icon">🔗</div>
+      <div class="side-logo-text">FileLink</div>
+    </div>
+    <div class="side-tagline">WiFi File Transfer</div>
+
+    <div class="side-updated">
+      <b>📅 Last Updated</b>
+      January 15, 2025
+    </div>
+
+    <div class="side-nav-title">On this page</div>
+    <ul class="side-nav">
+      <li><a href="#s1">1. About FileLink</a></li>
+      <li><a href="#s2">2. Information We Collect</a></li>
+      <li><a href="#s3">3. Permissions We Request</a></li>
+      <li><a href="#s4">4. How Files Are Transferred</a></li>
+      <li><a href="#s5">5. PIN & Security Features</a></li>
+      <li><a href="#s6">6. Advertising</a></li>
+      <li><a href="#s7">7. Data We Never Collect</a></li>
+      <li><a href="#s8">8. Third-Party Services</a></li>
+      <li><a href="#s9">9. Data Retention</a></li>
+      <li><a href="#s10">10. Children's Privacy</a></li>
+      <li><a href="#s11">11. Your Rights & Choices</a></li>
+      <li><a href="#s12">12. Policy Changes</a></li>
+      <li><a href="#s13">13. Contact Us</a></li>
+    </ul>
+
+    <div class="side-footer-link">
+      <a href="mailto:support@lihka.in?subject=FileLink%20Support%20Request">✉️ Contact Support</a>
+      <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="main-content">
+
+    <!-- HERO -->
+    <div class="hero-band">
+      <div class="hero-eyebrow">🔒 Privacy Policy</div>
+      <h1>Your files stay yours.<br/>Always.</h1>
+      <p class="hero-sub">
+        FileLink: WiFi File Transfer helps you move files between devices
+        over your local network — fast, private, and without the internet.
+        Here's exactly what that means for your data.
+      </p>
+      <div class="hero-chips">
+        <div class="hero-chip">📶 Local Network Only</div>
+        <div class="hero-chip">🚫 No Cloud Upload</div>
+        <div class="hero-chip">🔐 PIN Protected</div>
+        <div class="hero-chip">🧒 Family Safe</div>
+      </div>
+    </div>
+
+    <div class="content-pad">
+
+      <!-- OVERVIEW TILES -->
+      <div class="overview-grid">
+        <div class="overview-tile">
+          <span class="ot-icon">📂</span>
+          <h4>Files Never Leave Your Network</h4>
+          <p>Transfers happen directly between devices on the same WiFi — nothing is uploaded to any server.</p>
+        </div>
+        <div class="overview-tile">
+          <span class="ot-icon">🙈</span>
+          <h4>No Account Needed</h4>
+          <p>No sign-up, no email, no phone number. Open the app and start sharing instantly.</p>
+        </div>
+        <div class="overview-tile">
+          <span class="ot-icon">🔑</span>
+          <h4>You Control Access</h4>
+          <p>Optional PIN lock and session timers keep your shared files secure from unwanted access.</p>
+        </div>
+        <div class="overview-tile">
+          <span class="ot-icon">📷</span>
+          <h4>QR Code Pairing</h4>
+          <p>Camera is used only to scan connection QR codes — never to capture or store photos.</p>
+        </div>
+        <div class="overview-tile">
+          <span class="ot-icon">📊</span>
+          <h4>Minimal Diagnostics</h4>
+          <p>Only anonymous crash & performance data is used to keep the app stable.</p>
+        </div>
+        <div class="overview-tile">
+          <span class="ot-icon">💰</span>
+          <h4>Free With Ads</h4>
+          <p>Supported by privacy-respecting ad networks so the core app stays free forever.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 1 -->
+      <div class="policy-section" id="s1">
+        <div class="sec-num-col"><div class="sec-num">1</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>📱 About FileLink</h2>
+          <p>
+            <strong>FileLink: WiFi File Transfer</strong> is a utility app developed by
+            <strong>Lihka</strong>, based in Nagpur, Maharashtra, India. It lets you
+            send and receive files — photos, videos, documents, and archives — between
+            smartphones, tablets, and computers over a shared WiFi network, without
+            needing mobile data or an internet connection.
+          </p>
+          <p>
+            Core features include direct device-to-device transfer via local IP address,
+            QR code pairing for quick connections, a browser-based file manager accessible
+            from any device on the network, and optional PIN protection for secure sessions.
+          </p>
+          <div class="note note-purple">
+            <strong>📌 Scope of this Policy</strong>
+            This Privacy Policy explains what information FileLink accesses, how it is used,
+            and what control you have over it. It applies to the FileLink Android application
+            and its companion web interface used during active transfer sessions.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="policy-section" id="s2">
+        <div class="sec-num-col"><div class="sec-num">2</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>📦 Information We Collect</h2>
+          <p>FileLink is designed to minimize data collection. Here's what is involved:</p>
+
+          <table class="data-table">
+            <tr><th>Category</th><th>Details</th><th>Stored Where</th></tr>
+            <tr><td>Local Network Info</td><td>Your device's local IP address, port number used for transfer</td><td>On-device only</td></tr>
+            <tr><td>Transferred Files</td><td>Files you choose to share (images, videos, docs, archives)</td><td>On-device, local transfer only</td></tr>
+            <tr><td>Session Data</td><td>PIN (if set), session expiry timer</td><td>Encrypted, on-device only</td></tr>
+            <tr><td>Device Info</td><td>Device model, OS version, app version</td><td>Used for compatibility & crash reports</td></tr>
+            <tr><td>Advertising ID</td><td>Resettable ad identifier (if ads are shown)</td><td>Shared with ad network only</td></tr>
+          </table>
+
+          <div class="note note-green">
+            <strong>✅ The Important Part</strong>
+            Files you share using FileLink travel directly between devices on your local
+            WiFi network. They are never uploaded to FileLink's servers, because
+            FileLink does not operate any file storage servers at all.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="policy-section" id="s3">
+        <div class="sec-num-col"><div class="sec-num">3</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🛡️ Permissions We Request</h2>
+          <p>FileLink asks for a few device permissions, each used strictly for app functionality:</p>
+
+          <div class="perm-card">
+            <div class="perm-icon">📁</div>
+            <div class="perm-text">
+              <strong>Storage / Media Access</strong>
+              <span>Required to let you select and share files from your device, and to save files you receive from others.</span>
+            </div>
+          </div>
+
+          <div class="perm-card">
+            <div class="perm-icon">📶</div>
+            <div class="perm-text">
+              <strong>WiFi & Network State</strong>
+              <span>Used to detect your local network, generate your device's access URL (e.g. 192.168.x.x:8080), and manage active transfer sessions.</span>
+            </div>
+          </div>
+
+          <div class="perm-card">
+            <div class="perm-icon">📷</div>
+            <div class="perm-text">
+              <strong>Camera (Optional)</strong>
+              <span>Only used to scan a QR code for quick device pairing. FileLink never captures, stores, or uploads camera images.</span>
+            </div>
+          </div>
+
+          <div class="perm-card">
+            <div class="perm-icon">🔔</div>
+            <div class="perm-text">
+              <strong>Notifications (Optional)</strong>
+              <span>Used to alert you when a transfer completes or a new device connects to your sharing session.</span>
+            </div>
+          </div>
+
+          <div class="note note-amber">
+            <strong>⚙️ You're In Control</strong>
+            All permissions can be reviewed or revoked anytime via
+            <strong>Android Settings → Apps → FileLink → Permissions</strong>.
+            Disabling a permission may limit related features but won't affect the rest of the app.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="policy-section" id="s4">
+        <div class="sec-num-col"><div class="sec-num">4</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🔄 How Files Are Transferred</h2>
+          <p>
+            When you start a sharing session, FileLink creates a local web server on your
+            device's own WiFi network and generates a unique access URL and QR code
+            (e.g. <em>http://192.168.1.3:8080</em>). Other devices on the <strong>same
+            network</strong> can connect to this address to send or receive files directly.
+          </p>
+          <ul>
+            <li>✅ Transfers occur peer-to-peer over your local WiFi — no internet required</li>
+            <li>✅ No file ever passes through an external or cloud server</li>
+            <li>✅ Sharing automatically stops when you tap "Stop Sharing" or close the app</li>
+            <li>✅ Each session can be protected with a PIN and has an optional auto-expiry timer</li>
+          </ul>
+          <div class="note note-purple">
+            <strong>🌐 Network Scope</strong>
+            Because transfers rely on your local network, only devices connected to the
+            same WiFi (or those you explicitly share the connection link/QR with) can
+            access your shared files.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5 -->
+      <div class="policy-section" id="s5">
+        <div class="sec-num-col"><div class="sec-num">5</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🔐 PIN & Security Features</h2>
+          <p>
+            FileLink offers optional security layers so you decide how protected your
+            sharing sessions are:
+          </p>
+          <ul>
+            <li><strong>4-Digit PIN:</strong> Set a PIN to restrict access to your shared files page</li>
+            <li><strong>Session Expiry:</strong> Secure sessions automatically lock after a set period (e.g. 30 minutes) of inactivity</li>
+            <li><strong>Manual Stop:</strong> You can end a sharing session instantly at any time</li>
+          </ul>
+          <div class="note note-green">
+            <strong>🔒 Local Storage Only</strong>
+            Your PIN is stored securely and locally on your device. It is never transmitted
+            to FileLink or any third party, and we have no way to view or recover it.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 6 -->
+      <div class="policy-section" id="s6">
+        <div class="sec-num-col"><div class="sec-num">6</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>📢 Advertising</h2>
+          <p>
+            FileLink is free to use. To support ongoing development, the app may display
+            ads through <strong>Google AdMob</strong>.
+          </p>
+
+          <div class="perm-card">
+            <div class="perm-icon">📊</div>
+            <div class="perm-text">
+              <strong>Google AdMob</strong>
+              <span>May collect advertising ID, general device info, approximate (IP-based) location, and ad interaction data to show banner/interstitial ads. View
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#7C3AED;font-weight:700;">Google's Privacy Policy →</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="note note-amber">
+            <strong>⚙️ Opt Out of Personalized Ads</strong>
+            Go to <strong>Settings → Privacy → Ads</strong> on your Android device to opt out
+            of personalized advertising or reset your Advertising ID at any time.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 7 -->
+      <div class="policy-section" id="s7">
+        <div class="sec-num-col"><div class="sec-num">7</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🚫 Data We Never Collect</h2>
+          <ul>
+            <li>❌ We never read the contents of your transferred files</li>
+            <li>❌ We never upload your files to any external server</li>
+            <li>❌ We never ask for your name, email, or phone number</li>
+            <li>❌ We never access your contacts, SMS, or call logs</li>
+            <li>❌ We never track your GPS location</li>
+            <li>❌ We never store captured camera images (QR scan is processed instantly, on-device)</li>
+            <li>❌ We never sell any data to third parties</li>
+          </ul>
+          <div class="note note-green">
+            <strong>✅ Bottom Line</strong>
+            FileLink is built to be a pass-through tool — it helps your devices talk to
+            each other, and then gets out of the way.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 8 -->
+      <div class="policy-section" id="s8">
+        <div class="sec-num-col"><div class="sec-num">8</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🔗 Third-Party Services</h2>
+          <p>FileLink relies on a small number of trusted third-party services:</p>
+          <ul>
+            <li><strong>Google Play Services:</strong> App distribution and updates</li>
+            <li><strong>Firebase Crashlytics:</strong> Anonymous crash reporting to fix bugs faster</li>
+            <li><strong>Google AdMob:</strong> Advertising, as described in Section 6</li>
+          </ul>
+          <p>Each of these providers has its own privacy policy governing data they may process.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 9 -->
+      <div class="policy-section" id="s9">
+        <div class="sec-num-col"><div class="sec-num">9</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🗄️ Data Retention</h2>
+          <ul>
+            <li>Transferred files remain only on the sending and receiving devices — FileLink keeps no copies</li>
+            <li>PINs and session settings are stored locally until changed, reset, or the app is uninstalled</li>
+            <li>Crash and diagnostic logs are retained temporarily by our crash-reporting provider for bug-fixing purposes, then purged</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECTION 10 -->
+      <div class="policy-section" id="s10">
+        <div class="sec-num-col"><div class="sec-num">10</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🧒 Children's Privacy</h2>
+          <p>
+            FileLink is a general-purpose utility app not specifically directed at children.
+            We do not knowingly collect personal information from children under 13. If you
+            believe a child has used the app in a way that raises privacy concerns, please
+            contact us and we will take appropriate action.
+          </p>
+        </div>
+      </div>
+
+      <!-- SECTION 11 -->
+      <div class="policy-section" id="s11">
+        <div class="sec-num-col"><div class="sec-num">11</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>✋ Your Rights & Choices</h2>
+          <ul>
+            <li>📋 Request details on what limited data is associated with your device</li>
+            <li>🗑️ Request deletion of any diagnostic data tied to your device</li>
+            <li>🚫 Opt out of personalized ads anytime via device settings</li>
+            <li>🔕 Disable notifications or camera/storage permissions anytime</li>
+            <li>🧹 Uninstalling the app removes all locally stored PINs and settings</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECTION 12 -->
+      <div class="policy-section" id="s12">
+        <div class="sec-num-col"><div class="sec-num">12</div><div class="sec-line"></div></div>
+        <div class="sec-body">
+          <h2>🔄 Changes to This Policy</h2>
+          <p>
+            We may revise this Privacy Policy periodically to reflect app updates or legal
+            requirements. The "Last Updated" date at the top will always reflect the most
+            recent revision. Significant changes will be communicated within the app.
+          </p>
+        </div>
+      </div>
+
+      <!-- SECTION 13 -->
+      <div class="policy-section" id="s13" style="margin-bottom:10px;">
+        <div class="sec-num-col"><div class="sec-num">13</div></div>
+        <div class="sec-body">
+          <h2>📞 Contact Us</h2>
+          <p>Questions or concerns about this Privacy Policy or your data? Reach out to us:</p>
+
+          <div class="contact-panel">
+            <h3>🔗 FileLink — Support Team</h3>
+            <p class="sub">A product by Lihka · We typically respond within 7 business days.</p>
+
+            <div class="contact-grid">
+              <div class="contact-tile">
+                <div class="ct-label">🏢 Developer</div>
+                <span class="val">Lihka</span>
+              </div>
+
+              <div class="contact-tile">
+                <div class="ct-label">📍 Location</div>
+                <span class="val">Nagpur, Maharashtra, India</span>
+              </div>
+
+              <div class="contact-tile">
+                <div class="ct-label">📧 Email</div>
+                <a href="mailto:support@lihka.in?subject=FileLink%20Support%20Request">support@lihka.in</a>
+              </div>
+
+              <div class="contact-tile">
+                <div class="ct-label">💬 WhatsApp</div>
+                <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">+91 7350157047</a>
+              </div>
+
+              <div class="contact-tile">
+                <div class="ct-label">🌐 Website</div>
+                <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">www.lihka.in</a>
+              </div>
+
+              <div class="contact-tile">
+                <div class="ct-label">⏰ Response Time</div>
+                <span class="val">Within 7 business days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content-pad -->
+
+    <div class="site-footer">
+      © 2025 Lihka. All rights reserved.<br/>
+      <a href="mailto:support@lihka.in?subject=FileLink%20Support%20Request">📧 Email Support</a> ·
+      <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a> ·
+      <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">🌐 Website</a>
+      <br/>This policy applies exclusively to the FileLink: WiFi File Transfer Android application.
+    </div>
+
+  </div><!-- /main-content -->
+
+</div><!-- /app-shell -->
+
+</body>
+</html>
