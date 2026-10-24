@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Privacy Policy for Signal Test: Speed & Ping — Network Speed, Ping & WiFi Analyzer App"/>
+<meta name="author" content="Lihka"/>
+<title>Privacy Policy — Signal Test: Speed & Ping</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+    :root{
+        --cyan:#00B8D9;
+        --blue:#2D6CDF;
+        --ink:#152238;
+        --muted:#5B6B82;
+        --bg:#F2F6FA;
+        --card:#FFFFFF;
+        --line:#E3EAF2;
+        --green:#15B87C;
+        --amber:#F5A623;
+        --red:#E24C4C;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+        font-family:'Poppins', Arial, sans-serif;
+        background:var(--bg);
+        color:var(--ink);
+        line-height:1.7;
+        font-size:15px;
+    }
+
+    a{color:var(--blue);}
+
+    /* ============ NAVBAR ============ */
+    .navbar{
+        position:sticky; top:0; z-index:50;
+        background:#fff;
+        border-bottom:1px solid var(--line);
+        padding:14px 28px;
+        display:flex; align-items:center; justify-content:space-between;
+        flex-wrap:wrap; gap:10px;
+    }
+    .navbar .brand{
+        display:flex; align-items:center; gap:10px;
+        font-weight:800; font-size:17px; color:var(--ink);
+        text-decoration:none;
+    }
+    .navbar .brand .dot{
+        width:34px; height:34px; border-radius:10px;
+        background:linear-gradient(135deg,var(--cyan),var(--blue));
+        display:flex;align-items:center;justify-content:center;
+        color:#fff; font-size:17px;
+    }
+    .navbar .nav-links a{
+        margin-left:18px; font-size:13px; font-weight:600;
+        color:var(--muted); text-decoration:none;
+    }
+    .navbar .nav-links a:hover{ color:var(--blue); }
+
+    /* ============ HERO ============ */
+    .hero-banner{
+        background:radial-gradient(circle at 20% 20%, #E8F7FB 0%, #F2F6FA 55%);
+        padding:56px 24px 44px;
+        text-align:center;
+        border-bottom:1px solid var(--line);
+    }
+    .hero-banner .tag{
+        display:inline-flex; align-items:center; gap:6px;
+        background:#fff; border:1px solid var(--line);
+        padding:6px 16px; border-radius:30px;
+        font-size:12px; font-weight:600; color:var(--blue);
+        margin-bottom:18px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.04);
+    }
+    .hero-banner h1{
+        font-size:32px; font-weight:800; color:var(--ink);
+        margin-bottom:10px; letter-spacing:-0.5px;
+    }
+    .hero-banner p.sub{
+        color:var(--muted); font-size:14.5px; max-width:560px;
+        margin:0 auto 22px;
+    }
+    .hero-stats{
+        display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+    }
+    .hero-stat{
+        background:#fff; border:1px solid var(--line); border-radius:14px;
+        padding:12px 18px; min-width:140px;
+        box-shadow:0 4px 14px rgba(20,40,70,0.05);
+    }
+    .hero-stat .num{ font-size:13px; font-weight:700; color:var(--ink); }
+    .hero-stat .lbl{ font-size:11px; color:var(--muted); margin-top:2px; }
+
+    /* ============ LAYOUT ============ */
+    .layout{
+        max-width:1120px; margin:0 auto;
+        display:grid; grid-template-columns:240px 1fr;
+        gap:32px; padding:36px 24px 70px;
+        align-items:start;
+    }
+
+    .sidebar-nav{
+        position:sticky; top:84px;
+        background:#fff; border:1px solid var(--line); border-radius:16px;
+        padding:20px;
+    }
+    .sidebar-nav .side-title{
+        font-size:11px; text-transform:uppercase; letter-spacing:1px;
+        color:var(--muted); font-weight:700; margin-bottom:12px;
+    }
+    .sidebar-nav ul{ list-style:none; }
+    .sidebar-nav li{ margin-bottom:4px; }
+    .sidebar-nav a{
+        display:block; font-size:13px; color:var(--ink);
+        text-decoration:none; padding:8px 10px; border-radius:8px;
+        font-weight:500;
+    }
+    .sidebar-nav a:hover{ background:#EEF6FB; color:var(--blue); }
+
+    /* ============ CONTENT ============ */
+    .content-area{ display:flex; flex-direction:column; gap:20px; }
+
+    .card{
+        background:var(--card);
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:28px 30px;
+        box-shadow:0 2px 14px rgba(20,40,70,0.04);
+    }
+
+    .card .head{
+        display:flex; align-items:center; gap:14px; margin-bottom:16px;
+    }
+    .step-badge{
+        min-width:38px; height:38px; border-radius:11px;
+        background:linear-gradient(135deg,var(--cyan),var(--blue));
+        color:#fff; font-weight:700; font-size:15px;
+        display:flex; align-items:center; justify-content:center;
+        flex-shrink:0;
+    }
+    .card h2{ font-size:18px; font-weight:700; color:var(--ink); }
+    .card h3{ font-size:14.5px; font-weight:700; color:var(--ink); margin:18px 0 8px; }
+
+    .card p{ color:#415066; font-size:14px; margin-bottom:10px; }
+    .card ul{ margin:6px 0 10px 20px; }
+    .card li{ color:#415066; font-size:14px; margin-bottom:7px; }
+
+    /* ============ CALLOUTS ============ */
+    .note{
+        border-radius:12px; padding:14px 18px; font-size:13.5px;
+        margin:14px 0; line-height:1.65;
+        display:flex; gap:10px; align-items:flex-start;
+    }
+    .note .ic{ font-size:17px; flex-shrink:0; margin-top:1px;}
+    .note-info{ background:#EAF5FD; color:#1C5C82; border:1px solid #C9E6F7; }
+    .note-good{ background:#EAFBF3; color:#0E7A52; border:1px solid #BFEEDA; }
+    .note-warn{ background:#FFF7E8; color:#8A5B00; border:1px solid #F7E1AD; }
+    .note-bad { background:#FDEDED; color:#A2302C; border:1px solid #F6C9C7; }
+
+    /* ============ PERMISSION TABLE ============ */
+    .perm-table{ width:100%; border-collapse:collapse; margin:10px 0 6px; }
+    .perm-table th{
+        text-align:left; font-size:11.5px; text-transform:uppercase;
+        color:var(--muted); letter-spacing:0.5px;
+        padding:8px 10px; border-bottom:2px solid var(--line);
+    }
+    .perm-table td{
+        padding:12px 10px; border-bottom:1px solid var(--line);
+        font-size:13.3px; color:#3B4A5E; vertical-align:top;
+    }
+    .perm-table td.pname{ font-weight:700; color:var(--ink); white-space:nowrap; }
+    .pill{
+        display:inline-block; font-size:10.5px; font-weight:700;
+        padding:3px 9px; border-radius:20px;
+    }
+    .pill-req{ background:#EAF5FD; color:#1C5C82; }
+    .pill-opt{ background:#F1F1F6; color:#5B6B82; }
+
+    /* ============ AD CARD ============ */
+    .ad-row{
+        display:flex; gap:16px; align-items:flex-start;
+        border:1px solid var(--line); border-radius:14px;
+        padding:16px; margin-bottom:14px; background:#FAFCFE;
+    }
+    .ad-icon{
+        width:46px; height:46px; border-radius:12px; flex-shrink:0;
+        background:#fff; border:1px solid var(--line);
+        display:flex; align-items:center; justify-content:center; font-size:22px;
+    }
+    .ad-row h4{ font-size:14.5px; color:var(--ink); margin-bottom:4px; }
+    .ad-row p{ font-size:13px; color:var(--muted); margin-bottom:6px; }
+    .ad-row a{ font-size:12.5px; font-weight:600; }
+    .tiny-list{ margin:6px 0 0 16px; }
+    .tiny-list li{ font-size:12px; color:#7A8798; margin-bottom:3px; }
+
+    /* ============ CONTACT ============ */
+    .contact-grid{
+        display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:14px; margin-top:8px;
+    }
+    .contact-tile{
+        border:1px solid var(--line); border-radius:14px; padding:16px;
+        background:#FAFCFE;
+    }
+    .contact-tile .ic2{
+        width:38px;height:38px;border-radius:10px;
+        background:linear-gradient(135deg,var(--cyan),var(--blue));
+        color:#fff; display:flex;align-items:center;justify-content:center;
+        font-size:16px; margin-bottom:10px;
+    }
+    .contact-tile .lbl2{ font-size:11.5px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:0.4px;}
+    .contact-tile .val{ font-size:14px; color:var(--ink); font-weight:700; margin-top:3px; }
+    .contact-tile a{ text-decoration:none; color:var(--ink); }
+
+    /* ============ DIVIDER DOTS ============ */
+    .dots{ text-align:center; color:var(--line); letter-spacing:8px; margin:6px 0 20px; }
+
+    /* ============ FOOTER ============ */
+    .footer-dark{
+        background:var(--ink); color:#A9B8CC;
+        padding:42px 24px 26px; margin-top:10px;
+    }
+    .footer-inner{
+        max-width:1120px; margin:0 auto;
+        display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;
+    }
+    .footer-col h5{ color:#fff; font-size:14px; margin-bottom:12px; }
+    .footer-col a{
+        display:block; color:#A9B8CC; text-decoration:none;
+        font-size:13px; margin-bottom:8px;
+    }
+    .footer-col a:hover{ color:#fff; }
+    .footer-bottom{
+        max-width:1120px; margin:26px auto 0; padding-top:18px;
+        border-top:1px solid #29374E;
+        font-size:12px; color:#7E8EA4; text-align:center;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width:860px){
+        .layout{ grid-template-columns:1fr; }
+        .sidebar-nav{ position:static; }
+        .hero-banner h1{ font-size:24px; }
+        .card{ padding:22px 18px; }
+    }
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="https://www.lihka.in" class="brand">
+        <span class="dot">📶</span>
+        Signal Test
+    </a>
+    <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#permissions">Permissions</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.lihka.in/privacy.html">Lihka Policy ↗</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero-banner">
+    <div class="tag">🔒 Privacy Policy · Updated Jan 15, 2025</div>
+    <h1>Signal Test: Speed &amp; Ping</h1>
+    <p class="sub">
+        A network diagnostics app by <strong>Lihka</strong> for testing speed,
+        ping, WiFi signal strength and live connection monitoring.
+        Here's exactly what data we touch — and what we never will.
+    </p>
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="num">📍 Location — Scan Only</div><div class="lbl">Never stored or shared</div></div>
+        <div class="hero-stat"><div class="num">💾 History Stored Locally</div><div class="lbl">On your device only</div></div>
+        <div class="hero-stat"><div class="num">🧒 COPPA Friendly</div><div class="lbl">Safe for all ages</div></div>
+    </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-nav">
+        <div class="side-title">On This Page</div>
+        <ul>
+            <li><a href="#overview">1. About This App</a></li>
+            <li><a href="#collect">2. Data We Collect</a></li>
+            <li><a href="#location">3. Location &amp; WiFi Scanning</a></li>
+            <li><a href="#permissions">4. App Permissions</a></li>
+            <li><a href="#nocollect">5. What We Don't Collect</a></li>
+            <li><a href="#ads">6. Advertising</a></li>
+            <li><a href="#storage">7. Local Storage &amp; History</a></li>
+            <li><a href="#third">8. Third-Party Services</a></li>
+            <li><a href="#children">9. Children's Privacy</a></li>
+            <li><a href="#security">10. Data Security</a></li>
+            <li><a href="#rights">11. Your Rights</a></li>
+            <li><a href="#changes">12. Policy Changes</a></li>
+            <li><a href="#contact">13. Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-area">
+
+        <!-- 1 -->
+        <div class="card" id="overview">
+            <div class="head">
+                <div class="step-badge">1</div>
+                <h2>About Signal Test: Speed &amp; Ping</h2>
+            </div>
+            <p>
+                <strong>Signal Test: Speed &amp; Ping</strong> is a network diagnostics
+                utility developed by <strong>Lihka</strong>, based in Nagpur,
+                Maharashtra, India. It helps you measure download/upload speed,
+                ping &amp; jitter, scan nearby WiFi networks, monitor live
+                bandwidth usage, and review your test history with analytics charts.
+            </p>
+            <p>
+                This Privacy Policy explains what information the app accesses,
+                why it's needed, and how you stay in control. By using the app,
+                you agree to the practices described here.
+            </p>
+            <div class="note note-info">
+                <span class="ic">ℹ️</span>
+                This policy covers the <strong>Signal Test: Speed &amp; Ping</strong>
+                Android app only. It does not apply to other Lihka apps.
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card" id="collect">
+            <div class="head">
+                <div class="step-badge">2</div>
+                <h2>Data We Collect</h2>
+            </div>
+
+            <h3>📱 Device &amp; Network Information</h3>
+            <ul>
+                <li>Device model, Android version</li>
+                <li>Active network type (WiFi / Mobile Data) &amp; carrier name</li>
+                <li>Advertising ID (anonymous, resettable)</li>
+                <li>Basic crash &amp; performance logs</li>
+            </ul>
+
+            <h3>⚡ Test Results (Stored On Device)</h3>
+            <ul>
+                <li>Download / Upload speed results (Mbps)</li>
+                <li>Ping, jitter &amp; packet loss values</li>
+                <li>Server/host pinged (e.g. google.com, 8.8.8.8)</li>
+                <li>Timestamped test history &amp; performance grade</li>
+                <li>WiFi scan results — SSID, signal strength (dBm), channel, frequency band</li>
+            </ul>
+
+            <div class="note note-good">
+                <span class="ic">✅</span>
+                All test results and history shown in the <strong>History</strong>
+                and <strong>Analytics</strong> screens are stored
+                <strong>locally on your device</strong>. We do not upload your
+                personal test history to our servers.
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card" id="location">
+            <div class="head">
+                <div class="step-badge">3</div>
+                <h2>Location &amp; WiFi Scanning — Explained</h2>
+            </div>
+            <p>
+                To show you nearby WiFi networks in the <strong>WiFi Analyzer</strong>
+                feature (signal strength, channels, network names), Android
+                <strong>requires</strong> apps to hold a Location permission.
+                This is an Android OS-level security requirement — not something
+                we choose for tracking purposes.
+            </p>
+            <div class="note note-warn">
+                <span class="ic">📍</span>
+                <strong>What this means for you:</strong><br/>
+                • Location permission is used solely to retrieve WiFi scan results.<br/>
+                • We do <strong>not</strong> access GPS coordinates.<br/>
+                • We do <strong>not</strong> store, log, or transmit your location
+                anywhere.<br/>
+                • You can deny this permission — the WiFi Analyzer simply
+                won't be able to list nearby networks, but speed &amp; ping tests
+                still work fully.
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card" id="permissions">
+            <div class="head">
+                <div class="step-badge">4</div>
+                <h2>App Permissions</h2>
+            </div>
+            <p>Here is every permission the app requests and exactly why:</p>
+
+            <table class="perm-table">
+                <tr>
+                    <th>Permission</th><th>Reason</th><th>Type</th>
+                </tr>
+                <tr>
+                    <td class="pname">Internet</td>
+                    <td>Required to run speed tests, ping tests &amp; load ads</td>
+                    <td><span class="pill pill-req">Required</span></td>
+                </tr>
+                <tr>
+                    <td class="pname">Access Network State</td>
+                    <td>Detects WiFi vs Mobile Data connection type</td>
+                    <td><span class="pill pill-req">Required</span></td>
+                </tr>
+                <tr>
+                    <td class="pname">Access WiFi State</td>
+                    <td>Reads WiFi signal strength &amp; connection info</td>
+                    <td><span class="pill pill-req">Required</span></td>
+                </tr>
+                <tr>
+                    <td class="pname">Change WiFi State</td>
+                    <td>Triggers a new WiFi scan when you tap "Scan Networks"</td>
+                    <td><span class="pill pill-req">Required</span></td>
+                </tr>
+                <tr>
+                    <td class="pname">Access Fine/Coarse Location</td>
+                    <td>Android OS requirement to list scanned WiFi networks (see Section 3)</td>
+                    <td><span class="pill pill-opt">Optional</span></td>
+                </tr>
+                <tr>
+                    <td class="pname">Foreground Service</td>
+                    <td>Keeps "Live Network Monitor" running &amp; updating every 2 seconds</td>
+                    <td><span class="pill pill-req">Required</span></td>
+                </tr>
+                <tr>
+                    <td class="pname">Vibrate</td>
+                    <td>Gives haptic feedback when a test completes</td>
+                    <td><span class="pill pill-opt">Optional</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 5 -->
+        <div class="card" id="nocollect">
+            <div class="head">
+                <div class="step-badge">5</div>
+                <h2>What We DON'T Collect</h2>
+            </div>
+            <ul>
+                <li>🚫 Your name, email address or phone number</li>
+                <li>🚫 Real-time GPS location or movement history</li>
+                <li>🚫 Payment or financial information — the app is 100% free</li>
+                <li>🚫 Contacts, SMS, call logs or photos</li>
+                <li>🚫 Browsing history outside the app</li>
+                <li>🚫 Content of your internet traffic (we only measure speed, we don't inspect data)</li>
+            </ul>
+            <div class="note note-good">
+                <span class="ic">✅</span>
+                We built this app to diagnose <em>your network</em> — not to watch <em>you</em>.
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card" id="ads">
+            <div class="head">
+                <div class="step-badge">6</div>
+                <h2>Advertising</h2>
+            </div>
+            <p>
+                Signal Test: Speed &amp; Ping is free to use. To support
+                development, we display ads via:
+            </p>
+
+            <div class="ad-row">
+                <div class="ad-icon">📊</div>
+                <div>
+                    <h4>Google AdMob</h4>
+                    <p>Serves banner &amp; interstitial ads inside the app.</p>
+                    <ul class="tiny-list">
+                        <li>Advertising ID</li>
+                        <li>IP-based general location (country/city)</li>
+                        <li>Device model &amp; OS version</li>
+                        <li>Ad click/view interactions</li>
+                    </ul>
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">View Google's Privacy Policy →</a>
+                    &nbsp;&nbsp;
+                    <a href="https://support.google.com/ads/answer/2662922" target="_blank" rel="noopener noreferrer">Opt Out of Personalized Ads →</a>
+                </div>
+            </div>
+
+            <div class="note note-info">
+                <span class="ic">ℹ️</span>
+                You can reset or opt out of your Advertising ID anytime via
+                <strong>Settings → Privacy → Ads</strong> on your Android device.
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card" id="storage">
+            <div class="head">
+                <div class="step-badge">7</div>
+                <h2>Local Storage &amp; History Export</h2>
+            </div>
+            <p>
+                Your Test History and Analytics charts (speed-over-time, ping
+                history, average grade) are generated entirely from data
+                <strong>stored locally</strong> in the app's database on your device.
+            </p>
+            <ul>
+                <li>You can delete individual tests via the <strong>Delete</strong> button in History</li>
+                <li>You can wipe everything instantly via <strong>Clear All</strong></li>
+                <li>You can <strong>Export</strong> your history as a file for your own records</li>
+                <li>Uninstalling the app permanently erases all locally stored data</li>
+            </ul>
+        </div>
+
+        <!-- 8 -->
+        <div class="card" id="third">
+            <div class="head">
+                <div class="step-badge">8</div>
+                <h2>Third-Party Services</h2>
+            </div>
+            <ul>
+                <li><strong>Firebase (Google):</strong> crash reporting &amp; stability analytics</li>
+                <li><strong>Google Play Services:</strong> app updates &amp; distribution</li>
+                <li><strong>Google AdMob:</strong> in-app advertising</li>
+                <li><strong>Public speed-test &amp; ping servers</strong> (e.g. Cloudflare, Google DNS) — contacted only to measure your connection; no personal data is sent to them beyond a standard network request</li>
+            </ul>
+        </div>
+
+        <!-- 9 -->
+        <div class="card" id="children">
+            <div class="head">
+                <div class="step-badge">9</div>
+                <h2>Children's Privacy (COPPA)</h2>
+            </div>
+            <p>Signal Test: Speed &amp; Ping is suitable for all ages.</p>
+            <div class="note note-good">
+                <span class="ic">🧒</span>
+                • No account or sign-in required<br/>
+                • No chat or social features<br/>
+                • No personal data knowingly collected from children under 13<br/>
+                • AdMob is configured for COPPA-compliant ad requests
+            </div>
+            <p style="margin-top:10px;">
+                Parents/guardians with concerns can contact us at
+                <strong>support@lihka.in</strong>.
+            </p>
+        </div>
+
+        <!-- 10 -->
+        <div class="card" id="security">
+            <div class="head">
+                <div class="step-badge">10</div>
+                <h2>Data Security</h2>
+            </div>
+            <ul>
+                <li>🔐 All network tests run over encrypted (HTTPS) connections where supported</li>
+                <li>🔐 Test history is stored in a sandboxed local database — inaccessible to other apps</li>
+                <li>🔐 No sensitive personal data is transmitted externally</li>
+            </ul>
+            <div class="note note-warn">
+                <span class="ic">⚠️</span>
+                No digital system is 100% secure, but we follow industry-standard
+                practices to protect whatever limited data exists.
+            </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="card" id="rights">
+            <div class="head">
+                <div class="step-badge">11</div>
+                <h2>Your Rights &amp; Choices</h2>
+            </div>
+            <ul>
+                <li>🗑️ Delete your local history anytime (Clear All)</li>
+                <li>📤 Export your data before deleting the app</li>
+                <li>📍 Deny Location permission — core tests still work</li>
+                <li>🚫 Opt out of personalized ads via device settings</li>
+                <li>📧 Request details on data practices via email</li>
+            </ul>
+            <p>We respond to all privacy requests within 7 business days.</p>
+        </div>
+
+        <!-- 12 -->
+        <div class="card" id="changes">
+            <div class="head">
+                <div class="step-badge">12</div>
+                <h2>Changes to This Policy</h2>
+            </div>
+            <p>
+                We may revise this policy as the app evolves. Material changes
+                will update the date at the top of this page and, where
+                significant, be announced in-app. Continued use after changes
+                means you accept the revised policy.
+            </p>
+        </div>
+
+        <!-- 13 -->
+        <div class="card" id="contact">
+            <div class="head">
+                <div class="step-badge">13</div>
+                <h2>Contact Us</h2>
+            </div>
+            <p>Questions about this policy or your data? Reach out:</p>
+
+            <div class="contact-grid">
+                <div class="contact-tile">
+                    <div class="ic2">🏢</div>
+                    <div class="lbl2">Developer</div>
+                    <div class="val">Lihka</div>
+                </div>
+                <div class="contact-tile">
+                    <div class="ic2">📍</div>
+                    <div class="lbl2">Location</div>
+                    <div class="val">Nagpur, Maharashtra, India</div>
+                </div>
+                <div class="contact-tile">
+                    <div class="ic2">📧</div>
+                    <div class="lbl2">Email</div>
+                    <div class="val"><a href="mailto:support@lihka.in">support@lihka.in</a></div>
+                </div>
+                <div class="contact-tile">
+                    <div class="ic2">💬</div>
+                    <div class="lbl2">WhatsApp</div>
+                    <div class="val"><a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">+91 7350157047</a></div>
+                </div>
+                <div class="contact-tile">
+                    <div class="ic2">🌐</div>
+                    <div class="lbl2">Website</div>
+                    <div class="val"><a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">www.lihka.in</a></div>
+                </div>
+                <div class="contact-tile">
+                    <div class="ic2">⏰</div>
+                    <div class="lbl2">Response Time</div>
+                    <div class="val">Within 7 business days</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dots">• • •</div>
+
+    </div><!-- /content-area -->
+</div><!-- /layout -->
+
+<!-- FOOTER -->
+<div class="footer-dark">
+    <div class="footer-inner">
+        <div class="footer-col">
+            <h5>📶 Signal Test: Speed &amp; Ping</h5>
+            <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">Home</a>
+            <a href="mailto:support@lihka.in">Email Support</a>
+        </div>
+        <div class="footer-col">
+            <h5>Legal</h5>
+            <a href="https://www.lihka.in/privacy.html" target="_blank" rel="noopener noreferrer">Lihka Common Privacy Policy</a>
+            <a href="#overview">This App's Privacy Policy</a>
+        </div>
+        <div class="footer-col">
+            <h5>Company</h5>
+            <a href="#contact">Nagpur, Maharashtra, India</a>
+            <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 Lihka. All rights reserved. This privacy policy applies exclusively to the
+        Signal Test: Speed &amp; Ping Android application.
+    </div>
+</div>
+
+</body>
+</html>
