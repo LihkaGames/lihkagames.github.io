@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Privacy Policy for MotionCount AI (Motion Detection Counter) — an on-device AI motion tracking app by Lihka"/>
+<meta name="author" content="Lihka"/>
+<title>Privacy Policy — MotionCount AI</title>
+<style>
+
+/* ============================================================
+   ROOT TOKENS
+   ============================================================ */
+:root{
+    --bg-0:#05070d;
+    --bg-1:#0a0f1c;
+    --bg-2:#0f1626;
+    --panel:#0d1424;
+    --panel-2:#111b30;
+    --line:rgba(120,160,255,0.12);
+    --cyan:#22e8f7;
+    --cyan-soft:#67f3ff;
+    --purple:#8b6bff;
+    --purple-soft:#a98bff;
+    --text:#c9d4e8;
+    --text-dim:#7e8aa6;
+    --text-bright:#f3f7ff;
+    --ok:#2ee6a6;
+    --danger:#ff5d7a;
+    --radius:18px;
+    --mono:'Courier New', ui-monospace, Consolas, monospace;
+    --sans:'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+    font-family:var(--sans);
+    background:
+        radial-gradient(circle at 15% 0%, rgba(139,107,255,0.14), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(34,232,247,0.10), transparent 40%),
+        var(--bg-0);
+    color:var(--text);
+    line-height:1.75;
+    min-height:100vh;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+        radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size:34px 34px;
+    pointer-events:none;
+    z-index:0;
+}
+
+a{ color:inherit; }
+
+/* ============================================================
+   TOP SCAN STRIP
+   ============================================================ */
+.scan-strip{
+    position:sticky;
+    top:0;
+    z-index:50;
+    height:3px;
+    background:linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
+    background-size:200% 100%;
+    animation:scanmove 3.5s linear infinite;
+}
+@keyframes scanmove{
+    0%{ background-position:0% 0; }
+    100%{ background-position:200% 0; }
+}
+
+/* ============================================================
+   NAV BAR
+   ============================================================ */
+.navbar{
+    position:sticky;
+    top:3px;
+    z-index:49;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 28px;
+    background:rgba(7,10,20,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+}
+.navbar .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:16px;
+    color:var(--text-bright);
+    text-decoration:none;
+}
+.navbar .brand .mark{
+    width:30px; height:30px;
+    border-radius:9px;
+    background:conic-gradient(from 180deg, var(--cyan), var(--purple), var(--cyan));
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+    box-shadow:0 0 14px rgba(34,232,247,0.45);
+}
+.navbar .pill-link{
+    font-size:12px;
+    color:var(--cyan-soft);
+    border:1px solid rgba(34,232,247,0.35);
+    padding:7px 14px;
+    border-radius:30px;
+    text-decoration:none;
+    letter-spacing:0.3px;
+    cursor:pointer;
+    background:transparent;
+    font-family:inherit;
+}
+.navbar .pill-link:hover{
+    background:rgba(34,232,247,0.10);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+    position:relative;
+    z-index:1;
+    padding:70px 24px 50px;
+    text-align:center;
+    overflow:hidden;
+}
+.radar{
+    width:150px; height:150px;
+    margin:0 auto 26px;
+    border-radius:50%;
+    border:1px solid rgba(34,232,247,0.35);
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+}
+.radar::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border-radius:50%;
+    border:1px dashed rgba(139,107,255,0.4);
+}
+.radar::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:conic-gradient(from 0deg, rgba(34,232,247,0.55), transparent 35%);
+    animation:spin 3.2s linear infinite;
+    mix-blend-mode:screen;
+}
+@keyframes spin{ to{ transform:rotate(360deg);} }
+.radar .core{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 18px 4px rgba(34,232,247,0.8);
+    z-index:2;
+}
+
+.hero .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:3px;
+    color:var(--purple-soft);
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+.hero h1{
+    font-size:clamp(28px,5vw,42px);
+    font-weight:800;
+    color:var(--text-bright);
+    letter-spacing:-0.5px;
+    margin-bottom:10px;
+}
+.hero h1 span{
+    background:linear-gradient(90deg, var(--cyan), var(--purple));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+.hero p.sub{
+    color:var(--text-dim);
+    font-size:14.5px;
+    max-width:520px;
+    margin:0 auto 22px;
+}
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.meta-chip{
+    font-size:11.5px;
+    font-family:var(--mono);
+    padding:6px 14px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    color:var(--text-dim);
+    background:rgba(255,255,255,0.02);
+}
+
+/* stats strip */
+.stats{
+    position:relative;
+    z-index:1;
+    max-width:1000px;
+    margin:0 auto;
+    padding:0 20px 50px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+.stat-box{
+    background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 12px;
+    text-align:center;
+}
+.stat-box .num{
+    font-size:26px;
+    font-weight:800;
+    background:linear-gradient(90deg,var(--cyan),var(--purple-soft));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-family:var(--mono);
+}
+.stat-box .lbl{
+    font-size:11.5px;
+    color:var(--text-dim);
+    margin-top:4px;
+    line-height:1.4;
+}
+
+/* ============================================================
+   LAYOUT : SIDEBAR + CONTENT
+   ============================================================ */
+.layout{
+    position:relative;
+    z-index:1;
+    max-width:1150px;
+    margin:0 auto;
+    padding:10px 24px 80px;
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:40px;
+    align-items:start;
+}
+
+.side-nav{
+    position:sticky;
+    top:80px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 16px;
+}
+.side-nav h4{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:14px;
+    padding-left:6px;
+}
+.side-nav ul{ list-style:none; }
+.side-nav li{ margin-bottom:2px; }
+.side-nav a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    color:var(--text-dim);
+    text-decoration:none;
+    padding:8px 10px;
+    border-radius:10px;
+    border-left:2px solid transparent;
+    transition:all .2s;
+}
+.side-nav a .n{
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--purple-soft);
+    opacity:0.8;
+}
+.side-nav a:hover, .side-nav a.active{
+    color:var(--text-bright);
+    background:rgba(34,232,247,0.06);
+    border-left:2px solid var(--cyan);
+}
+
+/* ============================================================
+   CONTENT SECTIONS
+   ============================================================ */
+.sections{ display:flex; flex-direction:column; gap:26px; }
+
+.sec{
+    position:relative;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px 30px 28px 86px;
+    scroll-margin-top:90px;
+}
+.sec .idx{
+    position:absolute;
+    left:22px;
+    top:28px;
+    width:44px;height:44px;
+    border-radius:12px;
+    background:linear-gradient(135deg, rgba(34,232,247,0.15), rgba(139,107,255,0.15));
+    border:1px solid rgba(34,232,247,0.3);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);
+    font-weight:700;
+    color:var(--cyan-soft);
+    font-size:15px;
+}
+.sec h2{
+    font-size:18px;
+    color:var(--text-bright);
+    font-weight:700;
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.sec p{
+    font-size:14px;
+    color:var(--text);
+    margin-bottom:12px;
+}
+.sec ul{ margin:10px 0 14px 0; padding-left:0; list-style:none; }
+.sec ul li{
+    font-size:13.6px;
+    color:var(--text);
+    padding:7px 0 7px 22px;
+    position:relative;
+    border-bottom:1px dashed var(--line);
+}
+.sec ul li:last-child{ border-bottom:none; }
+.sec ul li::before{
+    content:"▹";
+    position:absolute;
+    left:0;
+    color:var(--cyan);
+}
+
+/* note / callout blocks */
+.note{
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:13.5px;
+    margin:14px 0;
+    line-height:1.7;
+    border:1px solid;
+}
+.note-cyan{ background:rgba(34,232,247,0.07); border-color:rgba(34,232,247,0.3); color:#aef2fb; }
+.note-purple{ background:rgba(139,107,255,0.08); border-color:rgba(139,107,255,0.35); color:#d6cbff; }
+.note-ok{ background:rgba(46,230,166,0.08); border-color:rgba(46,230,166,0.35); color:#bdf5e3; }
+.note-danger{ background:rgba(255,93,122,0.08); border-color:rgba(255,93,122,0.35); color:#ffc3cf; }
+
+/* comparison table: collect vs not collect */
+.compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:16px 0;
+}
+.compare-col{
+    border-radius:14px;
+    padding:16px;
+    border:1px solid var(--line);
+}
+.compare-col.yes{ background:rgba(46,230,166,0.05); border-color:rgba(46,230,166,0.25); }
+.compare-col.no{ background:rgba(255,93,122,0.05); border-color:rgba(255,93,122,0.25); }
+.compare-col h4{
+    font-size:12.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-family:var(--mono);
+    margin-bottom:10px;
+}
+.compare-col.yes h4{ color:var(--ok); }
+.compare-col.no h4{ color:var(--danger); }
+.compare-col div.row{
+    font-size:12.8px;
+    color:var(--text);
+    padding:6px 0;
+    display:flex;
+    gap:8px;
+}
+
+/* permission toggle rows */
+.perm-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:13px 16px;
+    margin-bottom:10px;
+}
+.perm-row .info strong{
+    display:block;
+    font-size:13.5px;
+    color:var(--text-bright);
+    margin-bottom:3px;
+}
+.perm-row .info span{
+    font-size:12px;
+    color:var(--text-dim);
+}
+.toggle-fake{
+    width:42px; height:24px;
+    border-radius:20px;
+    background:linear-gradient(90deg,var(--purple),var(--cyan));
+    position:relative;
+    flex-shrink:0;
+}
+.toggle-fake::after{
+    content:"";
+    position:absolute;
+    top:3px; right:3px;
+    width:18px;height:18px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 6px rgba(0,0,0,0.3);
+}
+
+/* mini badge */
+.badge{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:10.5px;
+    padding:3px 9px;
+    border-radius:8px;
+    margin-left:6px;
+    background:rgba(139,107,255,0.15);
+    color:var(--purple-soft);
+    vertical-align:middle;
+}
+
+/* contact terminal card (reused in modal + section) */
+.terminal{
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:#070b14;
+    margin-top:10px;
+}
+.terminal .bar{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 14px;
+    background:#0c1220;
+    border-bottom:1px solid var(--line);
+}
+.terminal .bar span{
+    width:10px;height:10px;border-radius:50%;
+}
+.terminal .bar span:nth-child(1){ background:#ff5f56; }
+.terminal .bar span:nth-child(2){ background:#ffbd2e; }
+.terminal .bar span:nth-child(3){ background:#27c93f; }
+.terminal .bar .path{
+    margin-left:10px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--text-dim);
+}
+.terminal .body{
+    padding:18px 20px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--cyan-soft);
+}
+.terminal .body .ln{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+    color:var(--text);
+}
+.terminal .body .ln .k{ color:var(--purple-soft); min-width:90px; }
+.terminal .body a{ color:var(--cyan-soft); text-decoration:none; border-bottom:1px dotted var(--cyan-soft); }
+
+/* ============================================================
+   CONTACT MODAL POPUP
+   ============================================================ */
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(3,5,12,0.75);
+    backdrop-filter:blur(6px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:200;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease;
+    padding:20px;
+}
+.modal-overlay.show{
+    opacity:1;
+    pointer-events:auto;
+}
+.modal-box{
+    width:100%;
+    max-width:460px;
+    background:var(--panel);
+    border:1px solid rgba(34,232,247,0.3);
+    border-radius:20px;
+    padding:28px 26px 26px;
+    position:relative;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(34,232,247,0.08);
+    transform:scale(0.92) translateY(10px);
+    transition:transform .3s ease;
+}
+.modal-overlay.show .modal-box{
+    transform:scale(1) translateY(0);
+}
+.modal-box h2{
+    font-size:17px;
+    color:var(--text-bright);
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.modal-box p.desc{
+    font-size:13.5px;
+    color:var(--text-dim);
+    margin-bottom:14px;
+}
+.modal-close{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--line);
+    color:var(--text-dim);
+    font-size:15px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .2s;
+}
+.modal-close:hover{
+    background:rgba(255,93,122,0.15);
+    border-color:rgba(255,93,122,0.4);
+    color:#ffc3cf;
+}
+
+/* back to top */
+.totop{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:46px;height:46px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--purple));
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+    color:#071019;
+    text-decoration:none;
+    box-shadow:0 6px 18px rgba(34,232,247,0.35);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s, transform .3s;
+    z-index:60;
+}
+.totop.show{ opacity:1; pointer-events:auto; }
+
+/* footer */
+.footer{
+    position:relative;
+    z-index:1;
+    border-top:1px solid var(--line);
+    padding:36px 24px;
+    text-align:center;
+    color:var(--text-dim);
+    font-size:12.5px;
+}
+.footer .fbrand{
+    font-weight:800;
+    color:var(--text-bright);
+    font-size:17px;
+    margin-bottom:6px;
+}
+.footer a{
+    color:var(--cyan-soft);
+    text-decoration:none;
+    margin:0 8px;
+}
+.footer a:hover{ text-decoration:underline; }
+.footer .copy{ margin-top:10px; color:var(--text-dim); opacity:0.7; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:900px){
+    .layout{ grid-template-columns:1fr; }
+    .side-nav{
+        position:static;
+        display:flex;
+        overflow-x:auto;
+        gap:6px;
+        padding:14px;
+    }
+    .side-nav h4{ display:none; }
+    .side-nav ul{ display:flex; gap:6px; }
+    .side-nav li{ flex-shrink:0; }
+    .side-nav a{ white-space:nowrap; border-left:none; border-bottom:2px solid transparent; }
+    .side-nav a.active, .side-nav a:hover{ border-left:none; border-bottom:2px solid var(--cyan); }
+    .stats{ grid-template-columns:repeat(2,1fr); }
+    .compare{ grid-template-columns:1fr; }
+    .sec{ padding:26px 18px 24px 70px; }
+    .sec .idx{ left:14px; width:38px;height:38px;font-size:13px; }
+}
+@media (max-width:480px){
+    .stats{ grid-template-columns:1fr 1fr; }
+    .hero h1{ font-size:24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="scan-strip"></div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="#top" class="brand">
+        <span class="mark">◎</span>
+        MotionCount AI
+    </a>
+    <button class="pill-link" id="openContactModal">✉ Contact Support</button>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal">
+    <div class="modal-box">
+        <button class="modal-close" id="closeContactModal">✕</button>
+        <h2>⦿ Contact Us</h2>
+        <p class="desc">Questions about this policy or how MotionCount AI handles data? Reach out:</p>
+
+        <div class="terminal">
+            <div class="bar">
+                <span></span><span></span><span></span>
+                <div class="path">contact@motioncount-ai</div>
+            </div>
+            <div class="body">
+                <div class="ln"><span class="k">developer</span> Lihka</div>
+                <div class="ln"><span class="k">location</span> Nagpur, Maharashtra, India</div>
+                <div class="ln"><span class="k">email</span> <a href="mailto:support@lihka.in">support@lihka.in</a></div>
+                <div class="ln"><span class="k">whatsapp</span> <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">+91 7350157047</a></div>
+                <div class="ln"><span class="k">website</span> <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">www.lihka.in</a></div>
+                <div class="ln"><span class="k">response</span> within 7 business days</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="top">
+    <div class="radar"><div class="core"></div></div>
+    <div class="eyebrow">Data Protection Disclosure</div>
+    <h1>Privacy <span>Policy</span></h1>
+    <p class="sub">
+        How <strong>MotionCount AI</strong> (Motion Detection Counter) by Lihka handles
+        data while delivering on-device, AI-powered motion sensing.
+    </p>
+    <div class="meta-row">
+        <div class="meta-chip">v1.0 · Last Updated: January 2025</div>
+        <div class="meta-chip">On-Device TensorFlow Lite</div>
+        <div class="meta-chip">ML Kit OCR Engine</div>
+    </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat-box">
+        <div class="num">100%</div>
+        <div class="lbl">Motion &amp; OCR processing done on-device</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">0</div>
+        <div class="lbl">Camera frames uploaded to any server</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">2</div>
+        <div class="lbl">Core permissions requested</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">0</div>
+        <div class="lbl">Accounts, logins or signups required</div>
+    </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+    <!-- SIDE NAV -->
+    <div class="side-nav">
+        <h4>On This Page</h4>
+        <ul>
+            <li><a href="#overview"><span class="n">01</span> Overview</a></li>
+            <li><a href="#data-collected"><span class="n">02</span> Data We Collect</a></li>
+            <li><a href="#on-device"><span class="n">03</span> On-Device AI Engine</a></li>
+            <li><a href="#permissions"><span class="n">04</span> App Permissions</a></li>
+            <li><a href="#not-collected"><span class="n">05</span> What We Don't Collect</a></li>
+            <li><a href="#storage"><span class="n">06</span> Local Storage &amp; History</a></li>
+            <li><a href="#advertising"><span class="n">07</span> Ads &amp; Third Parties</a></li>
+            <li><a href="#security"><span class="n">08</span> Data Security</a></li>
+            <li><a href="#children"><span class="n">09</span> Children's Privacy</a></li>
+            <li><a href="#rights"><span class="n">10</span> Your Rights</a></li>
+            <li><a href="#changes"><span class="n">11</span> Policy Updates</a></li>
+            <li><a href="#contact"><span class="n">12</span> Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="sections">
+
+        <!-- 01 -->
+        <div class="sec" id="overview">
+            <div class="idx">01</div>
+            <h2>⦿ Overview</h2>
+            <p>
+                <strong>MotionCount AI</strong> (published as <em>Motion Detection Counter</em>)
+                is an intelligent movement-tracking application developed by
+                <strong>Lihka</strong>, based in Nagpur, Maharashtra, India. The app uses your
+                device's camera together with on-device AI (TensorFlow Lite) to detect motion
+                in real time, and ML Kit's OCR engine to optionally verify page/reference
+                numbers during scanning sessions.
+            </p>
+            <p>
+                This Privacy Policy explains, in plain language, exactly what data the app
+                touches, how it's processed, and what control you have over it. By installing
+                or using MotionCount AI, you agree to the practices described below.
+            </p>
+            <div class="note note-cyan">
+                🔍 <strong>Core principle:</strong> MotionCount AI is engineered to do all of
+                its "thinking" directly on your device. Motion detection and OCR scanning
+                never require sending your camera feed to our servers or anyone else's.
+            </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="sec" id="data-collected">
+            <div class="idx">02</div>
+            <h2>⦿ Data We Collect</h2>
+            <p>We keep data collection minimal and tied directly to app functionality:</p>
+            <ul>
+                <li><strong>Camera feed (temporary, in-memory):</strong> used live to detect motion via GPU-accelerated TensorFlow Lite — never saved as photos/videos unless you explicitly export a scan.</li>
+                <li><strong>Scan statistics:</strong> motion counts, scan duration, sensitivity level used, stored locally in your scan history.</li>
+                <li><strong>App preferences:</strong> motion threshold %, AI mode toggle, OCR verification toggle, sound/haptic settings — stored locally on your device.</li>
+                <li><strong>Device diagnostics:</strong> crash logs, device model, OS version — used only to fix bugs and improve performance.</li>
+            </ul>
+            <div class="note note-purple">
+                🧠 None of the above includes your name, email, phone number, or any
+                identity information — the app doesn't ask for any of it.
+            </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="sec" id="on-device">
+            <div class="idx">03</div>
+            <h2>⦿ On-Device AI Engine</h2>
+            <p>MotionCount AI's detection pipeline is built to run entirely on your device's hardware:</p>
+            <ul>
+                <li><strong>TensorFlow Lite (GPU Accelerated):</strong> analyzes live camera frames locally to detect and count motion instantly.</li>
+                <li><strong>ML Kit OCR Verification:</strong> when enabled, reads visible page numbers / text locally using Google's on-device ML Kit library — no text or images leave your phone for this process.</li>
+                <li><strong>Motion Threshold Engine:</strong> the sensitivity slider (Low–High) adjusts detection locally; this value never leaves your device.</li>
+            </ul>
+            <div class="note note-ok">
+                ✅ Because processing happens on-device, your camera frames are analyzed in
+                real time and immediately discarded — they are not stored, transmitted, or
+                shared in any form during normal use.
+            </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="sec" id="permissions">
+            <div class="idx">04</div>
+            <h2>⦿ App Permissions</h2>
+            <p>MotionCount AI requests only the permissions essential to its features:</p>
+
+            <div class="perm-row">
+                <div class="info">
+                    <strong>📷 Camera</strong>
+                    <span>Required to detect motion and run OCR verification in real time. Feed is processed locally and not recorded by default.</span>
+                </div>
+                <div class="toggle-fake"></div>
+            </div>
+
+            <div class="perm-row">
+                <div class="info">
+                    <strong>📳 Vibration (Haptic Feedback)</strong>
+                    <span>Used to give tactile feedback when motion is detected or a scan completes. Can be disabled anytime in Preferences.</span>
+                </div>
+                <div class="toggle-fake"></div>
+            </div>
+
+            <div class="perm-row">
+                <div class="info">
+                    <strong>💾 App-Private Storage</strong>
+                    <span>Used to save your scan history and settings locally in the app's private sandbox — not accessible to other apps.</span>
+                </div>
+                <div class="toggle-fake"></div>
+            </div>
+
+            <div class="note note-cyan">
+                You can review or revoke Camera and Vibration permissions anytime via
+                <strong> Android Settings → Apps → MotionCount AI → Permissions.</strong>
+            </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="sec" id="not-collected">
+            <div class="idx">05</div>
+            <h2>⦿ What We Don't Collect</h2>
+            <p>To be fully transparent, here's a direct comparison:</p>
+            <div class="compare">
+                <div class="compare-col yes">
+                    <h4>✔ Collected (minimal)</h4>
+                    <div class="row">▪ Local scan counts &amp; history</div>
+                    <div class="row">▪ App settings/preferences</div>
+                    <div class="row">▪ Anonymous crash/diagnostic logs</div>
+                    <div class="row">▪ Device model &amp; OS version</div>
+                </div>
+                <div class="compare-col no">
+                    <h4>✘ Never Collected</h4>
+                    <div class="row">▪ Name, email or phone number</div>
+                    <div class="row">▪ Precise GPS / location</div>
+                    <div class="row">▪ Photos, videos or media library</div>
+                    <div class="row">▪ Contacts, SMS or call logs</div>
+                    <div class="row">▪ Payment or financial details</div>
+                    <div class="row">▪ Any account login / password</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="sec" id="storage">
+            <div class="idx">06</div>
+            <h2>⦿ Local Storage &amp; Scan History</h2>
+            <p>
+                Your "Scans" count, history entries, and preferences shown on the home
+                screen (e.g. <em>0 Scans · History</em>) are stored in a local database
+                inside the app's private storage container on your device.
+            </p>
+            <ul>
+                <li>This data stays on your device and is never synced to any cloud server by default.</li>
+                <li>Uninstalling the app permanently deletes this local history.</li>
+                <li>You can manually clear scan history anytime from within the app's Settings.</li>
+            </ul>
+        </div>
+
+        <!-- 07 -->
+        <div class="sec" id="advertising">
+            <div class="idx">07</div>
+            <h2>⦿ Advertising &amp; Third-Party Services <span class="badge">LIMITED</span></h2>
+            <p>
+                MotionCount AI may display ads or use lightweight analytics/crash-reporting
+                tools to keep the app free and stable. If and where used, these services are
+                limited to industry-standard providers such as:
+            </p>
+            <ul>
+                <li><strong>Google AdMob</strong> — may serve banner/interstitial ads using a resettable Advertising ID. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">View Google's Privacy Policy →</a></li>
+                <li><strong>Firebase Crashlytics</strong> — collects anonymous crash reports to help us fix bugs. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">View Google's Privacy Policy →</a></li>
+            </ul>
+            <div class="note note-purple">
+                These services operate under their own privacy policies and may collect
+                basic technical identifiers (Advertising ID, device model, IP-based region).
+                Lihka does not receive any personally identifiable information from them.
+            </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="sec" id="security">
+            <div class="idx">08</div>
+            <h2>⦿ Data Security</h2>
+            <ul>
+                <li>🔐 All local data is sandboxed within the app's private Android storage.</li>
+                <li>🔐 No camera footage is written to disk during normal motion-detection use.</li>
+                <li>🔐 Any network calls (e.g. ad requests, crash logs) use encrypted HTTPS connections.</li>
+                <li>🔐 Regular app updates patch known vulnerabilities.</li>
+            </ul>
+            <div class="note note-danger">
+                ⚠️ No digital system is 100% immune to risk. While we apply strong safeguards,
+                we cannot guarantee absolute security of data in transit or storage.
+            </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="sec" id="children">
+            <div class="idx">09</div>
+            <h2>⦿ Children's Privacy</h2>
+            <p>
+                MotionCount AI is a general-audience utility app and does not knowingly
+                collect personal information from children under 13. No account creation,
+                chat, or social features exist within the app. If a parent or guardian
+                believes a child has provided personal data through the app, contact us at
+                <strong> support@lihka.in</strong> for prompt removal.
+            </p>
+        </div>
+
+        <!-- 10 -->
+        <div class="sec" id="rights">
+            <div class="idx">10</div>
+            <h2>⦿ Your Rights &amp; Choices</h2>
+            <ul>
+                <li><strong>Access:</strong> View your scan history anytime directly inside the app.</li>
+                <li><strong>Delete:</strong> Clear local history or uninstall the app to erase all locally stored data.</li>
+                <li><strong>Permission Control:</strong> Revoke Camera/Vibration access anytime via device settings.</li>
+                <li><strong>Ad Personalization:</strong> Opt out via <em>Settings → Privacy → Ads</em> on your Android device.</li>
+                <li><strong>Inquiries:</strong> Email us to ask what limited diagnostic data, if any, is associated with your device.</li>
+            </ul>
+        </div>
+
+        <!-- 11 -->
+        <div class="sec" id="changes">
+            <div class="idx">11</div>
+            <h2>⦿ Policy Updates</h2>
+            <p>
+                We may revise this Privacy Policy as MotionCount AI evolves. Material
+                changes will be reflected by updating the "Last Updated" date at the top of
+                this page, and where appropriate, an in-app notice. Continued use of the app
+                after changes indicates your acceptance of the revised policy.
+            </p>
+        </div>
+
+        <!-- 12 -->
+        <div class="sec" id="contact">
+            <div class="idx">12</div>
+            <h2>⦿ Contact Us</h2>
+            <p>Questions about this policy or how MotionCount AI handles data? Reach out:</p>
+
+            <div class="terminal">
+                <div class="bar">
+                    <span></span><span></span><span></span>
+                    <div class="path">contact@motioncount-ai</div>
+                </div>
+                <div class="body">
+                    <div class="ln"><span class="k">developer</span> Lihka</div>
+                    <div class="ln"><span class="k">location</span> Nagpur, Maharashtra, India</div>
+                    <div class="ln"><span class="k">email</span> <a href="mailto:support@lihka.in">support@lihka.in</a></div>
+                    <div class="ln"><span class="k">whatsapp</span> <a href="https://wa.me/917350157047" target="_blank" rel="noopener noreferrer">+91 7350157047</a></div>
+                    <div class="ln"><span class="k">website</span> <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">www.lihka.in</a></div>
+                    <div class="ln"><span class="k">response</span> within 7 business days</div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.sections -->
+</div><!-- /.layout -->
+
+<a href="#top" class="totop" id="totopBtn">↑</a>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="fbrand">MotionCount AI</div>
+    <div>Intelligent Movement Tracking — by Lihka</div>
+    <div style="margin-top:10px;">
+        <a href="https://www.lihka.in" target="_blank" rel="noopener noreferrer">Home</a>
+        <a href="mailto:support@lihka.in">Email Support</a>
+    </div>
+    <div class="copy">© 2025 Lihka. All rights reserved. This policy applies exclusively to the MotionCount AI (Motion Detection Counter) application.</div>
+</div>
+
+<script>
+    // ---- Active sidebar link highlight on scroll ----
+    const links = document.querySelectorAll('.side-nav a');
+    const secs = document.querySelectorAll('.sec');
+    const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                links.forEach(l=>l.classList.remove('active'));
+                const id = entry.target.getAttribute('id');
+                const link = document.querySelector('.side-nav a[href="#'+id+'"]');
+                if(link) link.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    secs.forEach(s=>obs.observe(s));
+
+    // ---- Back to top visibility ----
+    const totop = document.getElementById('totopBtn');
+    window.addEventListener('scroll', ()=>{
+        if(window.scrollY > 500) totop.classList.add('show');
+        else totop.classList.remove('show');
+    });
+
+    // ---- Contact Modal Logic ----
+    const modal = document.getElementById('contactModal');
+    const openBtn = document.getElementById('openContactModal');
+    const closeBtn = document.getElementById('closeContactModal');
+
+    function openModal(){
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // close when clicking outside the modal box
+    modal.addEventListener('click', (e)=>{
+        if(e.target === modal) closeModal();
+    });
+
+    // close on ESC key
+    document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
+</script>
+
+</body>
+</html>
