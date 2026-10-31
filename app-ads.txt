@@ -1,9 +1,6 @@
 # AdMob
 google.com, pub-2820651590639038, DIRECT, f08c47fec0942fa0
 
-# Start.io
-start.io, 146190693, DIRECT
-
 # Existing + Merged entries
 adyoulike.com, aff404dd1a704f379acae5190701c9c2, RESELLER
 adyoulike.com, f78b24039641337f06634ab9a3da4b48, RESELLER
@@ -169,8 +166,6 @@ improvedigital.com, 2464, RESELLER
 improvedigital.com, 2297, RESELLER
 improvedigital.com, 1532, RESELLER
 mars.media, 1010442, RESELLER
-start.io, 197760873, RESELLER
-start.io, 168507669, RESELLER
 toponad.com, 165535463cfb70, RESELLER, 1d49fe424a1a456d
 toponad.com, 168240066616ab, RESELLER, 1d49fe424a1a456d
 contextweb.com, 558622, RESELLER, 89ff185a4c4e857c
@@ -218,9 +213,9 @@ smartadserver.com, 4578, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 5294, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 4456, RESELLER
 smartadserver.com, 4610, RESELLER, 060d053dcf45cbf3
-smartadserver.com, 5828, RESELLER, 060d053dcf45cbf3
-smartadserver.com, 4568, RESELLER, 060d053dcf45cbf3
-smartadserver.com, 5828-OB, RESELLER, 060d053dcf45cbf3
+smartadserver.com, 5828, RESELLER
+smartadserver.com, 4568, RESELLER
+smartadserver.com, 5828-OB, RESELLER
 smartadserver.com, 4342, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 5044, RESELLER, 060d053dcf45cbf3
 smartclip.net, 13564, RESELLER
