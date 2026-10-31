@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "in.lihka.printoutwala",
+      "sha256_cert_fingerprints": [
+        "2E:BB:D7:C6:FC:49:1E:FF:5F:57:46:23:96:11:8E:ED:56:03:3A:B7:0D:B9:3F:B5:5F:A5:53:73:1E:09:64:46"
+      ]
+    }
+  }
+]
