@@ -1,1 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lihka Games – Android Apps &amp; Games on Google Play</title>
+    <meta name="description" content="Official website of Lihka Games. Download our Android apps and games from Google Play.">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/style.css">
 
+    <script>
+        /* If a local image is missing, load the same file from GitHub (once). */
+        function fb(img) {
+            if (img.dataset.fb) return;
+            img.dataset.fb = '1';
+            img.src = 'https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/' +
+                      img.src.split('/').pop();
+        }
+    </script>
+</head>
+
+<body>
+    <a href="#apps" class="skip">Skip to content</a>
+
+    <header class="hdr">
+        <div class="wrap">
+            <a href="index.html" class="hdr-logo" aria-label="Lihka Games home"><i aria-hidden="true">🎮</i>Lihka Games</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="wrap">
+                <h1>Our Android <span>Apps &amp; Games</span></h1>
+                <p>Tap “Get it on Google Play” to view details and install.</p>
+            </div>
+        </section>
+
+        <!-- ================= 1) APPS (FIRST) ================= -->
+        <section class="sec" id="apps" aria-labelledby="appsTitle">
+            <div class="wrap">
+                <div class="sec-top"><h2 id="appsTitle">Apps</h2></div>
+                <div class="grid">
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/stationery_wala.png" onerror="fb(this)" alt="Stationery Wala app icon" width="88" height="88"></div>
+                        <h3>Stationery Wala</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=in.lihka.stationerywala" target="_blank" rel="noopener noreferrer" aria-label="Get Stationery Wala on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/printout_wala.png" onerror="fb(this)" alt="Printout Wala app icon" width="88" height="88"></div>
+                        <h3>Printout Wala</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=in.lihka.printoutwala" target="_blank" rel="noopener noreferrer" aria-label="Get Printout Wala on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/lihka_scan_logo.png" onerror="fb(this)" alt="Lihka Scan Quick PDF Scanner app icon" width="88" height="88"></div>
+                        <h3>Lihka Scan Quick PDF Scanner</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=in.lihka.lihkascanquickpdfscanner" target="_blank" rel="noopener noreferrer" aria-label="Get Lihka Scan Quick PDF Scanner on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/quick_voice_calculator.png" onerror="fb(this)" alt="Quick Voice Calculator app icon" width="88" height="88"></div>
+                        <h3>Quick Voice Calculator</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=in.lihka.quickvoicecalculator" target="_blank" rel="noopener noreferrer" aria-label="Get Quick Voice Calculator on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 2) GAMES (SECOND) ================= -->
+        <section class="sec" id="games" aria-labelledby="gamesTitle">
+            <div class="wrap">
+                <div class="sec-top"><h2 id="gamesTitle">Games</h2></div>
+                <div class="grid">
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/block_fusion.png" onerror="fb(this)" alt="Block Fusion Level Master game icon" width="88" height="88"></div>
+                        <h3>Block Fusion Level Master</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.appstudioam.blockfusion" target="_blank" rel="noopener noreferrer" aria-label="Get Block Fusion Level Master on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/disc_strike_arena.png" onerror="fb(this)" alt="Disc Strike Arena game icon" width="88" height="88"></div>
+                        <h3>Disc Strike Arena</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.gamestudioam.discstrikearena" target="_blank" rel="noopener noreferrer" aria-label="Get Disc Strike Arena on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/flying_cockroach.png" onerror="fb(this)" alt="Flying Cockroach game icon" width="88" height="88"></div>
+                        <h3>Flying Cockroach</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.flappycockroach" target="_blank" rel="noopener noreferrer" aria-label="Get Flying Cockroach on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/toon_crosser.png" onerror="fb(this)" alt="Toon Crosser game icon" width="88" height="88"></div>
+                        <h3>Toon Crosser</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.lihkagames.tooncrosser" target="_blank" rel="noopener noreferrer" aria-label="Get Toon Crosser on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/precision_shot.png" onerror="fb(this)" alt="Precision Shot game icon" width="88" height="88"></div>
+                        <h3>Precision Shot</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.gamestudioam.precisionshot" target="_blank" rel="noopener noreferrer" aria-label="Get Precision Shot on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/blitz_storm_arena.png" onerror="fb(this)" alt="BlitzStorm Arena game icon" width="88" height="88"></div>
+                        <h3>BlitzStorm Arena</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.gamestudioam.blitzstormarena" target="_blank" rel="noopener noreferrer" aria-label="Get BlitzStorm Arena on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/glass_velocity.png" onerror="fb(this)" alt="Glass Velocity game icon" width="88" height="88"></div>
+                        <h3>Glass Velocity</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.lihkagames.glassvelocity" target="_blank" rel="noopener noreferrer" aria-label="Get Glass Velocity on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/serpent_surge.png" onerror="fb(this)" alt="Serpent Surge game icon" width="88" height="88"></div>
+                        <h3>Serpent Surge</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.gamestudioam.serpentsurge" target="_blank" rel="noopener noreferrer" aria-label="Get Serpent Surge on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/roll_master_quest.png" onerror="fb(this)" alt="Roll Master Quest game icon" width="88" height="88"></div>
+                        <h3>Roll Master Quest</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.gamestudioam.rollmasterquest" target="_blank" rel="noopener noreferrer" aria-label="Get Roll Master Quest on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-ico"><img src="images/crystal_cascade.png" onerror="fb(this)" alt="Crystal Cascade game icon" width="88" height="88"></div>
+                        <h3>Crystal Cascade</h3>
+                        <a class="gp-btn" href="https://play.google.com/store/apps/details?id=com.gamestudioam.crystalcascade" target="_blank" rel="noopener noreferrer" aria-label="Get Crystal Cascade on Google Play (opens in a new tab)">
+                            <img src="images/Google%20Play%20Button.webp" onerror="fb(this)" alt="Get it on Google Play">
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ftr">
+        <div class="wrap">
+            <div class="ftr-grid two">
+                <div class="ftr-brand">
+                    <a href="index.html" class="hdr-logo" aria-label="Lihka Games home"><i aria-hidden="true">🎮</i>Lihka Games</a>
+                    <p class="ftr-note">
+                        Some apps and games may contain ads and/or in-app purchases. See each Google Play listing
+                        for Data safety information, content rating and full details.
+                        Google Play and the Google Play logo are trademarks of Google LLC.
+                    </p>
+                </div>
+                <div class="ftr-col">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ftr-bot">
+                <p>&copy; 2026 Lihka Games &bull; lihkagames@gmail.com</p>
+                <div><a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy / analytics consent -->
+    <div class="consent" id="consent" role="region" aria-label="Privacy notice">
+        <p>We use analytics to improve this website, only if you accept. See our <a href="privacy.html">Privacy Policy</a>.</p>
+        <button type="button" class="c-no" id="cNo">Decline</button>
+        <button type="button" class="c-ok" id="cOk">Accept</button>
+    </div>
+
+    <button class="btt" id="btt" type="button" aria-label="Back to top">↑</button>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* Press animation on Google Play buttons (link still opens normally) */
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest ? e.target.closest('.gp-btn') : null;
+            if (!a) return;
+            a.classList.remove('pressed');
+            void a.offsetWidth;
+            a.classList.add('pressed');
+            setTimeout(function () { a.classList.remove('pressed'); }, 650);
+        });
+
+        /* Back to top */
+        var btt = document.getElementById('btt');
+        window.addEventListener('scroll', function () {
+            btt.classList.toggle('vis', window.scrollY > 400);
+        }, { passive: true });
+        btt.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* Analytics loads only after the visitor accepts */
+        function loadAnalytics() {
+            if (window.__lihkaAnalytics) return;
+            window.__lihkaAnalytics = true;
+            var s = document.createElement('script');
+            s.src = 'assets/js/analytics.js';
+            document.body.appendChild(s);
+            var m = document.createElement('script');
+            m.type = 'module';
+            m.src = 'js/firebase-config.js';
+            document.body.appendChild(m);
+        }
+        function getC() { try { return localStorage.getItem('lihka_consent'); } catch (e) { return null; } }
+        function setC(v) { try { localStorage.setItem('lihka_consent', v); } catch (e) {} }
+
+        var banner = document.getElementById('consent');
+        var c = getC();
+        if (c === 'yes') loadAnalytics();
+        else if (c !== 'no') banner.classList.add('show');
+
+        document.getElementById('cOk').addEventListener('click', function () {
+            setC('yes'); banner.classList.remove('show'); loadAnalytics();
+        });
+        document.getElementById('cNo').addEventListener('click', function () {
+            setC('no'); banner.classList.remove('show');
+        });
+    })();
+    </script>
+</body>
+</html>
