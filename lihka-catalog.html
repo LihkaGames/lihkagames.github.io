@@ -93,9 +93,22 @@
 
   .grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr}
 
-  /* Google Play badge (never altered: no shadow, no filter, no animation) */
-  .gp{display:block}
-  .gp img{width:100%;height:auto;display:block}
+  /* =====================================================================
+     Google Play badge – official artwork, must NEVER be altered
+     (no resize on click, no colour change, no shadow, no filter, no animation)
+     ===================================================================== */
+  .gp{
+    display:block;line-height:0;background:none;border:0;box-shadow:none;
+    filter:none;transform:none;opacity:1;transition:none;animation:none;
+  }
+  .gp img{
+    width:100%;height:auto;display:block;
+    filter:none!important;transform:none!important;opacity:1!important;
+    box-shadow:none!important;border-radius:0!important;
+    transition:none!important;animation:none!important;
+    pointer-events:none;
+    -webkit-user-drag:none;user-select:none;-webkit-touch-callout:none;
+  }
 
   /* ----- Card (the whole card is one link) ----- */
   .card{
@@ -106,6 +119,26 @@
     border-radius:4.5mm;
     box-shadow:0 1mm 3.5mm rgba(80,40,0,.12);
   }
+
+  a.card,
+  a.card:hover,
+  a.card:active,
+  a.card:focus,
+  a.card:focus-visible,
+  a.card:visited{
+    outline:none;color:var(--ink);
+    -webkit-tap-highlight-color:transparent;
+    transform:none;transition:none;
+  }
+  a.card:hover .gp,
+  a.card:active .gp,
+  a.card:focus .gp,
+  a.card:hover .gp img,
+  a.card:active .gp img,
+  a.card:focus .gp img{
+    transform:none!important;filter:none!important;opacity:1!important;
+  }
+
   .idx{
     position:absolute;top:2.6mm;right:4mm;
     font-size:2.6mm;font-weight:800;letter-spacing:.8mm;color:var(--o3);opacity:.85;
@@ -159,6 +192,10 @@
   }
   .bar button:hover:not(:disabled){background:var(--o3)}
   .bar button:disabled{background:#6b6b6b;cursor:wait}
+  .bar label{display:flex;align-items:center;gap:8px;font-weight:600}
+  .bar select{
+    font:inherit;padding:8px 10px;border-radius:8px;border:0;background:#fff;color:var(--ink);cursor:pointer;
+  }
 
   @media print{
     body{background:#fff}
@@ -173,6 +210,12 @@
 <body>
 
 <div class="bar">
+  <label>Link type:
+    <select id="mode">
+      <option value="app" selected>Play Store app (Android) – opens the app</option>
+      <option value="web">Web link (all devices)</option>
+    </select>
+  </label>
   <button type="button" id="saveBtn" disabled>Loading images…</button>
   <span id="msg">Please wait until all images are loaded.</span>
   <span>Print settings: A4 • Margins: None • Background graphics: ON</span>
@@ -199,32 +242,32 @@
     <div class="hint"><i></i><span>Tap any card or the <b>Get it on Google Play</b> button to open the app on Google Play.</span></div>
     <div class="grid apps">
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=in.lihka.stationerywala" aria-label="Stationery Wala – open on Google Play">
+      <a class="card" data-id="in.lihka.stationerywala" href="https://play.google.com/store/apps/details?id=in.lihka.stationerywala" aria-label="Stationery Wala – open on Google Play">
         <span class="idx">APP 01</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/stationery_wala.png" alt="Stationery Wala icon">
         <h2>Stationery Wala</h2>
-        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=in.lihka.printoutwala" aria-label="Printout Wala – open on Google Play">
+      <a class="card" data-id="in.lihka.printoutwala" href="https://play.google.com/store/apps/details?id=in.lihka.printoutwala" aria-label="Printout Wala – open on Google Play">
         <span class="idx">APP 02</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/printout_wala.png" alt="Printout Wala icon">
         <h2>Printout Wala</h2>
-        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=in.lihka.lihkascanquickpdfscanner" aria-label="Lihka Scan Quick PDF Scanner – open on Google Play">
+      <a class="card" data-id="in.lihka.lihkascanquickpdfscanner" href="https://play.google.com/store/apps/details?id=in.lihka.lihkascanquickpdfscanner" aria-label="Lihka Scan Quick PDF Scanner – open on Google Play">
         <span class="idx">APP 03</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/lihka_scan_logo.png" alt="Lihka Scan Quick PDF Scanner icon">
         <h2>Lihka Scan Quick PDF Scanner</h2>
-        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=in.lihka.quickvoicecalculator" aria-label="Quick Voice Calculator – open on Google Play">
+      <a class="card" data-id="in.lihka.quickvoicecalculator" href="https://play.google.com/store/apps/details?id=in.lihka.quickvoicecalculator" aria-label="Quick Voice Calculator – open on Google Play">
         <span class="idx">APP 04</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/quick_voice_calculator.png" alt="Quick Voice Calculator icon">
         <h2>Quick Voice Calculator</h2>
-        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+        <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
       </a>
 
     </div>
@@ -257,93 +300,93 @@
     <div class="hint"><i></i><span>Tap any card or the <b>Get it on Google Play</b> button to open the game on Google Play.</span></div>
     <div class="grid games">
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.appstudioam.blockfusion" aria-label="Block Fusion Level Master – open on Google Play">
+      <a class="card" data-id="com.appstudioam.blockfusion" href="https://play.google.com/store/apps/details?id=com.appstudioam.blockfusion" aria-label="Block Fusion Level Master – open on Google Play">
         <span class="idx">GAME 01</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/block_fusion.png" alt="Block Fusion Level Master icon">
         <div class="txt">
           <h2>Block Fusion Level Master</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.gamestudioam.discstrikearena" aria-label="Disc Strike Arena – open on Google Play">
+      <a class="card" data-id="com.gamestudioam.discstrikearena" href="https://play.google.com/store/apps/details?id=com.gamestudioam.discstrikearena" aria-label="Disc Strike Arena – open on Google Play">
         <span class="idx">GAME 02</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/disc_strike_arena.png" alt="Disc Strike Arena icon">
         <div class="txt">
           <h2>Disc Strike Arena</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.flappycockroach" aria-label="Flying Cockroach – open on Google Play">
+      <a class="card" data-id="com.flappycockroach" href="https://play.google.com/store/apps/details?id=com.flappycockroach" aria-label="Flying Cockroach – open on Google Play">
         <span class="idx">GAME 03</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/flying_cockroach.png" alt="Flying Cockroach icon">
         <div class="txt">
           <h2>Flying Cockroach</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.lihkagames.tooncrosser" aria-label="Toon Crosser – open on Google Play">
+      <a class="card" data-id="com.lihkagames.tooncrosser" href="https://play.google.com/store/apps/details?id=com.lihkagames.tooncrosser" aria-label="Toon Crosser – open on Google Play">
         <span class="idx">GAME 04</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/toon_crosser.png" alt="Toon Crosser icon">
         <div class="txt">
           <h2>Toon Crosser</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.gamestudioam.precisionshot" aria-label="Precision Shot – open on Google Play">
+      <a class="card" data-id="com.gamestudioam.precisionshot" href="https://play.google.com/store/apps/details?id=com.gamestudioam.precisionshot" aria-label="Precision Shot – open on Google Play">
         <span class="idx">GAME 05</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/precision_shot.png" alt="Precision Shot icon">
         <div class="txt">
           <h2>Precision Shot</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.gamestudioam.blitzstormarena" aria-label="BlitzStorm Arena – open on Google Play">
+      <a class="card" data-id="com.gamestudioam.blitzstormarena" href="https://play.google.com/store/apps/details?id=com.gamestudioam.blitzstormarena" aria-label="BlitzStorm Arena – open on Google Play">
         <span class="idx">GAME 06</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/blitz_storm_arena.png" alt="BlitzStorm Arena icon">
         <div class="txt">
           <h2>BlitzStorm Arena</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.lihkagames.glassvelocity" aria-label="Glass Velocity – open on Google Play">
+      <a class="card" data-id="com.lihkagames.glassvelocity" href="https://play.google.com/store/apps/details?id=com.lihkagames.glassvelocity" aria-label="Glass Velocity – open on Google Play">
         <span class="idx">GAME 07</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/glass_velocity.png" alt="Glass Velocity icon">
         <div class="txt">
           <h2>Glass Velocity</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.gamestudioam.serpentsurge" aria-label="Serpent Surge – open on Google Play">
+      <a class="card" data-id="com.gamestudioam.serpentsurge" href="https://play.google.com/store/apps/details?id=com.gamestudioam.serpentsurge" aria-label="Serpent Surge – open on Google Play">
         <span class="idx">GAME 08</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/serpent_surge.png" alt="Serpent Surge icon">
         <div class="txt">
           <h2>Serpent Surge</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.gamestudioam.rollmasterquest" aria-label="Roll Master Quest – open on Google Play">
+      <a class="card" data-id="com.gamestudioam.rollmasterquest" href="https://play.google.com/store/apps/details?id=com.gamestudioam.rollmasterquest" aria-label="Roll Master Quest – open on Google Play">
         <span class="idx">GAME 09</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/roll_master_quest.png" alt="Roll Master Quest icon">
         <div class="txt">
           <h2>Roll Master Quest</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.gamestudioam.crystalcascade" aria-label="Crystal Cascade – open on Google Play">
+      <a class="card" data-id="com.gamestudioam.crystalcascade" href="https://play.google.com/store/apps/details?id=com.gamestudioam.crystalcascade" aria-label="Crystal Cascade – open on Google Play">
         <span class="idx">GAME 10</span>
         <img class="ico" src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/crystal_cascade.png" alt="Crystal Cascade icon">
         <div class="txt">
           <h2>Crystal Cascade</h2>
-          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play"></span>
+          <span class="gp"><img src="https://raw.githubusercontent.com/LihkaGames/lihkagames.github.io/main/images/Google%20Play%20Button.webp" alt="Get it on Google Play" draggable="false"></span>
         </div>
       </a>
 
@@ -358,32 +401,57 @@
 
 <script>
 (function(){
-  var btn=document.getElementById('saveBtn'), msg=document.getElementById('msg');
-  var imgs=[].slice.call(document.images), left=imgs.length, failed=0, finished=false;
+  /* ---------- Your redirect page on your own domain ---------- */
+  var GO_URL = 'https://www.lihka.in/go.html';
+
+  /* ---------- Link type ----------
+     app = PDF link -> www.lihka.in/go.html -> opens the Play Store APP on Android
+     web = direct Google Play web link (all devices)                              */
+  var modeSel = document.getElementById('mode');
+  var cards = [].slice.call(document.querySelectorAll('a.card[data-id]'));
+
+  function setMode(m){
+    cards.forEach(function(a){
+      var id  = a.getAttribute('data-id');
+      var url = (m === 'app')
+        ? GO_URL + '?id=' + encodeURIComponent(id)
+        : 'https://play.google.com/store/apps/details?id=' + encodeURIComponent(id) + '&hl=en';
+      a.setAttribute('href', url);
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+    });
+  }
+  setMode(modeSel.value);
+  modeSel.addEventListener('change', function(){ setMode(modeSel.value); });
+
+  /* ---------- Wait for images, then enable Save ---------- */
+  var btn = document.getElementById('saveBtn'), msg = document.getElementById('msg');
+  var imgs = [].slice.call(document.images), left = imgs.length, failed = 0, finished = false;
 
   function finish(){
     if(finished) return;
-    finished=true;
-    btn.disabled=false;
-    btn.textContent='Save as PDF';
+    finished = true;
+    btn.disabled = false;
+    btn.textContent = 'Save as PDF';
     msg.textContent = failed
-      ? failed+' image(s) did not load. Refresh the page and wait before saving.'
+      ? failed + ' image(s) did not load. Refresh the page and wait before saving.'
       : 'All images loaded. Ready to save.';
   }
   function one(bad){
     if(bad) failed++;
     left--;
-    if(left<=0) finish();
+    if(left <= 0) finish();
   }
   imgs.forEach(function(i){
-    if(i.complete){ one(i.naturalWidth===0); }
+    if(i.complete){ one(i.naturalWidth === 0); }
     else{
-      i.addEventListener('load',function(){ one(false); });
-      i.addEventListener('error',function(){ one(true); });
+      i.addEventListener('load',  function(){ one(false); });
+      i.addEventListener('error', function(){ one(true);  });
     }
   });
-  setTimeout(finish,20000);   /* safety: enable button after 20 seconds */
-  btn.addEventListener('click',function(){ window.print(); });
+  setTimeout(finish, 20000);   /* safety: enable button after 20 seconds */
+
+  btn.addEventListener('click', function(){ setMode(modeSel.value); window.print(); });
 })();
 </script>
 </body>
